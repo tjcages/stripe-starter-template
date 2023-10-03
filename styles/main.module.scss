@@ -1,0 +1,114 @@
+@import "./_variables";
+
+.main {
+  color: $color_800;
+  background: $color_100;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: 0.1;
+    background: $color_100;
+    background-image: linear-gradient($color-accent 1px, transparent 1px),
+      linear-gradient(to right, $color-accent 1px, $color-100 1px);
+    background-size: 20px 20px;
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 40%,
+      black
+    );
+  }
+
+  h1 {
+    font-size: $font-size-600;
+    font-weight: $font-weight-300;
+    text-align: center;
+
+    color: $color_800;
+  }
+
+  h2 {
+    font-size: $font-size-500;
+    font-weight: $font-weight-400;
+
+    color: $color_800;
+  }
+
+  h3 {
+    font-size: $font-size-300;
+    font-weight: $font-weight-200;
+
+    color: $color_800;
+  }
+
+  h4 {
+    font-size: $font-size-200;
+    font-weight: $font-weight-100;
+
+    color: $color_700;
+
+    max-width: 700px;
+  }
+
+  h5 {
+    font-size: $font-size-150;
+    font-weight: $font-weight-200;
+    line-height: 1.2em;
+
+    max-width: 500px;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        font-size: $font-size-200;
+      }
+    }
+  }
+
+  p {
+    font-size: $font-size-100;
+    font-weight: $font-weight-100;
+
+    color: $color_400;
+  }
+
+  strong {
+    font-family: $font-secondary;
+    font-size: $font-size-50;
+    font-weight: $font-weight-400;
+
+    flex-wrap: nowrap;
+    white-space: nowrap;
+
+    color: $color_400;
+  }
+
+  input {
+    font-size: $font-size-100;
+    font-weight: $font-weight-100;
+
+    color: $color_300;
+  }
+
+  hr {
+    width: 100%;
+    height: 2px;
+    margin: $padding-100/2 0;
+
+    background-color: $color-500;
+    border: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a {
+    font-weight: $font-weight-400;
+  }
+}
