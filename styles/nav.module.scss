@@ -54,7 +54,6 @@
 
     img {
       transform: rotate(180deg);
-      color: red;
 
       transition: opacity $animation-duration-short $animation-easing,
         transform $animation-duration-short $animation-easing;
