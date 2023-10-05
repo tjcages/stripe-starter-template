@@ -43,7 +43,7 @@ function Backdrop() {
   useFrame((state, delta) =>
     easing.dampC(
       shadows.current.getMesh().material.color,
-      snap.color,
+      snap.tabs[snap.selected].color,
       0.25,
       delta
     )

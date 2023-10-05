@@ -7,4 +7,14 @@ import Canvas from "./_Canvas";
 import Customize from "./_Customize";
 import Checkout from "./_Checkout";
 
-export { Nav, Header, Browser, Background, Code, Overlay, Customize, Canvas, Checkout };
+export {
+  Nav,
+  Header,
+  Browser,
+  Background,
+  Code,
+  Overlay,
+  Customize,
+  Canvas,
+  Checkout,
+};
