@@ -4,14 +4,14 @@ import { state } from "@/store";
 import { useSnapshot } from "valtio";
 
 const _ = () => {
-  const snap = useSnapshot(state)
+  const snap = useSnapshot(state);
   useEffect(() => {
     if (snap.selected == 0) state.checkoutVisible = true;
     else state.checkoutVisible = false;
 
     setTimeout(() => {
       state.checkoutVisible = true;
-    }, 1000)
+    }, 1000);
   }, [snap.selected]);
 
   return (
@@ -139,6 +139,64 @@ const _ = () => {
             <p>Posted 1,547 years ago</p>
             <p>Updated 2 days ago</p>
           </div>
+
+          {/* Ads */}
+          <div className="flex gap-2 mt-14 mb-4">
+            <h4>Community posts</h4>
+            <p className="ml-4 px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
+              List
+            </p>
+            <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
+              Filter
+            </p>
+          </div>
+          <div className="flex justify-between items-start w-full mb-4">
+            <div className="flex items-center gap-2">
+              <Image src="/icons/star.svg" alt="star" width={16} height={16} />
+              <h3>Looking to sack a city</h3>
+              <p className="mt-1 opacity-50">• Troy • 5 hours ago</p>
+            </div>
+            <Image
+              className="w-24 h-24"
+              src="/assets/trojan.jpg"
+              alt="trojan"
+              width={200}
+              height={200}
+              style={{ height: "auto" }}
+            />
+          </div>
+          <div className="flex justify-between items-start w-full mb-4">
+            <div className="flex items-center gap-2">
+              <Image src="/icons/star.svg" alt="star" width={16} height={16} />
+              <h3>Earth: flatter than you&apos;d expect</h3>
+              <p className="mt-1 opacity-50">• Plato • 2 moons ago</p>
+            </div>
+            <Image
+              className="w-24 h-24"
+              src="/assets/astronomy.jpg"
+              alt="astronomy"
+              width={200}
+              height={200}
+              style={{ height: "auto" }}
+            />
+          </div>
+          <div className="flex justify-between items-start w-full mb-4">
+            <div className="flex items-center gap-2">
+              <Image src="/icons/star.svg" alt="star" width={16} height={16} />
+              <h3>Looking to sack a city</h3>
+              <p className="mt-1 opacity-50">• Troy • 5 hours ago</p>
+            </div>
+            <Image
+              className="w-24 h-24"
+              src="/assets/trojan.jpg"
+              alt="trojan"
+              width={200}
+              height={200}
+              style={{ height: "auto" }}
+            />
+          </div>
+        {/* Spacer */}
+        <div className="w-full h-40 opacity-0"><p>hi</p></div>
         </div>
       </div>
 
