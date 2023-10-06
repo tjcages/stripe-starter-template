@@ -29,29 +29,21 @@
     font-size: $font-size-600;
     font-weight: $font-weight-300;
     text-align: center;
-
-    color: $color_800;
   }
 
   h2 {
     font-size: $font-size-500;
     font-weight: $font-weight-400;
-
-    color: $color_800;
   }
 
   h3 {
     font-size: $font-size-300;
-    font-weight: $font-weight-200;
-
-    color: $color_800;
+    font-weight: $font-weight-300;
   }
 
   h4 {
     font-size: $font-size-200;
     font-weight: $font-weight-100;
-
-    color: $color_700;
 
     max-width: 700px;
   }
@@ -73,8 +65,6 @@
   p {
     font-size: $font-size-100;
     font-weight: $font-weight-100;
-
-    color: $color_400;
   }
 
   strong {
@@ -84,15 +74,11 @@
 
     flex-wrap: nowrap;
     white-space: nowrap;
-
-    color: $color_400;
   }
 
   input {
     font-size: $font-size-100;
     font-weight: $font-weight-100;
-
-    color: $color_300;
   }
 
   hr {

@@ -5,17 +5,21 @@ interface Props {
   id: number;
   title: string;
   icon: string;
+  color: string;
+  background: string;
   selected?: boolean;
 }
 
-const _ = ({ id, title, icon, selected = false }: Props) => {
+const _ = ({ id, title, icon, color, background, selected = false }: Props) => {
   return (
     <div
       className={`flex items-center justify-start gap-1 w-48 h-full p-2 text-xs cursor-pointer ${
-        selected
-          ? "text-slate-800 backdrop-blur-sm rounded-t-md"
-          : "text-slate-500 border-r last-of-type:border-r-0"
+        selected ? "rounded-t-md" : "border-r last-of-type:border-r-0"
       }`}
+      style={{
+        backgroundColor: selected ? background : "transparent",
+        color: selected ? color : "rgba(0,0,0,0.5)",
+      }}
       onClick={() => (state.selected = id)}
     >
       <Image
