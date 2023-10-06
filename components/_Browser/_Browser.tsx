@@ -10,6 +10,7 @@ const _ = ({ children }: Props) => {
   const snap = useSnapshot(state);
   return (
     <div
+      id="browser-window"
       className="relative w-[90%] max-w-screen-xl md:max-w-[1200px] h-full mb-[2.5%] rounded-xl overflow-scroll shadow-stripe"
       style={{ backgroundColor: state.tabs[snap.selected].background }}
     >

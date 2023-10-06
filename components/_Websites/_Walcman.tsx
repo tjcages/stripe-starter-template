@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
+import gsap from "gsap";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { useGLTF, SoftShadows } from "@react-three/drei";
 import { EffectComposer, TiltShift2 } from "@react-three/postprocessing";
@@ -22,11 +23,11 @@ type GLTFResult = GLTF & {
 };
 
 interface Props {
-  geometry: THREE.BufferGeometry;
-  material: THREE.Material;
-  position: [number, number, number];
-  rotation: [number, number, number];
-  index: number;
+  geometry?: THREE.BufferGeometry;
+  material?: THREE.Material;
+  position?: [number, number, number];
+  rotation?: [number, number, number];
+  index?: number;
   selected: number | null;
   select: (index: number | null) => void;
 }
@@ -34,9 +35,9 @@ interface Props {
 const Tape = ({
   geometry,
   material,
-  position,
-  rotation,
-  index,
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  index = 0,
   selected,
   select,
 }: Props) => {
@@ -96,7 +97,7 @@ const Tape = ({
   );
 };
 
-export function Model(props: JSX.IntrinsicElements["group"]) {
+export function Model({ selected, select }: Props) {
   const { nodes, materials } = useGLTF(
     "/assets/tape-transformed.glb"
   ) as GLTFResult;
@@ -134,10 +135,9 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
       material: materials.CassetteTape_02a,
     },
   ];
-  const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <group {...props} dispose={null}>
+    <group rotation={[Math.PI / 2, 0, 0]} dispose={null}>
       {tapes.map((tape, i) => (
         <Tape
           key={"tape-" + i}
@@ -151,7 +151,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           rotation={[-Math.PI / 2, 0, 0]}
           index={i}
           selected={selected}
-          select={setSelected}
+          select={select}
         />
       ))}
     </group>
@@ -161,11 +161,71 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
 useGLTF.preload("/assets/tape-transformed.glb");
 
 const _ = () => {
+  const [selected, setSelected] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (selected == null) {
+      gsap.to("#walcman-underlay-before", {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power2.out",
+      });
+      gsap.to("#walcman-underlay-after", {
+        opacity: 0,
+        duration: 0.25,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to("#walcman-underlay-before", {
+        opacity: 0,
+        duration: 0.25,
+        ease: "power2.out",
+      });
+      gsap.to("#walcman-underlay-after", {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power2.out",
+      });
+    }
+  }, [selected]);
+
+  useEffect(() => {
+    // Cursor follow
+    const cursor = document.getElementById("walcman-cursor-follow");
+    const browser = document.getElementById("browser-window");
+    if (!cursor || !browser) return;
+
+    // follow with respect to the browser window, if it exists go to the center
+    const follow = (e: MouseEvent) => {
+      const rect = browser.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      gsap.to(cursor, {
+        left: x,
+        top: y,
+        duration: 0.1,
+        ease: "power2.out",
+      });
+    };
+
+    browser.addEventListener("mousemove", follow);
+  }, [])
+
   return (
     <div className="sticky top-0 left-0 right-0 bottom-0 flex w-full h-full gap-4 bg-[#f0f0f0] cubes scripton">
       <div className="relative w-full h-full">
         {/* Underlay */}
-        <div className="absolute left-0 right-0 bottom-0 p-8 flex flex-col jusitfy-end items-start">
+        <div
+          id="walcman-underlay-before"
+          className="absolute left-[50%] -translate-x-[50%] top-4 p-8 flex flex-col jusitfy-end items-start"
+        >
+          <h3>Tap to listen!</h3>
+        </div>
+
+        <div
+          id="walcman-underlay-after"
+          className="absolute left-0 right-0 bottom-0 p-8 flex flex-col jusitfy-end items-start"
+        >
           <p>#35-330 // L-Star</p>
           <h1 className="font-extralight text-left">
             A.I Engineering Tool & Ultra Fast Calculations for&nbsp;Architectors
@@ -191,10 +251,14 @@ const _ = () => {
             shadow-mapSize={1024}
             shadow-bias={-0.0001}
           />
-          <Model rotation={[Math.PI / 2, 0, 0]} />
+          <Model selected={selected} select={setSelected} />
           {/* <EffectComposer disableNormalPass multisampling={4}>
           </EffectComposer> */}
         </Canvas>
+      </div>
+
+      <div id="walcman-cursor-follow" className="absolute top-0 left-0 flex items-center justify-center w-24 h-24 rounded-full border-2 border-black">
+        <h2>Play</h2>
       </div>
 
       {/* Spacer */}

@@ -32,7 +32,7 @@ const _ = ({ selected, index }: Props) => {
       // pass a body to the request
       body: JSON.stringify({
         tab: selected,
-        mode: selected == 2 ? "modal" : "embedded",
+        // mode: selected == 1 ? "modal" : "embedded",
       }),
     });
     const { clientSecret } = await response.json();

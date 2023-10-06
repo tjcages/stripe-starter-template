@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useMedia, mobileBreakpoint } from "@/utils";
 import styles from "@/styles/nav.module.scss";
+import Arrow from "@/public/icons/arrow.svg";
 
 const _ = () => {
   const mobile = useMedia(mobileBreakpoint);
@@ -34,23 +35,18 @@ const _ = () => {
 
       {/* Docs link */}
       <Link
-        className={styles.action}
+        className="group flex justify-center items-center gap-1 py-4 px-8 text-[#96f] pointer-events-auto"
         href="https://stripe.com/docs/payment-links/buy-button"
         target="_blank"
       >
-        <h5>Read the docs</h5>
-        <Image src="/icons/arrow.svg" alt="arrow icon" width={12} height={12} />
+        <h5 className="font-bold group-hover:-translate-x-0.5 transition-transform">Read the docs</h5>
+        <Arrow className="w-3 h-3 rotate-180 group-hover:translate-x-0.5 transition-transform" />
       </Link>
 
       {/* Arrow */}
       {mobile && (
         <div className={`${styles.arrow} ${showArrow ? styles.show : ""}`}>
-          <Image
-            src="/icons/arrow.svg"
-            alt="arrow icon"
-            width={50}
-            height={50}
-          />
+          <Arrow className="w-5 h-5" />
         </div>
       )}
     </div>

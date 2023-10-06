@@ -212,9 +212,7 @@ function CameraRig() {
     easing.damp3(
       state.camera.position,
       [
-        state.viewport.width / 5 +
-          (state.pointer.x * state.viewport.width + state.viewport.width / 2) /
-            3,
+        (state.pointer.x * state.viewport.width + state.viewport.width / 2) / 3,
         -0.5 +
           (state.pointer.y * state.viewport.height +
             state.viewport.height / 2) /
@@ -238,7 +236,7 @@ const Content = forwardRef(function ContentF(
   useFrame((state, delta) => {
     easing.damp3(
       ref.current.position,
-      [state.viewport.width / 5, 0, 0],
+      [0, 0, 0],
       0.5,
       delta
     );
@@ -255,7 +253,7 @@ const Content = forwardRef(function ContentF(
 
 const array = new Array(10).fill(0);
 
-export default function App() {
+function _() {
   const ref = useRef<any | undefined>();
   const [holding, setHolding] = useState(false);
   const [ready, set] = useState(false);
@@ -293,91 +291,99 @@ export default function App() {
   }, [ready]);
 
   return (
-    <div className="sticky top-0 left-0 right-0 bottom-0 w-full h-full bg-[#0A0A0A] polka">
-      {/* Underlay */}
-      <div className="absolute top-0 left-0 w-[60%] h-full flex flex-col">
-        {array.map((_, i) => (
-          <h1
-            key={`stripe-magic-${i}`}
-            id={`stripe-magic-${i}`}
-            className="text-white opacity-0"
+    <div className="sticky top-0 left-0 right-0 bottom-0 flex w-full h-full bg-[#0A0A0A] polka">
+      {/* Container */}
+      <div className="relative w-full">
+        {/* Underlay */}
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center">
+          {array.map((_, i) => (
+            <h1
+              key={`stripe-magic-${i}`}
+              id={`stripe-magic-${i}`}
+              className="text-white opacity-0 text-center"
+            >
+              STRIPE MAGIC 8 BALL
+            </h1>
+          ))}
+        </div>
+
+        {/* ThreeJS */}
+        <Canvas camera={{ position: [0, 0, -5], fov: 45 }}>
+          {/* <color attach="background" args={["#0A0A0A"]} /> */}
+          <ambientLight />
+          <spotLight
+            intensity={0.5}
+            angle={0.2}
+            penumbra={1}
+            position={[5, 15, 10]}
+          />
+          <Content ref={ref} ready={ready} holding={holding} />
+          <Environment
+            files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/blue_photo_studio_1k.hdr"
+            resolution={512}
+            blur={0}
           >
-            STRIPE MAGIC 8 BALL
-          </h1>
-        ))}
-      </div>
+            <Lightformer
+              intensity={2}
+              rotation-y={Math.PI / 2}
+              position={[-50, 2, 0]}
+              scale={[100, 2, 1]}
+            />
+            <Lightformer
+              intensity={2}
+              rotation-y={-Math.PI / 2}
+              position={[50, 2, 0]}
+              scale={[100, 2, 1]}
+            />
+          </Environment>
+          <OrbitControls
+            enableZoom={false}
+            onStart={() => setHolding(true)}
+            onEnd={() => setHolding(false)}
+          />
+          <CameraRig />
+          <Leva hidden />
+        </Canvas>
 
-      {/* ThreeJS */}
-      <Canvas camera={{ position: [-2, 0, -5], fov: 45 }}>
-        {/* <color attach="background" args={["#0A0A0A"]} /> */}
-        <ambientLight />
-        <spotLight
-          intensity={0.5}
-          angle={0.2}
-          penumbra={1}
-          position={[5, 15, 10]}
-        />
-        <Content ref={ref} ready={ready} holding={holding} />
-        <Environment
-          files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/blue_photo_studio_1k.hdr"
-          resolution={512}
-          blur={0}
+        {/* Overlay */}
+        <div
+          id="stripe-magic-fade"
+          className="absolute left-0 top-0 z-10 w-full pt-11 px-4 flex items-end justify-between"
         >
-          <Lightformer
-            intensity={2}
-            rotation-y={Math.PI / 2}
-            position={[-50, 2, 0]}
-            scale={[100, 2, 1]}
-          />
-          <Lightformer
-            intensity={2}
-            rotation-y={-Math.PI / 2}
-            position={[50, 2, 0]}
-            scale={[100, 2, 1]}
-          />
-        </Environment>
-        <OrbitControls
-          enableZoom={false}
-          onStart={() => setHolding(true)}
-          onEnd={() => setHolding(false)}
-        />
-        <CameraRig />
-        <Leva hidden />
-      </Canvas>
-
-      {/* Overlay */}
-      <div
-        id="stripe-magic-fade"
-        className="absolute left-0 top-0 z-10 w-[57.5%] pt-11 px-4 flex items-end justify-between"
-      >
-        <div className="flex justify-start items-start gap-12">
-          <h2 className="text-white -rotate-90 -translate-y-2">8</h2>
-          <div className="text-white opacity-50">
-            Pro Edition
-            <br />
-            12k Velocity Sensor
+          <div className="flex justify-start items-start gap-12">
+            <h2 className="text-white -rotate-90 -translate-y-2">8</h2>
+            <div className="text-white opacity-50">
+              Pro Edition
+              <br />
+              12k Velocity Sensor
+            </div>
+            <div className="text-white opacity-50">
+              S/E
+              <br />
+              $42.99
+            </div>
           </div>
-          <div className="text-white opacity-50">
-            S/E
-            <br />
-            $42.99
+          <div className="flex items-center justify-center w-10 h-10 bg-white rounded-lg">
+            X
           </div>
         </div>
-        <div className="flex items-center justify-center w-10 h-10 bg-white rounded-lg">
-          X
+        <div
+          id="stripe-magic-fade"
+          className="absolute bottom-0 left-[50%] -translate-x-[50%] flex items-end justify-center pb-4 pointer-events-none"
+        >
+          <button
+            className="px-4 py-2 rounded-md bg-transparent text-white text-sm uppercase opacity-50"
+            // onClick={shakeContent}
+          >
+            Give it a shake
+          </button>
         </div>
       </div>
-      <div
-        id="stripe-magic-fade"
-        className="absolute bottom-0 left-0 w-[60%] flex items-end justify-center pb-4 pointer-events-none"
-      >
-        <button
-          className="px-4 py-2 rounded-md bg-transparent text-white text-sm uppercase opacity-50"
-          // onClick={shakeContent}
-        >
-          Give it a shake
-        </button>
-      </div>
+
+      {/* Spacer */}
+      <div className="w-full min-w-[432px] max-w-[432px]" />
     </div>
   );
 }
+
+export default _;

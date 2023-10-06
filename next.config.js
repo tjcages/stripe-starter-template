@@ -27,6 +27,15 @@ const nextConfig = {
     NEXT_PUBLIC_STRIPE_CLIENT_SECRET:
       process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET,
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 };
 
 module.exports = nextConfig;

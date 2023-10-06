@@ -25,7 +25,7 @@ const state = proxy({
       title: "Kevin James Costume",
       icon: "kevin",
       color: "black",
-      background: "#96f",
+      background: "#736CFF",
     },
     {
       id: 2,

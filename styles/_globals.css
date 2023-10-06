@@ -84,6 +84,7 @@ li {
 
 .scripton {
   font-family: var(--font-scripton);
+  cursor: crosshair;
 }
 
 .polka:before {
