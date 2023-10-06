@@ -75,7 +75,8 @@ const _ = ({ selected, index }: Props) => {
     >
       <div
         id={`checkout-content-${index}`}
-        className="relative flex flex-col items-center justify-center w-full h-full py-6 rounded-md bg-white"
+        className="relative flex flex-col items-center justify-center w-full h-full py-6 rounded-md"
+        style={{ backgroundColor: state.tabs[index].background }}
       >
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {

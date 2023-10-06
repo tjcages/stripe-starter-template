@@ -17,7 +17,7 @@ const state = proxy({
       id: 0,
       title: "Roman Empire Emporium",
       color: "black",
-      background: "#ccc",
+      background: "#eeeeee",
     },
     {
       id: 1,
