@@ -77,6 +77,10 @@ li {
   padding: 0;
 }
 
+.times {
+  font-family: "Times New Roman", Times, serif;
+}
+
 .polka:before {
   content: "";
   position: absolute;

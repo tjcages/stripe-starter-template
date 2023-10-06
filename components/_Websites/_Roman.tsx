@@ -1,22 +1,40 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { state } from "@/store";
+import { useSnapshot } from "valtio";
 
 const _ = () => {
+  const snap = useSnapshot(state)
   useEffect(() => {
-    state.checkoutVisible = true;
-  }, []);
+    if (snap.selected == 0) state.checkoutVisible = true;
+    else state.checkoutVisible = false;
+
+    setTimeout(() => {
+      state.checkoutVisible = true;
+    }, 1000)
+  }, [snap.selected]);
 
   return (
-    <div className="absolute top-6 left-0 right-0 bottom-0 flex w-full h-full p-8 gap-4">
+    <div className="absolute top-6 left-0 right-0 bottom-0 flex w-full h-full p-8 gap-4 times">
       {/* Container */}
       <div className="relative w-full">
         {/* Header */}
         <div className="flex justify-between items-center w-full gap-4 p-4 bg-[#eeeeee] border-t border-b border-[#cccccc]">
-          <div className="flex justify-start items-center w-full gap-4">
-            <h3 className="mr-4 text-blue-600">Caesar's List</h3>
+          <div className="flex justify-start items-center w-full gap-2">
+            <div className="flex gap-2">
+              <Image
+                src="/icons/swords.svg"
+                alt="swords"
+                width={24}
+                height={24}
+                style={{ height: "auto" }}
+              />
+              <h3 className="mr-4 text-blue-600">Caesar&apos;s List</h3>
+            </div>
             <p className="px-2 py-1 bg-white text-blue-600">Colosseums</p>
-            <p className="px-2 py-1 bg-white text-blue-600">Aqueducts near me</p>
+            <p className="px-2 py-1 bg-white text-blue-600">
+              Aqueducts near me
+            </p>
             <p className="px-2 py-1 bg-white text-blue-600">Trojan horses</p>
           </div>
           <div className="flex gap-6 items-center pr-4">
@@ -102,16 +120,13 @@ const _ = () => {
             <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
               Minor dents & holes
             </p>
-            <p className="px-2 py-1 text-blue-600">
-              See more
-            </p>
+            <p className="px-2 py-1 text-blue-600">See more</p>
           </div>
           <h4>
             Mens Jacket and Pants Suit - used a hand full of times -
             wedding/funeral...nothing wrong with suit, intact and stain
-            free...pants length ( 40-1/2") inseam (30") waist (
-            34"-36")...jacket (m-l )...$30 OBO...no shipping...meet up in Nassau
-            County... <br />
+            free...pants length ( 40-1/2) inseam (30) waist ( 34-36)...jacket
+            (m-l )...$30 OBO...no shipping...meet up in Nassau County... <br />
             <br />
           </h4>
           <ul className="list-disc">
