@@ -29,6 +29,7 @@
     "sass": "^1.68.0",
     "stripe": "^13.8.0",
     "three": "^0.157.0",
+    "three-stdlib": "^2.26.13",
     "valtio": "^1.11.2"
   },
   "devDependencies": {

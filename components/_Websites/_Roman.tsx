@@ -15,11 +15,11 @@ const _ = () => {
   }, [snap.selected]);
 
   return (
-    <div className="absolute top-6 left-0 right-0 bottom-0 flex w-full h-full p-8 gap-4 times">
+    <div className="absolute top-6 left-0 right-0 bottom-0 flex w-full h-auto p-8 gap-4 times">
       {/* Container */}
       <div className="relative w-full">
         {/* Header */}
-        <div className="flex justify-between items-center w-full gap-4 p-4 bg-[#eeeeee] border-t border-b border-[#cccccc]">
+        <div className="flex justify-between items-center w-full gap-4 p-4 bg-[#f5f5f5] border-t border-b border-[#cccccc]">
           <div className="flex justify-start items-center w-full gap-2">
             <div className="flex gap-2">
               <Image
@@ -31,11 +31,11 @@ const _ = () => {
               />
               <h3 className="mr-4 text-blue-600">Caesar&apos;s List</h3>
             </div>
-            <p className="px-2 py-1 bg-white text-blue-600">Colosseums</p>
-            <p className="px-2 py-1 bg-white text-blue-600">
+            <p className="px-2 py-1 bg-[#eaeaea] text-blue-600">Colosseums</p>
+            <p className="px-2 py-1 bg-[#eaeaea] text-blue-600">
               Aqueducts near me
             </p>
-            <p className="px-2 py-1 bg-white text-blue-600">Trojan horses</p>
+            <p className="px-2 py-1 bg-[#eaeaea] text-blue-600">Trojan horses</p>
           </div>
           <div className="flex gap-6 items-center pr-4">
             <Image

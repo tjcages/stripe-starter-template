@@ -32,6 +32,7 @@ const _ = ({ selected, index }: Props) => {
       // pass a body to the request
       body: JSON.stringify({
         tab: selected,
+        mode: selected == 2 ? "modal" : "embedded",
       }),
     });
     const { clientSecret } = await response.json();
@@ -43,26 +44,26 @@ const _ = ({ selected, index }: Props) => {
     if (selected) initialize(index);
   }, [index, selected]);
 
-  useEffect(() => {
-    if (snap.checkoutVisible) {
-      gsap.to(`#checkout-container-${index}`, {
-        scale: 1,
-        padding: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power4.out",
-      });
-    } else {
-      gsap.to(`#checkout-container-${index}`, {
-        scale: 0.9,
-        padding: 8,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power4.out",
-        overwrite: true,
-      });
-    }
-  }, [index, snap.checkoutVisible]);
+  // useEffect(() => {
+  //   if (snap.checkoutVisible) {
+  //     gsap.to(`#checkout-container-${index}`, {
+  //       scale: 1,
+  //       padding: 0,
+  //       opacity: 1,
+  //       duration: 1,
+  //       ease: "power4.out",
+  //     });
+  //   } else {
+  //     gsap.to(`#checkout-container-${index}`, {
+  //       scale: 0.9,
+  //       padding: 8,
+  //       opacity: 0,
+  //       duration: 0.5,
+  //       ease: "power4.out",
+  //       overwrite: true,
+  //     });
+  //   }
+  // }, [index, snap.checkoutVisible]);
 
   if (!selected || !client) return null;
   const options = {

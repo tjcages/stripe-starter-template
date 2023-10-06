@@ -32,7 +32,7 @@ const state = proxy({
       title: "We'resobackman",
       icon: "vinyl",
       color: "black",
-      background: "#ccc",
+      background: "#f0f0f0",
     },
     {
       id: 3,

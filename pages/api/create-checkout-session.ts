@@ -18,8 +18,12 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     const index = req.body.tab;
+    const mode = req.body.mode || "embedded";
     const stripe = new Stripe(keys[index], {
       apiVersion: "2023-08-16;embedded_checkout_beta=v2" as any,
+    });
+    stripe.applePayDomains.create({
+      domain_name: "embedcheckout.com",
     });
 
     const session = (await stripe.checkout.sessions.create({
@@ -36,7 +40,7 @@ export default async function handler(
         },
       ],
       mode: "payment",
-      ui_mode: "embedded",
+      ui_mode: mode,
       return_url:
         process.env.NEXT_PUBLIC_URL + "/?session_id={CHECKOUT_SESSION_ID}",
     } as any)) as any;
