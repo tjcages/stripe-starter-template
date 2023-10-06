@@ -17,7 +17,6 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const index = req.body.tab;
-  console.log("INDEX: ", index);
   const stripe = new Stripe(keys[index], {
     apiVersion: "2023-08-16;embedded_checkout_beta=v2" as any,
   });
