@@ -8,7 +8,7 @@ import {
   Browser,
   Roman,
   Kevin,
-  Vinyl,
+  Walcman,
   Magic,
   Checkout,
   Code,
@@ -26,7 +26,7 @@ export default function Home() {
       case 1:
         return <Kevin />;
       case 2:
-        return <Vinyl />;
+        return <Walcman />;
       default:
         return <Magic />;
     }
@@ -47,7 +47,8 @@ export default function Home() {
         <Header />
         <Browser>
           {renderPage()}
-          {snap.checkoutVisible && <Checkout />}
+          {/* {snap.checkoutVisible && <Checkout />} */}
+          <Checkout />
         </Browser>
         <Overlay />
         <Code />

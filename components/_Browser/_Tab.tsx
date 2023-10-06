@@ -23,7 +23,7 @@ const _ = ({ id, title, icon, color, background, selected = false }: Props) => {
       onClick={() => (state.selected = id)}
     >
       <Image
-        src={`/icons/${icon}.png`}
+        src={`/favicons/${icon}.png`}
         alt={title + " icon"}
         width={22}
         height={22}

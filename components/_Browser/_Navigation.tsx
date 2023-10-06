@@ -5,13 +5,6 @@ import { useSnapshot } from "valtio";
 const _ = () => {
   const snap = useSnapshot(state);
 
-  const createSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
-  };
-
   return (
     <div className="absolute top-0 z-10 flex items-end gap-4 w-full h-8 p-1.5 pb-0 bg-[#fcfeff]/70 backdrop-blur-lg shadow-browser">
       <div className="flex gap-1.5 ml-1 p-3">
@@ -26,7 +19,7 @@ const _ = () => {
             id={tab.id}
             selected={snap.selected == tab.id}
             title={tab.title}
-            icon={createSlug(tab.title)}
+            icon={tab.icon}
             color={tab.color}
             background={tab.background}
           />
