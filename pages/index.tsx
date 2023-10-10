@@ -6,6 +6,7 @@ import {
   Nav,
   Header,
   Browser,
+  Rocket,
   Roman,
   Kevin,
   Walcman,
@@ -13,6 +14,7 @@ import {
   Checkout,
   Code,
   Overlay,
+  Monitor,
 } from "@/components";
 import { state } from "@/store";
 
@@ -22,10 +24,12 @@ export default function Home() {
   const renderPage = () => {
     switch (snap.selected) {
       case 0:
-        return <Roman />;
+        return <Rocket />;
       case 1:
-        return <Kevin />;
+        return <Roman />;
       case 2:
+        return <Kevin />;
+      case 3:
         return <Walcman />;
       default:
         return <Magic />;
@@ -34,22 +38,23 @@ export default function Home() {
 
   useEffect(() => {
     state.checkoutVisible = false;
-  }, [snap.selected])
+  }, [snap.selected]);
 
   return (
     <>
       <SEO />
 
       <main
-        className={`flex flex-col justify-center items-center w-screen h-screen bg-[#f6f8fb] ${styles.main}`}
+        className={`flex flex-col justify-start items-center w-screen h-screen p-12 bg-[#f6f8fb] ${styles.main}`}
       >
         <Nav />
         <Header />
-        <Browser>
-          {renderPage()}
-          {/* {snap.checkoutVisible && <Checkout />} */}
-          <Checkout />
-        </Browser>
+        <Monitor>
+          <Browser>
+            {renderPage()}
+            <Checkout />
+          </Browser>
+        </Monitor>
         <Overlay />
         <Code />
       </main>
