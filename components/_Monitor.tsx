@@ -120,6 +120,7 @@ const _ = ({ children }: Props) => {
           }}
         ></div>
         <Image
+          priority
           className="relative w-full h-auto pointer-events-none"
           src="/assets/air.png"
           alt="mac"
