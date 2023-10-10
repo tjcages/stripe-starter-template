@@ -9,6 +9,20 @@ const _ = () => {
   const snap = useSnapshot(state);
 
   useEffect(() => {
+    if (snap.animation == "end") {
+      gsap.to("#code-container", {
+        y: "0%",
+        duration: 2,
+        delay: 2,
+        ease: "expo.inOut",
+      });
+    } else {
+      gsap.to("#code-container", {
+        y: "100%",
+        duration: 1,
+        ease: "expo.inOut",
+      });
+    }
     if (snap.codeOpen) {
       gsap.to("#code-container", {
         width: 500,
@@ -27,12 +41,12 @@ const _ = () => {
         ease: "power4.out",
       });
     }
-  }, [snap.codeOpen]);
+  }, [snap.animation, snap.codeOpen]);
 
   return (
     <div
       id="code-container"
-      className="fixed right-3 bottom-0 z-10 flex flex-col gap-1 items-start justify-between w-56 h-12 rounded-t-lg bg-[#2a2f45]/90 backdrop-blur-md text-white uppercase text-sm cursor-pointer"
+      className="fixed right-3 bottom-0 z-10 flex flex-col gap-1 items-start justify-between w-56 h-12 rounded-t-lg bg-[#2a2f45]/90 backdrop-blur-md text-white uppercase text-sm cursor-pointer translate-y-full"
     >
       <Header />
       <Content />

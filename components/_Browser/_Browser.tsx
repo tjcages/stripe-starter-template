@@ -1,20 +1,43 @@
+import { useEffect } from "react";
+import gsap from "gsap";
 import { useSnapshot } from "valtio";
 import { state } from "@/store";
 import Navigation from "./_Navigation";
 
 interface Props {
-  children: React.ReactNode[];
+  children: React.ReactNode[] | React.ReactNode;
 }
 
 const _ = ({ children }: Props) => {
   const snap = useSnapshot(state);
+
+  useEffect(() => {
+    if (snap.animation == "intro") {
+      gsap.to("#browser-content", {
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+        ease: "expo.inOut",
+      });
+    }
+  }, [snap.animation]);
+
   return (
     <div
       id="browser-window"
-      className="relative w-[90%] max-w-screen-xl md:max-w-[1200px] h-full mb-[2.5%] rounded-xl overflow-scroll shadow-stripe"
-      style={{ backgroundColor: state.tabs[snap.selected].background }}
+      className="relative w-full h-full rounded-xl shadow-stripe"
+      style={{
+        backgroundColor: state.tabs[snap.selected].background,
+        overflow: snap.animation == "end" ? "scroll" : "visible",
+      }}
     >
-      <div className="relative w-full h-full overflow-scroll">{children}</div>
+      <div
+        id="browser-content"
+        className="relative w-full h-full opacity-0"
+        style={{ overflow: snap.animation == "end" ? "scroll" : "visible" }}
+      >
+        {children}
+      </div>
       <Navigation />
     </div>
   );

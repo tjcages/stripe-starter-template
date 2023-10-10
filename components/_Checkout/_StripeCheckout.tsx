@@ -14,6 +14,7 @@ interface Props {
 }
 
 const keys = [
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE,
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_ROME,
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_KJ,
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_VINYL,
@@ -44,26 +45,41 @@ const _ = ({ selected, index }: Props) => {
     if (selected) initialize(index);
   }, [index, selected]);
 
-  // useEffect(() => {
-  //   if (snap.checkoutVisible) {
-  //     gsap.to(`#checkout-container-${index}`, {
-  //       scale: 1,
-  //       padding: 0,
-  //       opacity: 1,
-  //       duration: 1,
-  //       ease: "power4.out",
-  //     });
-  //   } else {
-  //     gsap.to(`#checkout-container-${index}`, {
-  //       scale: 0.9,
-  //       padding: 8,
-  //       opacity: 0,
-  //       duration: 0.5,
-  //       ease: "power4.out",
-  //       overwrite: true,
-  //     });
-  //   }
-  // }, [index, snap.checkoutVisible]);
+  useEffect(() => {
+    if (snap.animation == "intro") {
+      gsap.set("#checkout-container-0", {
+        x: "40vw",
+        y: "50vh",
+        scale: 0.95,
+        visibility: "hidden",
+      });
+      gsap.to("#checkout-container-0", {
+        x: 0,
+        y: 0,
+        visibility: "visible",
+        duration: 2,
+        delay: 1.75,
+        ease: "expo.out",
+        onComplete: () => {
+          state.animation = "end";
+
+          gsap.to("#checkout-container-0", {
+            scale: 1,
+            padding: 0,
+            borderRadius: 16,
+            height: "auto",
+            duration: 1.5,
+            ease: "expo.inOut",
+          });
+          gsap.to("#checkout-content-0", {
+            borderRadius: 16,
+            duration: 2,
+            ease: "expo.inOut",
+          });
+        },
+      });
+    }
+  }, [snap.animation]);
 
   if (!selected || !client) return null;
   const options = {
@@ -73,20 +89,25 @@ const _ = ({ selected, index }: Props) => {
     <div
       id={`checkout-container-${index}`}
       className="absolute w-full h-auto bg-white/50 rounded-xl backdrop-blur-xl p-2"
+      style={{
+        visibility: snap.animation == "end" || index !== 0 ? "visible" : "hidden",
+      }}
     >
       <div
         id={`checkout-content-${index}`}
-        className="relative flex flex-col items-center justify-center w-full h-full py-6 rounded-md"
+        className="relative flex flex-col items-center justify-center w-full min-h-[60vh] py-6 rounded-md"
         style={{ backgroundColor: state.tabs[index].background }}
       >
-        <EmbeddedCheckoutProvider
-          stripe={loadStripe(keys[index], {
-            betas: ["embedded_checkout_beta_1"],
-          })}
-          options={options}
-        >
-          <EmbeddedCheckout />
-        </EmbeddedCheckoutProvider>
+        {snap.animation == "end" && (
+          <EmbeddedCheckoutProvider
+            stripe={loadStripe(keys[index], {
+              betas: ["embedded_checkout_beta_1"],
+            })}
+            options={options}
+          >
+            <EmbeddedCheckout />
+          </EmbeddedCheckoutProvider>
+        )}
       </div>
     </div>
   );

@@ -4,7 +4,8 @@ import Browser from "./_Browser";
 import Background from "./_Background";
 import Code, { Overlay } from "./_Code";
 import Checkout from "./_Checkout";
-import { Roman, Kevin, Vinyl, Magic, Walcman } from "./_Websites"
+import { Rocket, Roman, Kevin, Vinyl, Magic, Walcman } from "./_Websites"
+import Monitor from "./_Monitor"
 
 export {
   Nav,
@@ -14,7 +15,8 @@ export {
   Code,
   Overlay,
   Checkout,
-
+  Monitor,
+  Rocket,
   Magic,
   Vinyl,
   Roman,
