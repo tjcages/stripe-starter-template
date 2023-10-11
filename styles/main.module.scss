@@ -1,19 +1,19 @@
 @import "./_variables";
 
 .main {
-  color: $color_800;
-  background: $color_100;
+  color: $color-800;
+  background: $color-100;
 
   &:before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 
     opacity: 0.1;
-    background: $color_100;
+    background: $color-100;
     background-image: linear-gradient($color-accent 1px, transparent 1px),
       linear-gradient(to right, $color-accent 1px, $color-100 1px);
     background-size: 20px 20px;
@@ -23,11 +23,13 @@
       rgba(0, 0, 0, 0) 40%,
       black
     );
+
+    pointer-events: none;
   }
 
   &:after {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -40,6 +42,7 @@
     );
 
     opacity: 0;
+    pointer-events: none;
     animation: fade-in 2s ease-in-out 0.5s forwards;
   }
 
@@ -49,22 +52,18 @@
 
   h2 {
     font-size: $font-size-500;
-    font-weight: $font-weight-400;
   }
 
   h3 {
     font-size: $font-size-300;
-    font-weight: $font-weight-300;
   }
 
   h4 {
     font-size: $font-size-200;
-    font-weight: $font-weight-100;
   }
 
   h5 {
     font-size: $font-size-150;
-    font-weight: $font-weight-200;
     line-height: 1.2em;
 
     max-width: 500px;

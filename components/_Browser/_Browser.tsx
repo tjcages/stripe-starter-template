@@ -25,17 +25,12 @@ const _ = ({ children }: Props) => {
   return (
     <div
       id="browser-window"
-      className="relative w-full h-full rounded-xl shadow-stripe"
+      className="relative w-full h-auto rounded-xl shadow-stripe"
       style={{
         backgroundColor: state.tabs[snap.selected].background,
-        overflow: snap.animation == "end" ? "scroll" : "visible",
       }}
     >
-      <div
-        id="browser-content"
-        className="relative w-full h-full opacity-0"
-        style={{ overflow: snap.animation == "end" ? "scroll" : "visible" }}
-      >
+      <div id="browser-content" className="relative w-full h-auto opacity-0">
         {children}
       </div>
       <Navigation />

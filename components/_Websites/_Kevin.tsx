@@ -22,7 +22,10 @@ const _ = () => {
               className="max-h-[150px] w-auto"
             />
             <h3>
-              Striped Button<br/>Up Shirt<br />
+              Striped Button
+              <br />
+              Up Shirt
+              <br />
               $19.99
             </h3>
           </div>
@@ -35,7 +38,8 @@ const _ = () => {
               className="max-h-[150px] w-auto"
             />
             <h3>
-              Blue Bottom Jeans<br />
+              Blue Bottom Jeans
+              <br />
               $33.50
             </h3>
           </div>
@@ -48,7 +52,8 @@ const _ = () => {
               className="max-h-[150px] w-auto"
             />
             <h3>
-              Purple T-Shirt<br />
+              Purple T-Shirt
+              <br />
               $12.50
             </h3>
           </div>

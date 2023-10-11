@@ -21,7 +21,7 @@ const _ = () => {
   }, [snap.animation]);
 
   return (
-    <div className="absolute top-0 z-10 flex items-end gap-4 w-full h-8 p-1.5 pb-0 bg-[#fcfeff]/70 backdrop-blur-lg overflow-hidden rounded-t-xl">
+    <div className="absolute top-0 z-10 flex items-end gap-4 w-full h-9 p-1.5 pb-0 bg-[#dfe1e5]/70 backdrop-blur-lg overflow-hidden rounded-t-xl">
       <div className="flex gap-1.5 ml-1 p-3">
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />

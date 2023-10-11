@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-interface Props {
+interface TapeProps {
   geometry?: THREE.BufferGeometry;
   material?: THREE.Material;
   position?: [number, number, number];
@@ -40,7 +40,7 @@ const Tape = ({
   index = 0,
   selected,
   select,
-}: Props) => {
+}: TapeProps) => {
   const ref = useRef<any>();
   const [hovering, setHovering] = useState(false);
 
@@ -97,7 +97,7 @@ const Tape = ({
   );
 };
 
-export function Model({ selected, select }: Props) {
+export function Model({ selected, select }: TapeProps) {
   const { nodes, materials } = useGLTF(
     "/assets/tape-transformed.glb"
   ) as GLTFResult;
@@ -158,9 +158,11 @@ export function Model({ selected, select }: Props) {
   );
 }
 
-useGLTF.preload("/assets/tape-transformed.glb");
+interface Props {
+  children: React.ReactNode;
+}
 
-const _ = () => {
+const _ = ({ children }: Props) => {
   const [selected, setSelected] = useState<number | null>(null);
 
   useEffect(() => {
@@ -209,62 +211,65 @@ const _ = () => {
     };
 
     browser.addEventListener("mousemove", follow);
-  }, [])
+  }, []);
 
   return (
-    <div className="sticky top-0 left-0 right-0 bottom-0 flex w-full h-full gap-4 bg-[#f0f0f0] cubes scripton">
-      <div className="relative w-full h-full">
-        {/* Underlay */}
-        <div
-          id="walcman-underlay-before"
-          className="absolute left-[50%] -translate-x-[50%] top-4 p-8 flex flex-col jusitfy-end items-start"
-        >
-          <h3>Tap to listen!</h3>
-        </div>
+    // <div className="sticky top-0 left-0 right-0 bottom-0 flex w-full h-full gap-4 bg-[#f0f0f0] cubes scripton">
+    //   <div className="relative w-full min-h-full">
+    //     {/* Underlay */}
+    //     <div
+    //       id="walcman-underlay-before"
+    //       className="absolute left-[50%] -translate-x-[50%] top-4 p-8 flex flex-col jusitfy-end items-start"
+    //     >
+    //       <h3>Tap to listen!</h3>
+    //     </div>
 
-        <div
-          id="walcman-underlay-after"
-          className="absolute left-0 right-0 bottom-0 p-8 flex flex-col jusitfy-end items-start"
-        >
-          <p>#35-330 // L-Star</p>
-          <h1 className="font-extralight text-left">
-            A.I Engineering Tool & Ultra Fast Calculations for&nbsp;Architectors
-          </h1>
-          <h4 className="max-w-[300px]">
-            Never fear, pro tool is here. L-Star is a tool for architects to do
-            their job faster and more efficiently –––––– ready?
-          </h4>
-        </div>
+    //     <div
+    //       id="walcman-underlay-after"
+    //       className="absolute left-0 right-0 bottom-0 p-8 flex flex-col jusitfy-end items-start"
+    //     >
+    //       <p>#35-330 // L-Star</p>
+    //       <h1 className="font-extralight text-left">
+    //         A.I Engineering Tool & Ultra Fast Calculations for&nbsp;Architectors
+    //       </h1>
+    //       <h4 className="max-w-[300px]">
+    //         Never fear, pro tool is here. L-Star is a tool for architects to do
+    //         their job faster and more efficiently –––––– ready?
+    //       </h4>
+    //     </div>
 
-        <Canvas
-          shadows
-          gl={{ antialias: false }}
-          camera={{ position: [0, 0, 3], fov: 25 }}
-          className="w-full h-full"
-        >
-          <fog attach="fog" args={["#f0f0f0", 0, 20]} />
-          <ambientLight intensity={2} />
-          <directionalLight
-            intensity={0.2}
-            position={[0, 0, 0]}
-            castShadow
-            shadow-mapSize={1024}
-            shadow-bias={-0.0001}
-          />
-          <Model selected={selected} select={setSelected} />
-          {/* <EffectComposer disableNormalPass multisampling={4}>
+    <Canvas
+      shadows
+      gl={{ antialias: false }}
+      camera={{ position: [0, 0, 3], fov: 25 }}
+      className="w-full h-full"
+      style={{ position: "absolute" }}
+    >
+      <fog attach="fog" args={["#f0f0f0", 0, 20]} />
+      <ambientLight intensity={2} />
+      <directionalLight
+        intensity={0.2}
+        position={[0, 0, 0]}
+        castShadow
+        shadow-mapSize={1024}
+        shadow-bias={-0.0001}
+      />
+      <Model selected={selected} select={setSelected} />
+      {/* <EffectComposer disableNormalPass multisampling={4}>
           </EffectComposer> */}
-        </Canvas>
-      </div>
+    </Canvas>
+    //   </div>
 
-      <div id="walcman-cursor-follow" className="absolute top-0 left-0 flex items-center justify-center w-24 h-24 rounded-full border-2 border-black">
-        <h2>Play</h2>
-      </div>
+    //   <div id="walcman-cursor-follow" className="absolute top-0 left-0 flex items-center justify-center w-24 h-24 rounded-full border-2 border-black">
+    //     <h2>Play</h2>
+    //   </div>
 
-      {/* Spacer */}
-      <div className="w-full min-w-[412px] max-w-[412px]" />
-    </div>
+    //   {/* Checkout */}
+    //   <div className="w-full max-w-[412px] min-h-[1000px]">{children}</div>
+    // </div>
   );
 };
+
+useGLTF.preload("/assets/tape-transformed.glb");
 
 export default _;

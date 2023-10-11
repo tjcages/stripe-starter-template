@@ -7,10 +7,10 @@ type Data = {
 
 const keys = [
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET,
-  process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_ROME,
-  process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_KJ,
-  process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_VINYL,
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_MAGIC8,
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_ROME,
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_VINYL,
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_SECRET_KJ,
 ] as string[];
 
 export default async function handler(

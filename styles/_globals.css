@@ -63,7 +63,23 @@ li {
   cursor: crosshair;
 }
 
-.polka:before {
+.noise:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+
+  background-image: url(/assets/noise.png);
+  background-size: 100px;
+
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.noise:after {
   content: "";
   position: absolute;
   top: 0;
@@ -71,12 +87,15 @@ li {
   right: 0;
   bottom: 0;
 
-  background-color: #0a0a0a;
-  background-image: radial-gradient(#333333 0.5px, transparent 0.5px),
-    radial-gradient(#333333 0.5px, #0a0a0a 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
+  );
   mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+  pointer-events: none;
 }
 
 .cubes:before {
@@ -152,11 +171,11 @@ li {
   z-index: -1;
 
   opacity: 0.7;
-  background: linear-gradient(
-    to top,
-    #ccc,
-    #fff
-  )
+  background: linear-gradient(to top, #ccc, #fff);
+}
+
+.dredd {
+  font-family: var(--font-dredd), sans-serif;
 }
 
 // Remove grey border around images on iOS
@@ -185,16 +204,14 @@ html,
 body,
 #root,
 #main {
-  width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+
   user-select: none;
 }
 
 body {
-  background: #f0f0f0;
+  background: #f3f4f6;
   font-family: "Inter", sans-serif;
 }
 

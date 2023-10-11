@@ -15,10 +15,10 @@ interface Props {
 
 const keys = [
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE,
-  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_ROME,
-  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_KJ,
-  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_VINYL,
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_MAGIC8,
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_ROME,
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_VINYL,
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_KJ,
 ] as string[];
 
 const _ = ({ selected, index }: Props) => {
@@ -33,7 +33,7 @@ const _ = ({ selected, index }: Props) => {
       // pass a body to the request
       body: JSON.stringify({
         tab: selected,
-        // mode: selected == 1 ? "modal" : "embedded",
+        // mode: selected == 1 ? "hosted" : "embedded",
       }),
     });
     const { clientSecret } = await response.json();
@@ -62,24 +62,18 @@ const _ = ({ selected, index }: Props) => {
         ease: "expo.out",
         onComplete: () => {
           state.animation = "end";
-
-          gsap.to("#checkout-container-0", {
-            scale: 1,
-            padding: 0,
-            borderRadius: 16,
-            height: "auto",
-            duration: 1.5,
-            ease: "expo.inOut",
-          });
-          gsap.to("#checkout-content-0", {
-            borderRadius: 16,
-            duration: 2,
-            ease: "expo.inOut",
-          });
         },
       });
+    } else if (snap.animation == "end") {
+      gsap.to(`#checkout-container-${index}`, {
+        scale: 1,
+        padding: 0,
+        height: "auto",
+        duration: 1.5,
+        ease: "expo.inOut",
+      });
     }
-  }, [snap.animation]);
+  }, [index, selected, snap.animation]);
 
   if (!selected || !client) return null;
   const options = {
@@ -88,26 +82,21 @@ const _ = ({ selected, index }: Props) => {
   return (
     <div
       id={`checkout-container-${index}`}
-      className="absolute w-full h-auto bg-white/50 rounded-xl backdrop-blur-xl p-2"
-      style={{
-        visibility: snap.animation == "end" || index !== 0 ? "visible" : "hidden",
-      }}
+      className="w-full h-auto"
+      style={{ backgroundColor: state.tabs[index].background }}
     >
       <div
         id={`checkout-content-${index}`}
-        className="relative flex flex-col items-center justify-center w-full min-h-[60vh] py-6 rounded-md"
-        style={{ backgroundColor: state.tabs[index].background }}
+        className="relative flex flex-col items-center justify-start w-full py-2 bg-white"
       >
-        {snap.animation == "end" && (
-          <EmbeddedCheckoutProvider
-            stripe={loadStripe(keys[index], {
-              betas: ["embedded_checkout_beta_1"],
-            })}
-            options={options}
-          >
-            <EmbeddedCheckout />
-          </EmbeddedCheckoutProvider>
-        )}
+        <EmbeddedCheckoutProvider
+          stripe={loadStripe(keys[index], {
+            betas: ["embedded_checkout_beta_1"],
+          })}
+          options={options}
+        >
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
       </div>
     </div>
   );

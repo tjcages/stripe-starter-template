@@ -18,7 +18,7 @@ const _ = () => {
         gsap.set("#header-container", {
           scale: 1.2,
           opacity: 0,
-          y: "100%",
+          y: "50%",
         });
         gsap.set("#description", {
           opacity: 0,
@@ -75,14 +75,14 @@ const _ = () => {
 
   return (
     <div
-      className={`relative flex w-full max-w-screen-xl md:max-w-screen-lg justify-between items-end mt-6 mb-12 ${styles.main}`}
+      className={`relative flex w-full max-w-screen-xl md:max-w-screen-lg justify-between items-end mb-8 ${styles.main}`}
     >
       <div className="flex flex-col gap-4 w-full">
         <div
           id="header-container"
           className="flex flex-col justify-center items-center w-full opacity-0"
         >
-          <h2 id="header">Stripe Embedded Checkout</h2>
+          <h2 id="header" className="font-bold">Stripe Embedded Checkout</h2>
           <h4 id="description" className="text-center opacity-0">
             <Balancer>
               We built checkout so you don’t have to—embed{" "}

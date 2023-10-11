@@ -1,25 +1,22 @@
-import Nav from "./_Nav";
-import Header from "./_Header";
+import { Nav, Header, Monitor } from "./_Views";
 import Browser from "./_Browser";
-import Background from "./_Background";
-import Code, { Overlay } from "./_Code";
+import { Rocket, Roman, Kevin, Magic, Walcman, Dev, WSBTV } from "./_Websites";
 import Checkout from "./_Checkout";
-import { Rocket, Roman, Kevin, Vinyl, Magic, Walcman } from "./_Websites"
-import Monitor from "./_Monitor"
+import Code, { Overlay } from "./_Code";
 
 export {
   Nav,
   Header,
   Browser,
-  Background,
   Code,
   Overlay,
   Checkout,
   Monitor,
   Rocket,
   Magic,
-  Vinyl,
   Roman,
   Kevin,
-  Walcman
+  Walcman,
+  Dev,
+  WSBTV
 };

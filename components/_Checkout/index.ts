@@ -1,3 +1,3 @@
-import Window from "./_Window";
+import Checkout from "./_StripeCheckout";
 
-export default Window;
+export default Checkout;

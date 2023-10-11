@@ -24,7 +24,9 @@ const _ = ({
     <div
       id={`tab-${id}`}
       className={`flex items-center justify-start gap-1 w-48 h-full p-2 text-xs cursor-pointer ${
-        selected ? "rounded-t-md" : "border-r last-of-type:border-r-0"
+        selected
+          ? "rounded-t-md shadow-stripe border border-b-0"
+          : "border-r last-of-type:border-r-0"
       } ${id !== 0 ? "opacity-0" : "opacity-100"}`}
       style={{
         background: selected

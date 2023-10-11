@@ -6,10 +6,10 @@ import {
   Nav,
   Header,
   Browser,
-  Rocket,
+  Dev,
   Roman,
   Kevin,
-  Walcman,
+  WSBTV,
   Magic,
   Checkout,
   Code,
@@ -24,15 +24,15 @@ export default function Home() {
   const renderPage = () => {
     switch (snap.selected) {
       case 0:
-        return <Rocket />;
+        return <Dev />;
       case 1:
-        return <Roman />;
-      case 2:
-        return <Kevin />;
-      case 3:
-        return <Walcman />;
-      default:
         return <Magic />;
+      case 2:
+        return <Roman />;
+      case 3:
+        return <WSBTV />;
+      default:
+        return <Kevin />;
     }
   };
 
@@ -45,14 +45,18 @@ export default function Home() {
       <SEO />
 
       <main
-        className={`flex flex-col justify-start items-center w-screen h-screen p-12 bg-[#f6f8fb] ${styles.main}`}
+        className={`flex flex-col justify-start items-center w-screen min-h-screen p-12 bg-[#f6f8fb] ${styles.main}`}
       >
         <Nav />
         <Header />
         <Monitor>
           <Browser>
             {renderPage()}
-            <Checkout />
+            {snap.selected === 0 && (
+              <div className="absolute top-12 right-0 bottom-0 w-[472px]">
+                <Checkout selected index={0} />
+              </div>
+            )}
           </Browser>
         </Monitor>
         <Overlay />

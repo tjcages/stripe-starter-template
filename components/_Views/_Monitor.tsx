@@ -32,10 +32,10 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#macbook-background",
           {
-            background: "black",
+            opacity: 0,
           },
           {
-            background: "white",
+            opacity: 1,
             duration: 1.5,
             delay: 0.75,
             ease: "expo.out",
@@ -44,17 +44,17 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#browser-container",
           {
-            y: "10%",
+            y: "0%",
             opacity: 0,
-            scaleX: "40%",
-            scaleY: "40%",
+            scaleX: "30%",
+            scaleY: "30%",
             rotateX: -45,
           },
           {
-            y: "0%",
+            y: "-17.5%",
             opacity: 1,
-            scaleX: "60%",
-            scaleY: "60%",
+            scaleX: "50%",
+            scaleY: "50%",
             duration: 1.5,
             delay: 0.5,
             ease: "expo.inOut",
@@ -78,16 +78,23 @@ const _ = ({ children }: Props) => {
             filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0))",
             duration: 3,
             ease: "expo.inOut",
+            onComplete: () => {
+              gsap.set("#macbook", {
+                display: "none",
+              });
+            },
           }
         );
         gsap.fromTo(
           "#browser-container",
           {
-            scaleX: "60%",
-            scaleY: "60%",
+            y: "-17.5%",
+            scaleX: "50%",
+            scaleY: "50%",
             rotateX: -45,
           },
           {
+            y: "0%",
             scaleX: "100%",
             scaleY: "100%",
             rotateX: 0,
@@ -100,29 +107,38 @@ const _ = ({ children }: Props) => {
 
   return (
     <div
-      className="relative z-10 w-full h-full  max-w-screen-xl md:max-w-[1200px] max-h-[80%]"
+      className="relative z-10 w-full h-auto max-w-screen-xl md:max-w-[1200px]"
       style={{ perspective: 2000 }}
     >
       <div
         id="macbook"
-        className="relative z-10 w-full h-full"
+        className="absolute z-10 w-full h-full"
         style={{
           transform: "translateY(100%) rotateX(-80deg)",
           filter: "drop-shadow(0px 10px 20px rgba(153, 102, 255, 0.25))",
         }}
       >
         <div
-          id="macbook-background"
-          className="absolute top-[1%] p-2 left-[8%] right-[8%] h-[150%] bg-black"
+          className="absolute top-[1.75%] p-2 left-[8%] right-[8%] h-[150%] bg-black"
           style={{
             transform: "rotateX(-4deg)",
             transformStyle: "preserve-3d",
           }}
-        ></div>
+        >
+          <Image
+            id="macbook-background"
+            priority
+            className="absolute top-0 left-0 right-0 bottom-0 object-cover pointer-events-none opacity-0"
+            src="/assets/background.avif"
+            alt="mac background"
+            width={2000}
+            height={1000}
+          />
+        </div>
         <Image
           priority
           className="relative w-full h-auto pointer-events-none"
-          src="/assets/air.png"
+          src="/assets/air.avif"
           alt="mac"
           width={1000}
           height={2000}
@@ -130,7 +146,7 @@ const _ = ({ children }: Props) => {
       </div>
       <div
         id="browser-container"
-        className="fixed top-[47.5%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-10 w-full h-full bg-[#96f] rounded-xl opacity-0"
+        className="relative z-10 w-full h-auto bg-[#96f] rounded-xl opacity-0"
       >
         {children}
       </div>
