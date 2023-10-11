@@ -6,7 +6,7 @@ import {
   DepthOfField,
   N8AO,
   Noise,
-  Vignette
+  Vignette,
 } from "@react-three/postprocessing";
 import Computer, { Instances } from "./_Computer";
 import CameraRig from "./_Camera";
@@ -41,14 +41,15 @@ export default function App() {
           <MeshReflectorMaterial
             blur={[300, 30]}
             resolution={2048}
-            mixBlur={1}
+            mixBlur={0.5}
             mixStrength={80}
             roughness={1}
             depthScale={1.2}
             minDepthThreshold={0.4}
             maxDepthThreshold={1.4}
             color="#202020"
-            metalness={0.8}
+            metalness={0.4}
+            mirror={1}
           />
         </mesh>
         <pointLight
