@@ -8,7 +8,7 @@ Source: https://sketchfab.com/3d-models/dieter-rams-braun-tp-1-radio-player-8354
 Title: Dieter Rams, Braun TP 1 Radio Player
 */
 
-import { useRef, useEffect, forwardRef } from "react";
+import { useRef, useState, useEffect, forwardRef } from "react";
 import gsap from "gsap";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
@@ -20,6 +20,7 @@ import Player from "./_Player";
 import Speaker from "./_Speaker";
 
 const _ = (props: any) => {
+  const [loaded, set] = useState(false);
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF("/assets/deiter-transformed.glb") as any;
 
@@ -152,7 +153,7 @@ const _ = (props: any) => {
       // Record
       gsap.to(record.current.rotation, {
         x: (Math.PI / 2) * 0.7,
-        y: 0,
+        y: snap.side == "front" ? 0 : Math.PI,
         z: 0,
         duration: 1.5,
         ease: "power4.out",
@@ -165,9 +166,13 @@ const _ = (props: any) => {
         ease: "power4.out",
       });
     }
+
+    if (!loaded) set(true);
   }, [snap.musicPlaying]);
 
   useEffect(() => {
+    if (!ref.current) return;
+    if (!loaded) return;
     const flip = () => {
       if (snap.side == "front") {
         gsap.to(side.current.rotation, {
@@ -224,55 +229,6 @@ const _ = (props: any) => {
       flip();
     }
   }, [snap.side]);
-
-  // useEffect(() => {
-  //   if (!record.current) return;
-  //   if (snap.musicPlaying) {
-  //     gsap.to(record.current.position, {
-  //       z: 0.0438 + 0.15,
-  //       duration: 1,
-  //       ease: "power4.inOut",
-  //       onComplete: () => {
-  //         if (!record.current) return;
-  //         gsap.to(record.current.rotation, {
-  //           x: snap.side == "front" ? Math.PI / 2 : -Math.PI / 2,
-  //           duration: 1,
-  //           ease: "power4.inOut",
-  //           onComplete: () => {
-  //             if (!record.current) return;
-  //             gsap.to(record.current.position, {
-  //               z: 0.0438,
-  //               duration: 1,
-  //               ease: "power4.inOut",
-  //             });
-  //           },
-  //         });
-  //       },
-  //     });
-  //   } else {
-  //     gsap.to(record.current.position, {
-  //       y: 0.2,
-  //       duration: 1,
-  //       ease: "power4.inOut",
-  //       onComplete: () => {
-  //         if (!record.current) return;
-  //         gsap.to(record.current.rotation, {
-  //           z: record.current.rotation.z + Math.PI,
-  //           duration: 1,
-  //           ease: "power4.inOut",
-  //           onComplete: () => {
-  //             if (!record.current) return;
-  //             gsap.to(record.current.position, {
-  //               y: 0.073,
-  //               duration: 1,
-  //               ease: "power4.inOut",
-  //             });
-  //           },
-  //         });
-  //       },
-  //     });
-  //   }
-  // }, [snap.musicPlaying, snap.side]);
 
   return (
     <group

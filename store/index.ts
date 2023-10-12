@@ -72,7 +72,6 @@ const state = proxy({
   codeOpen: false,
   checkoutVisible: false,
 
-  colors: ["red", "red", "white"],
   musicPlaying: false,
   side: "front",
 } as State);

@@ -10,13 +10,14 @@ const _ = () => {
 
   useEffect(() => {
     state.musicPlaying = false;
+    state.side = "front";
   }, []);
 
   return (
     <div
-      className="relative flex w-full h-[720px] p-5 pb-0 pt-19 bg-[#f0f0f0] rounded-xl overflow-scroll transition-colors duration-[3s] ease-in-out"
+      className="relative flex w-full h-[720px] p-5 pb-0 pt-19 bg-[#f0f0f0] rounded-xl overflow-scroll transition-colors duration-[2s] ease-in-out"
       style={{
-        backgroundColor: snap.side == "front" ? "#91BBE3" : "#E5BE53",
+        backgroundColor: snap.side == "front" ? "#E5BE53" : "#91BBE3",
       }}
     >
       {/* Container */}
