@@ -4,7 +4,7 @@ const _ = () => {
   return (
     <div className="flex flex-col w-full h-full py-4 pb-4">
       <h3>Gaius Julius Caesar Roman Emperor Desktop Bust - $42 (Suburra)</h3>
-      <div className="flex w-full gap-8 py-4">
+      <div className="flex w-full gap-4 py-4">
         <Image
           className="max-w-[50%]"
           src="/assets/julias.png"
