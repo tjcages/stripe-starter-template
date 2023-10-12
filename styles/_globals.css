@@ -288,3 +288,20 @@ body {
     transform: translateY(50%);
   }
 }
+
+.clicky {
+  border: 1px solid black;
+  border-bottom-width: 6px;
+
+  cursor: pointer;
+  transition: ease-in-out 0.15s all;
+}
+.clicky:active,
+.clicky[checked]:active {
+  border-bottom-width: 1px;
+  margin-bottom: -5px;
+}
+.clicky.clicked {
+  border-bottom-width: 3px;
+  margin-bottom: -3px;
+}

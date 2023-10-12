@@ -1,4 +1,5 @@
 import { proxy } from "valtio";
+import { derive } from "valtio/utils";
 
 interface State {
   intro: boolean;
@@ -55,8 +56,8 @@ const state = proxy({
       title: "WSBTV",
       icon: "vinyl",
       color: "black",
-      background: "#91BBE3",
-      backgroundDark: "#91BBE3",
+      background: "transparent",
+      backgroundDark: "transparent",
     },
     {
       id: 4,
@@ -73,7 +74,14 @@ const state = proxy({
 
   colors: ["red", "red", "white"],
   musicPlaying: false,
-  side: "front"
+  side: "front",
 } as State);
 
-export { state };
+const derived = derive({
+  background: (get: (arg0: State) => any) => {
+    const snap = get(state);
+    return snap.tabs[snap.selected].background;
+  },
+});
+
+export { state, derived };

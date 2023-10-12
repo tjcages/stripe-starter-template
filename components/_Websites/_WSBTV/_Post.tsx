@@ -10,7 +10,7 @@ const _ = () => {
   return (
     <EffectComposer>
       <Noise opacity={0.025} />
-      <N8AO distanceFalloff={1} aoRadius={1} intensity={10} />
+      <N8AO distanceFalloff={1} aoRadius={1} intensity={2} />
       <Bloom
         luminanceThreshold={0}
         mipmapBlur
