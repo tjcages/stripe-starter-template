@@ -54,7 +54,7 @@ const state = proxy({
       title: "Caesar's list",
       icon: "roman",
       color: "black",
-      background: "#eeeeee",
+      background: "white",
       backgroundDark: "#E0E0E0",
       itemName: "Roman Emperor Desktop Bust",
       price: 4200,

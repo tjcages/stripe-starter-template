@@ -30,7 +30,7 @@ const _ = () => {
           <StripeCheckout selected index={2} />
         </div>
       </div>
-      <div className="flex justify-between items-center mx-8 mb-8 gap-4 p-4 bg-white border border-[#cccccc]">
+      <div className="flex justify-between items-center mx-8 mb-8 gap-4 p-4 bg-[#eee] bg-white border border-[#cccccc]">
         <p>Payments are Veni</p>
         <div className="flex gap-8 place-items-center text-blue-600">
           <p>Support</p>

@@ -7,14 +7,14 @@ const _ = () => {
       <div className="flex w-full gap-8 py-4">
         <Image
           className="max-w-[50%]"
-          src="/assets/armor.png"
-          alt="armor"
+          src="/assets/julias.png"
+          alt="julias bust"
           width={600}
           height={800}
           style={{ height: "auto" }}
         />
         <div className="flex flex-col justify-between h-full gap-0">
-          <div className="flex flex-col">
+          <div className="flex flex-col h-full justify-end">
             <h4>
               Perfect for those that think about the Roman Empire more than
               they’d like to admit.
@@ -23,26 +23,25 @@ const _ = () => {
             </h4>
           </div>
           <div className="flex flex-col gap-2">
-            <h4>Related items:</h4>
-            <div className="flex gap-2">
+            <div className="flex gap-0.5">
               <Image
                 className="w-20 h-20"
-                src="/assets/armor.png"
-                alt="armor"
+                src="/assets/julias-1.png"
+                alt="julias"
                 width={300}
                 height={300}
               />
               <Image
                 className="w-20 h-20"
-                src="/assets/armor.png"
-                alt="armor"
+                src="/assets/julias-2.png"
+                alt="julias"
                 width={300}
                 height={300}
               />
               <Image
                 className="w-20 h-20"
-                src="/assets/armor.png"
-                alt="armor"
+                src="/assets/julias-3.png"
+                alt="julias"
                 width={300}
                 height={300}
               />
@@ -54,10 +53,10 @@ const _ = () => {
       {/* Description */}
       <div className="flex gap-2 mb-4">
         <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
-          Condition: Lightly used
+          Condition: Handsome
         </p>
         <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
-          Minor dents & holes
+          Honorable
         </p>
         <p className="px-2 py-1 text-blue-600">See more</p>
       </div>
@@ -84,7 +83,7 @@ const _ = () => {
       </h4>
       <div className="flex gap-8 mt-8">
         <p>
-          post id: <span className="text-blue-600">735 735 735</span>
+          post id: <span className="text-blue-600">MMCCXLII</span>
         </p>
         <p>Posted 1,547 years ago</p>
         <p>Updated 2 days ago</p>
