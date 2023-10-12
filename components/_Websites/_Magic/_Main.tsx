@@ -42,7 +42,7 @@ const _ = () => {
   }, [ready]);
 
   return (
-    <div className="relative flex w-full h-auto pt-9 rounded-xl overflow-hidden bg-[#0A0A0A] noise">
+    <div className="relative flex w-full h-auto pt-9 rounded-xl overflow-hidden bg-[#0A0A0A] noise cursor-grab">
       {/* Container */}
       <div className="relative w-full">
         {/* Underlay */}
@@ -53,7 +53,7 @@ const _ = () => {
               id={`stripe-magic-${i}`}
               className="text-white opacity-0 text-center text-[6vw] whitespace-nowrap leading-none"
             >
-              STRIPE MAGIC 8 BALL
+              GIVE IT A SHAKE
             </div>
           ))}
         </div>
@@ -62,12 +62,13 @@ const _ = () => {
           id="stripe-magic-fade"
           className="absolute left-12 right-12 bottom-12 flex flex-col items-center justify-center gap-2 text-white text-center"
         >
-          <p className="text-sm uppercase opacity-40">Give it a shake</p>
           <h2>
-            <span className="opacity-40">Stripe 8-Ball: </span>Fintech
+            <span className="opacity-40 leading-none">No batteries?</span>
             <br />
-            Limited Editions
+            Use your inner hustle.
+            <br />
           </h2>
+          <p className="mt-2 text-sm uppercase opacity-40">PMF not guaranteed.</p>
         </div>
 
         {/* ThreeJS */}
@@ -79,27 +80,23 @@ const _ = () => {
           className="absolute left-0 top-0 z-10 w-full py-2 pl-4 flex items-start justify-between"
         >
           <div className="flex justify-start items-start gap-12">
-            <h2 className="text-white -rotate-90 -translate-y-2">8</h2>
+            <h2 className="text-white rotate-90 -translate-y-2">8</h2>
             <div className="text-white opacity-50">
-              Pro Edition
+              Stripe Fore$ight
               <br />
-              12k Velocity Sensor
+              Limited Edition
             </div>
             <div className="text-white opacity-50">
-              S/E
-              <br />
-              $42.99
+              Money moves. <br />
+              Pose a question, shake, and unveil your forecast.
             </div>
-          </div>
-          <div className="flex items-center justify-center w-10 h-10 bg-white rounded-lg">
-            X
           </div>
         </div>
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white z-10 opacity-5 pointer-events-none" />
       </div>
 
       {/* Checkout */}
-      <div className="relative w-full max-w-[460px] min-h-[760px] z-10 rounded-lg m-2 overflow-hidden bg-white">
+      <div className="relative w-full max-w-[460px] min-h-[960px] z-10 rounded-lg m-2 overflow-hidden bg-white">
         <StripeCheckout selected index={1} />
       </div>
     </div>

@@ -172,7 +172,11 @@ const _ = (props: any) => {
 
   useEffect(() => {
     if (!ref.current) return;
-    if (!loaded) return;
+    if (!loaded) {
+      // jankkkkkk
+
+      set(true);
+    }
     const flip = () => {
       if (snap.side == "front") {
         gsap.to(side.current.rotation, {
@@ -205,12 +209,14 @@ const _ = (props: any) => {
         duration: 1,
         ease: "power4.out",
         onComplete: () => {
-          flip();
-          gsap.to(side.current.position, {
-            z: 0.0438,
-            duration: 1,
-            ease: "power4.out",
-          });
+          if (snap.musicPlaying) {
+            flip();
+            gsap.to(side.current.position, {
+              z: 0.0438,
+              duration: 1,
+              ease: "power4.out",
+            });
+          }
         },
       });
       gsap.to(player.current.position, {
@@ -240,7 +246,7 @@ const _ = (props: any) => {
         state.musicPlaying = !state.musicPlaying;
       }}
     >
-      <group ref={side}>
+      <group ref={side} rotation={[0, 0, 0]}>
         <Record
           ref={record}
           position={[0, 0, 0]}

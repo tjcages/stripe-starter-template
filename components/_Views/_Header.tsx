@@ -82,28 +82,17 @@ const _ = () => {
           id="header-container"
           className="flex flex-col justify-center items-center w-full opacity-0"
         >
-          <h2 id="header" className="font-bold">Stripe Embedded Checkout</h2>
+          <h2 id="header" className="font-bold">
+            Stripe Embedded Checkout
+          </h2>
           <h4 id="description" className="text-center opacity-0">
             <Balancer>
-              We built checkout so you don’t have to—embed{" "}
-              <Link
-                href="https://stripe.com/docs/payment-links/buy-button"
-                target="_blank"
-              >
-                Checkout
-                <Image
-                  src="/icons/arrow.svg"
-                  alt="arrow"
-                  width={12}
-                  height={12}
-                />
-              </Link>{" "}
-              into your website to easily and securely accept one-time payments
-              or subscriptions.{" "}
-              <span className={styles.shimmer}>
-                Here’s a few ideas to get started
-              </span>
-              .
+              You can now embed our prebuilt payment form directly into your
+              site.
+              <br />
+              Here are a few{" "}
+              <span className={styles.shimmer}>fun examples</span> to get you
+              started.
             </Balancer>
           </h4>
         </div>

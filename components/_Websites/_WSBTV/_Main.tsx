@@ -15,7 +15,7 @@ const _ = () => {
 
   return (
     <div
-      className="relative flex w-full h-[720px] p-5 pb-0 pt-19 bg-[#f0f0f0] rounded-xl overflow-scroll transition-colors duration-[2s] ease-in-out"
+      className="relative flex w-full h-[720px] p-5 pb-0 pt-19 bg-[#f0f0f0] rounded-xl overflow-scroll transition-colors duration-500 ease-in-out"
       style={{
         backgroundColor: snap.side == "front" ? "#E5BE53" : "#91BBE3",
       }}
@@ -86,6 +86,10 @@ const _ = () => {
                   className={`flex justify-center items-center w-22 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer pointer-events-auto clicky ${
                     !snap.musicPlaying ? "clicked" : ""
                   }`}
+                  style={{
+                    backgroundColor:
+                      snap.side == "front" ? "#E5BE53" : "#91BBE3",
+                  }}
                   onClick={() => {
                     state.musicPlaying = false;
                   }}
@@ -101,6 +105,10 @@ const _ = () => {
                   className={`flex justify-center items-center w-22 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer pointer-events-auto clicky ${
                     snap.musicPlaying ? "clicked" : ""
                   }`}
+                  style={{
+                    backgroundColor:
+                      snap.side == "front" ? "#E5BE53" : "#91BBE3",
+                  }}
                   onClick={() => {
                     state.musicPlaying = true;
                   }}
@@ -114,6 +122,10 @@ const _ = () => {
                 </div>
                 <div
                   className="flex justify-center items-center w-22 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer pointer-events-auto clicky"
+                  style={{
+                    backgroundColor:
+                      snap.side == "front" ? "#E5BE53" : "#91BBE3",
+                  }}
                   onClick={() => {
                     state.side = snap.side == "front" ? "back" : "front";
                   }}

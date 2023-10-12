@@ -28,18 +28,18 @@ export default async function handler(
     });
 
     const session = (await stripe.checkout.sessions.create({
-      line_items: [
-        {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: "T-shirt",
-            },
-            unit_amount: 2000,
-          },
-          quantity: 1,
-        },
-      ],
+      // line_items: [
+      //   {
+      //     price_data: {
+      //       currency: "usd",
+      //       product_data: {
+      //         name: "T-shirt",
+      //       },
+      //       unit_amount: 2000,
+      //     },
+      //     quantity: 1,
+      //   },
+      // ],
       mode: "payment",
       ui_mode: mode,
       return_url:

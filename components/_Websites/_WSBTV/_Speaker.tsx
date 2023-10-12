@@ -30,13 +30,13 @@ const _ = forwardRef(function Record(
         rotation={[0, -0.318, 0]}
         scale={0.092}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Object_70.geometry}
         material={materials.BraunTP1_main}
         position={[1.359, -0.034, 0.017]}
         rotation={[0, -0.318, 0]}
         scale={0.092}
-      />
+      /> */}
       <mesh
         geometry={nodes.Object_72.geometry}
         material={materials.BraunTP1_main}
@@ -51,34 +51,34 @@ const _ = forwardRef(function Record(
         rotation={[0, -0.318, 0]}
         scale={0.092}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Object_76.geometry}
         material={materials.BraunTP1_main}
         position={[1.359, -0.034, 0.017]}
         rotation={[0, -0.318, 0]}
         scale={0.092}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         geometry={nodes.Object_78.geometry}
         material={materials.BraunTP1_main}
         position={[1.359, -0.034, 0.017]}
         rotation={[0, -0.318, 0]}
         scale={0.092}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         geometry={nodes.Object_80.geometry}
         material={materials.BraunTP1_main}
         position={[1.359, -0.034, 0.017]}
         rotation={[0, -0.318, 0]}
         scale={0.092}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         geometry={nodes.Object_84.geometry}
         material={materials.BraunTP1_GLASS}
         position={[1.359, -0.034, 0.017]}
         rotation={[0, -0.318, 0]}
         scale={0.092}
-      />
+      /> */}
       <mesh
         geometry={nodes.Object_82.geometry}
         material={materials.BraunTP1_main}

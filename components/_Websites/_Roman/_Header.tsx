@@ -12,14 +12,14 @@ const _ = () => {
           height={24}
           style={{ height: "auto" }}
         />
-        <h3 className="mr-4 text-blue-600">Caesar&apos;s List</h3>
+        <h3 className="mr-4 text-blue-600">Caesar&apos;s list</h3>
       </div>
       <p className="px-2 py-1 bg-[#eaeaea] text-blue-600">Colosseums</p>
       <p className="px-2 py-1 bg-[#eaeaea] text-blue-600">
-        Aqueducts near me
+        Trojan horses
       </p>
       <p className="px-2 py-1 bg-[#eaeaea] text-blue-600">
-        Trojan horses
+        Aqueducts near me
       </p>
     </div>
     <div className="flex gap-6 items-center pr-4">

@@ -37,27 +37,27 @@ const _ = forwardRef(function Player(
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={[0.087, 0.087, 0.092]}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Object_104.geometry}
         material={materials.BraunTP1_main}
         position={[0.98, 0.052, 0.168]}
         rotation={[-Math.PI / 2, 0, 1.885]}
         scale={0.003}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         geometry={nodes.Object_98.geometry}
         material={materials.BraunTP1_main}
         position={[1.11, 0.074, 0.076]}
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.002}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         geometry={nodes.Object_112.geometry}
         material={materials.BraunTP1_main}
         position={[1.11, 0.076, 0.076]}
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
-      />
+      /> */}
       <mesh
         geometry={nodes.Object_94.geometry}
         material={materials.BraunTP1_main}
@@ -72,13 +72,13 @@ const _ = forwardRef(function Player(
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Object_106.geometry}
         material={materials.BraunTP1_main}
         position={[1.11, 0.071, 0.076]}
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
-      />
+      /> */}
       <mesh
         geometry={nodes.Object_114.geometry}
         material={materials.BraunTP1_main}
@@ -100,13 +100,13 @@ const _ = forwardRef(function Player(
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Object_118.geometry}
         material={materials.BraunTP1_puck}
         position={[1.013, 0.041, 0.074]}
         rotation={[-1.294, 0.027, 0.143]}
         scale={0.092}
-      />
+      /> */}
       <mesh
         geometry={nodes.Object_120.geometry}
         material={materials.BraunTP1_puck}
@@ -114,20 +114,20 @@ const _ = forwardRef(function Player(
         rotation={[-1.294, 0.027, 0.143]}
         scale={0.092}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Object_122.geometry}
         material={materials.BraunTP1_puck}
         position={[1.013, 0.041, 0.074]}
         rotation={[-1.294, 0.027, 0.143]}
         scale={0.092}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         geometry={nodes.Object_124.geometry}
         material={materials.BraunTP1_puck}
         position={[1.013, 0.041, 0.074]}
         rotation={[-1.294, 0.027, 0.143]}
         scale={0.092}
-      />
+      /> */}
     </group>
   );
 });

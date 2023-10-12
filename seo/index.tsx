@@ -8,8 +8,8 @@ interface Props {
 }
 
 const _ = ({
-  title = "Stripe | Embedded Checkouts",
-  description = "The fastest way to add Stripe to your site. Easily turn any payment link into an embeddable buy button.",
+  title = "Stripe Embedded Checkout",
+  description = "You can now embed our prebuilt payment form directly into your site.",
   image = "https://tryabuybutton.com/preview.jpg",
   url = "https://tryabuybutton.com",
 }: Props) => {
