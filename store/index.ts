@@ -15,6 +15,10 @@ interface State {
   selected: number;
   codeOpen: boolean;
   checkoutVisible?: boolean;
+
+  colors: string[];
+  musicPlaying: boolean;
+  side: "front" | "back";
 }
 
 const state = proxy({
@@ -50,9 +54,9 @@ const state = proxy({
       id: 3,
       title: "WSBTV",
       icon: "vinyl",
-      color: "#35c19f",
-      background: "#f1d2f5",
-      backgroundDark: "#EABCF0",
+      color: "black",
+      background: "#91BBE3",
+      backgroundDark: "#91BBE3",
     },
     {
       id: 4,
@@ -66,6 +70,10 @@ const state = proxy({
   selected: 0,
   codeOpen: false,
   checkoutVisible: false,
+
+  colors: ["red", "red", "white"],
+  musicPlaying: false,
+  side: "front"
 } as State);
 
 export { state };
