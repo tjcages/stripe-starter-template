@@ -20,6 +20,9 @@ export default async function handler(
   if (req.method === "POST") {
     const index = req.body.tab;
     const mode = req.body.mode || "embedded";
+    const itemName = req.body.itemName || "T-shirt";
+    const price = req.body.price || 2000;
+
     const stripe = new Stripe(keys[index], {
       apiVersion: "2023-08-16;embedded_checkout_beta=v2" as any,
     });
@@ -28,18 +31,18 @@ export default async function handler(
     });
 
     const session = (await stripe.checkout.sessions.create({
-      // line_items: [
-      //   {
-      //     price_data: {
-      //       currency: "usd",
-      //       product_data: {
-      //         name: "T-shirt",
-      //       },
-      //       unit_amount: 2000,
-      //     },
-      //     quantity: 1,
-      //   },
-      // ],
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: itemName,
+            },
+            unit_amount: price,
+          },
+          quantity: 1,
+        },
+      ],
       mode: "payment",
       ui_mode: mode,
       return_url:

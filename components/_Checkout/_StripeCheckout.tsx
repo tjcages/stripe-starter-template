@@ -33,6 +33,8 @@ const _ = ({ selected, index }: Props) => {
       // pass a body to the request
       body: JSON.stringify({
         tab: selected,
+        itemName: state.tabs[selected].itemName,
+        price: state.tabs[selected].price,
         // mode: selected == 1 ? "hosted" : "embedded",
       }),
     });

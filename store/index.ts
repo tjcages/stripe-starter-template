@@ -12,6 +12,8 @@ interface State {
     color: string;
     background: string;
     backgroundDark: string;
+    itemName: string;
+    price: number;
   }[];
   selected: number;
   codeOpen: boolean;
@@ -34,6 +36,8 @@ const state = proxy({
       color: "black",
       background: "#F0F5FA",
       backgroundDark: "#F0F5FA",
+      itemName: "Stripe Shirt",
+      price: 2000,
     },
     {
       id: 1,
@@ -42,6 +46,8 @@ const state = proxy({
       color: "white",
       background: "#091012",
       backgroundDark: "#000000",
+      itemName: "Stripe Fore$ight",
+      price: 5600,
     },
     {
       id: 2,
@@ -50,6 +56,8 @@ const state = proxy({
       color: "black",
       background: "#eeeeee",
       backgroundDark: "#E0E0E0",
+      itemName: "Roman Emperor Desktop Bust",
+      price: 4200,
     },
     {
       id: 3,
@@ -58,6 +66,8 @@ const state = proxy({
       color: "black",
       background: "transparent",
       backgroundDark: "transparent",
+      itemName: "Custom Vinyl 7inch",
+      price: 5600,
     },
     // {
     //   id: 4,
