@@ -32,7 +32,7 @@ const _ = () => {
       </div>
       <div className="relative flex justify-between items-center mx-8 mb-8 gap-4 p-4 bg-[#eee] border border-[#cccccc]">
         <p>Payments are Veni</p>
-        <div className="flex gap-8 place-items-center text-blue-600">
+        <div className="flex gap-8 place-items-center text-[#615cfd]">
           <p>Support</p>
           <p>Chat with our Spartans</p>
           <p>Feedback</p>

@@ -47,7 +47,7 @@ const _ = () => {
   }, [ready]);
 
   return (
-    <Canvas camera={{ position: [0, 0, -5], fov: 45 }}>
+    <Canvas camera={{ position: [0, 0, -8], fov: 50 }}>
       <ambientLight />
       <spotLight
         intensity={0.5}

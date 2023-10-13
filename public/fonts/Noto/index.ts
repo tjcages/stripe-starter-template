@@ -3,12 +3,12 @@ import localFont from "next/font/local";
 const _ = localFont({
   src: [
     {
-      path: "./scripton_regular.otf",
+      path: "./NotoSerif.ttf",
       weight: "400",
       style: "normal",
     },
   ],
-  variable: "--font-scripton"
+  variable: "--font-noto"
 });
 
 export default _;

@@ -54,7 +54,7 @@ li {
 }
 
 .times {
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-noto), Times, serif;
 }
 
 .scripton {
@@ -303,4 +303,14 @@ body {
 .clicky.clicked {
   border-bottom-width: 3px;
   margin-bottom: -3px;
+}
+
+.mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0,0,0,0.6) 60%,
+    transparent,
+    transparent
+  );
 }

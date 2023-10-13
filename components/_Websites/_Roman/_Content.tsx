@@ -3,7 +3,7 @@ import Image from "next/image";
 const _ = () => {
   return (
     <div className="flex flex-col w-full h-full py-4 pb-4">
-      <h3>Gaius Julius Caesar Roman Emperor Desktop Bust - $42 (Suburra)</h3>
+      <h3>Julius Caesar Roman Emperor Desktop Bust - $42</h3>
       <div className="flex w-full gap-4 py-4">
         <Image
           className="max-w-[50%]"
@@ -52,13 +52,13 @@ const _ = () => {
 
       {/* Description */}
       <div className="flex gap-2 mb-4">
-        <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
+        <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-[#615cfd]">
           Condition: Handsome
         </p>
-        <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
+        <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-[#615cfd]">
           Honorable
         </p>
-        <p className="px-2 py-1 text-blue-600">See more</p>
+        <p className="px-2 py-1 text-[#615cfd]">See more</p>
       </div>
       <h4>
         Meticulously crafted 3D bust of the renowned Roman Emperor.
@@ -83,19 +83,20 @@ const _ = () => {
       </h4>
       <div className="flex gap-8 mt-8">
         <p>
-          post id: <span className="text-blue-600">MMCCXLII</span>
+          post id: <span className="text-[#615cfd]">MMCCXLII</span>
         </p>
-        <p>Posted 1,547 years ago</p>
+        <p>Posted 2,068 years ago</p>
         <p>Updated 2 days ago</p>
+        <p>Location: Suburra</p>
       </div>
 
       {/* Ads */}
       <div className="flex gap-2 mt-14 mb-4">
         <h4>Community posts</h4>
-        <p className="ml-4 px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
+        <p className="ml-4 px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-[#615cfd]">
           List
         </p>
-        <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-blue-600">
+        <p className="px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-[#615cfd]">
           Filter
         </p>
       </div>

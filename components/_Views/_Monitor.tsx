@@ -47,14 +47,14 @@ const _ = ({ children }: Props) => {
             y: "0%",
             opacity: 0,
             scaleX: "30%",
-            scaleY: "30%",
+            scaleY: "20%",
             rotateX: -45,
           },
           {
-            y: "-17.5%",
+            y: "-22.5%",
             opacity: 1,
             scaleX: "50%",
-            scaleY: "50%",
+            scaleY: "30%",
             duration: 1.5,
             delay: 0.5,
             ease: "expo.inOut",
@@ -88,9 +88,9 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#browser-container",
           {
-            y: "-17.5%",
+            y: "-22.5%",
             scaleX: "50%",
-            scaleY: "50%",
+            scaleY: "30%",
             rotateX: -45,
           },
           {

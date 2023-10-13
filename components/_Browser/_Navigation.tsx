@@ -13,7 +13,7 @@ const _ = () => {
         gsap.to(`#tab-${tab.id}`, {
           opacity: 1,
           duration: 1,
-          delay: 0.5 + index * 0.25,
+          delay: 1 + index * 0.25,
           ease: "expo.inOut",
         });
       });

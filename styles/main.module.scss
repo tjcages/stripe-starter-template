@@ -4,6 +4,8 @@
   color: $color-800;
   background: $color-100;
 
+  font-family: var(--font-sohne);
+
   &:before {
     content: "";
     position: fixed;

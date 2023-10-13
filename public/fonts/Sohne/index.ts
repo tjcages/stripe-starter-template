@@ -33,6 +33,7 @@ const _ = localFont({
       style: "italic",
     },
   ],
+  variable: "--font-sohne"
 });
 
 export default _;

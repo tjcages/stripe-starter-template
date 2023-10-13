@@ -52,11 +52,6 @@ export default function Home() {
         <Monitor>
           <Browser>
             {renderPage()}
-            {snap.selected === 0 && (
-              <div className="absolute top-12 right-0 bottom-0 w-[472px]">
-                <Checkout selected index={0} />
-              </div>
-            )}
           </Browser>
         </Monitor>
         <Overlay />

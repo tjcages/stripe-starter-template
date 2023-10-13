@@ -18,7 +18,7 @@ const _ = () => {
       gsap.to(`#stripe-magic-${i}`, {
         opacity: 1,
         duration: 0,
-        delay: 0.9 + 0.05 * i,
+        delay: 0.6 + 0.05 * i,
         onComplete: () => {
           gsap.to(`#stripe-magic-${i}`, {
             opacity: 0,
@@ -68,7 +68,9 @@ const _ = () => {
             Use your inner hustle.
             <br />
           </h2>
-          <p className="mt-2 text-sm uppercase opacity-40">PMF not guaranteed.</p>
+          <p className="mt-2 text-sm uppercase opacity-40">
+            PMF not guaranteed.
+          </p>
         </div>
 
         {/* ThreeJS */}
@@ -96,7 +98,7 @@ const _ = () => {
       </div>
 
       {/* Checkout */}
-      <div className="relative w-full max-w-[400px] min-h-[960px] z-10 rounded-lg m-2 overflow-hidden bg-white">
+      <div className="relative w-full max-w-[340px] min-h-[1100px] z-10 rounded-lg m-2 overflow-hidden bg-white">
         <StripeCheckout selected index={1} />
       </div>
     </div>

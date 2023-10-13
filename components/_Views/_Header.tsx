@@ -31,11 +31,13 @@ const _ = () => {
         gsap.fromTo(
           header,
           {
+            x: "10%",
             y: "100%",
             color: "#ccc",
           },
           {
             color: "#96f",
+            x: "0%",
             y: "0%",
             duration: 1.5,
             stagger: 0.2,
@@ -82,7 +84,7 @@ const _ = () => {
           id="header-container"
           className="flex flex-col justify-center items-center w-full opacity-0"
         >
-          <h2 id="header" className="font-bold">
+          <h2 id="header" className="font-extrabold">
             Stripe Embedded Checkout
           </h2>
           <h4 id="description" className="text-center opacity-0">
