@@ -22,7 +22,7 @@ const _ = ({ children }: Props) => {
             filter: "drop-shadow(0px 10px 20px rgba(153, 102, 255, 0))",
           },
           {
-            y: "0%",
+            y: "2%",
             rotateX: -35,
             filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0.4))",
             duration: 2,
@@ -44,14 +44,14 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#browser-container",
           {
-            y: "0%",
+            y: "-10%",
             opacity: 0,
             scaleX: "30%",
             scaleY: "20%",
             rotateX: -45,
           },
           {
-            y: "-22.5%",
+            y: "-25%",
             opacity: 1,
             scaleX: "50%",
             scaleY: "30%",
@@ -68,7 +68,7 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#macbook",
           {
-            y: "0%",
+            y: "2%",
             rotateX: -35,
             filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0.4))",
           },
@@ -88,7 +88,7 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#browser-container",
           {
-            y: "-22.5%",
+            y: "-25%",
             scaleX: "50%",
             scaleY: "30%",
             rotateX: -45,
@@ -107,19 +107,19 @@ const _ = ({ children }: Props) => {
 
   return (
     <div
-      className="relative z-10 w-full h-auto max-w-screen-xl md:max-w-[1200px]"
+      className="relative flex flex-col justify-center items-center z-10 w-full h-auto max-w-screen-xl md:max-w-[1200px]"
       style={{ perspective: 2000 }}
     >
       <div
         id="macbook"
-        className="absolute z-10 w-full h-full"
+        className="absolute z-10 w-full h-full max-w-[1100px]"
         style={{
           transform: "translateY(100%) rotateX(-80deg)",
           filter: "drop-shadow(0px 10px 20px rgba(153, 102, 255, 0.25))",
         }}
       >
         <div
-          className="absolute top-[1.75%] p-2 left-[8%] right-[8%] h-[150%] bg-black"
+          className="absolute top-[1.2%] p-2 left-[8%] right-[8%] h-[150%] bg-black"
           style={{
             transform: "rotateX(-4deg)",
             transformStyle: "preserve-3d",

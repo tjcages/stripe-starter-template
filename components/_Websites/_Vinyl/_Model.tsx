@@ -168,7 +168,7 @@ const _ = (props: any) => {
         <group
           ref={side}
           position={[0.15, 0.073, 0.2038]}
-          rotation={[Math.PI, 0, 0]}
+          rotation={[-Math.PI, 0, 0]}
         >
           <Record
             ref={record}

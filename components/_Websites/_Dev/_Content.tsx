@@ -7,22 +7,22 @@ const _ = () => {
       title: "Sane, simple, open-source APIs.",
       description:
         "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
+      image: "/assets/terminal.png",
+    },
+    {
+      title: "Join the Stripe mafia",
+      description:
+        "We're a small, tightly-knit team that's worked at Google, Yahoo, Microsoft, and MIT. We're backed by Y Combinator and Sequoia Capital.",
       image: "/assets/tshirt.png",
     },
     {
       title: "Immediate sign-up",
       description:
-        "Analyze your payments, conversion rate, retention rate, and other key metrics. Or import your data with our ISON-based API, and integrate it into your existing systems.",
+        "Start processing payments today, No sales-rep phone calls or endiess forms. Get your code working with our APIs, test everything, and flick the switch to live mode.",
       image: "/assets/stopwatch.png",
     },
     {
-      title: "Sane, simple, open-source APIs.",
-      description:
-        "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
-      image: "/assets/terminal.png",
-    },
-    {
-      title: "Immediate sign-up",
+      title: "Powerful analytics",
       description:
         "Analyze your payments, conversion rate, retention rate, and other key metrics. Or import your data with our ISON-based API, and integrate it into your existing systems.",
       image: "/assets/merchant.png",
@@ -73,7 +73,7 @@ const _ = () => {
 
       {/* Checkout */}
       <div className="absolute top-0 right-0 w-full -mr-8 max-w-[412px] pt-[68px]">
-        <StripeCheckout selected index={0} />
+        <StripeCheckout index={0} />
       </div>
     </div>
   );

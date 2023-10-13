@@ -27,7 +27,7 @@ const _ = () => {
 
         {/* Checkout */}
         <div className="relative w-full max-w-[380px] min-h-[790px] z-10 mt-6 pt-2 border border-[#cccccc] bg-white">
-          <StripeCheckout selected index={2} />
+          <StripeCheckout index={2} />
         </div>
       </div>
       <div className="relative flex justify-between items-center mx-8 mb-8 gap-4 p-4 bg-[#eee] border border-[#cccccc]">

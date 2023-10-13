@@ -50,14 +50,14 @@ const _ = () => {
       if (wasPlaying.current) scratchPlay();
 
       if (snap.side == "front") {
-        backStop();
-        setTimeout(() => {
-          overPlay();
-        }, 500);
-      } else {
         overStop();
         setTimeout(() => {
           backPlay();
+        }, 500);
+      } else {
+        backStop();
+        setTimeout(() => {
+          overPlay();
         }, 500);
       }
       wasPlaying.current = true;
@@ -184,12 +184,12 @@ const _ = () => {
             />
             <div className="flex flex-col">
               <div className="relative overflow-hidden">
-                <h3 id="vinyl-front-title">It&apos;s So Over</h3>
+                <h3 id="vinyl-front-title">We Are So Back</h3>
                 <h3
                   id="vinyl-back-title"
                   className="absolute top-0 translate-y-[100%]"
                 >
-                  We Are So Back
+                  It&apos;s So Over
                 </h3>
               </div>
               <h4 className="uppercase opacity-50">Stripe Rock</h4>

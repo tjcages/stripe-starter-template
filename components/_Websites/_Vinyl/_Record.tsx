@@ -15,30 +15,18 @@ const _ = forwardRef(function Record(
 
   return (
     <group ref={ref} position={position} rotation={rotation}>
-      {/* <mesh
-        geometry={nodes.Object_136.geometry}
-        material={materials.Vinyl_record}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.092}
-      />
-      <mesh
-        geometry={nodes.Object_138.geometry}
-        material={materials.Vinyl_record}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.092}
-      /> */}
       <mesh
         name="Buffer_Object"
         geometry={nodes.Buffer_Object.geometry}
         material={materials["Material.001"]}
-        rotation={[-Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI / 2, Math.PI, 0]}
         scale={0.05}
       />
       <mesh
         name="Circle"
         geometry={nodes.Circle.geometry}
         material={materials.Material}
-        rotation={[-Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI / 2, Math.PI, 0]}
         scale={0.05}
       />
     </group>
