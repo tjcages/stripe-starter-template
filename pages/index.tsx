@@ -9,9 +9,8 @@ import {
   Dev,
   Roman,
   Kevin,
-  WSBTV,
+  Vinyl,
   Magic,
-  Checkout,
   Code,
   Overlay,
   Monitor,
@@ -30,7 +29,7 @@ export default function Home() {
       case 2:
         return <Roman />;
       case 3:
-        return <WSBTV />;
+        return <Vinyl />;
       default:
         return <Kevin />;
     }
