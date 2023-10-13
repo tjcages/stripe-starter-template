@@ -33,6 +33,7 @@
     "stripe": "^13.8.0",
     "three": "^0.157.0",
     "three-stdlib": "^2.26.13",
+    "use-sound": "^4.0.1",
     "valtio": "^1.11.2"
   },
   "devDependencies": {
