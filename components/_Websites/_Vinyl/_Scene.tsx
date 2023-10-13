@@ -2,17 +2,15 @@ import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Environment,
-  Center,
   PerformanceMonitor,
-  AccumulativeShadows,
-  RandomizedLight,
+  OrbitControls,
 } from "@react-three/drei";
 import { Vector3 } from "three";
 import Player from "./_Model";
 import Post from "./_Post";
 import Camera from "./_Camera";
 
-const _ = ({ position = new Vector3(-2, 3, 7.5), fov = 45 }) => {
+const _ = ({ position = new Vector3(-1, 2, 5.5), fov = 45 }) => {
   const [degraded, degrade] = useState(false);
 
   return (
@@ -34,29 +32,13 @@ const _ = ({ position = new Vector3(-2, 3, 7.5), fov = 45 }) => {
         intensity={2}
         shadow-bias={-0.0001}
       />
-      <ambientLight intensity={0.5} />
-      <Center>
-        {/* <Float enabled={!snap.musicPlaying}> */}
-        <Player />
-        {/* </Float> */}
-      </Center>
-      <AccumulativeShadows
-        position={[0, 1, 0]}
-        frames={100}
-        alphaTest={0.9}
-        scale={10}
-      >
-        <RandomizedLight
-          amount={8}
-          radius={10}
-          ambient={0.5}
-          position={[1, 5, -1]}
-        />
-      </AccumulativeShadows>
-      <Environment
+      {/* <ambientLight intensity={0.5} /> */}
+      <Player castShadow />
+      <Environment preset="city" />
+      {/* <Environment
         frames={degraded ? 1 : Infinity}
         files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr"
-      />
+      /> */}
       <PerformanceMonitor onDecline={() => degrade(true)} />
       <Camera />
       <Post />

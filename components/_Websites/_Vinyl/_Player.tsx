@@ -51,13 +51,20 @@ const _ = forwardRef(function Player(
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.002}
       /> */}
-      {/* <mesh
+      <mesh
         geometry={nodes.Object_112.geometry}
         material={materials.BraunTP1_main}
-        position={[1.11, 0.076, 0.076]}
+        position={[1.11, 0.065, 0.076]}
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
-      /> */}
+      />
+      <mesh
+        geometry={nodes.Object_112.geometry}
+        material={materials.BraunTP1_main}
+        position={[1.11, 0.07, 0.076]}
+        rotation={[-Math.PI / 2, 0, 0.314]}
+        scale={[0.012, 0.012, 0.052]}
+      />
       <mesh
         geometry={nodes.Object_94.geometry}
         material={materials.BraunTP1_main}
@@ -72,13 +79,13 @@ const _ = forwardRef(function Player(
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
       />
-      {/* <mesh
+      <mesh
         geometry={nodes.Object_106.geometry}
         material={materials.BraunTP1_main}
         position={[1.11, 0.071, 0.076]}
         rotation={[-Math.PI / 2, 0, 0.314]}
         scale={0.092}
-      /> */}
+      />
       <mesh
         geometry={nodes.Object_114.geometry}
         material={materials.BraunTP1_main}

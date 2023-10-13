@@ -98,8 +98,8 @@ const _ = () => {
       </div>
 
       {/* Checkout */}
-      <div className="relative w-full max-w-[340px] min-h-[1100px] z-10 rounded-lg m-2 overflow-hidden bg-white">
-        <StripeCheckout selected index={1} />
+      <div className="relative w-full max-w-[340px] min-h-[970px] z-10 rounded-lg m-2 overflow-hidden bg-white">
+        <StripeCheckout index={1} />
       </div>
     </div>
   );

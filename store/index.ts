@@ -32,7 +32,7 @@ const state = proxy({
     {
       id: 0,
       title: "/dev/payments",
-      icon: "rocket",
+      icon: "💸",
       color: "black",
       background: "#F0F5FA",
       backgroundDark: "#F0F5FA",
@@ -61,7 +61,7 @@ const state = proxy({
     },
     {
       id: 3,
-      title: "WSBTV",
+      title: "WSB Record",
       icon: "vinyl",
       color: "black",
       background: "transparent",

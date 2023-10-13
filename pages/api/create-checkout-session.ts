@@ -22,6 +22,7 @@ export default async function handler(
     const mode = req.body.mode || "embedded";
     const itemName = req.body.itemName || "T-shirt";
     const price = req.body.price || 2000;
+    const size = req.body.size || false;
 
     const stripe = new Stripe(keys[index], {
       apiVersion: "2023-08-16;embedded_checkout_beta=v2" as any,
@@ -43,27 +44,29 @@ export default async function handler(
           quantity: 1,
         },
       ],
-      custom_fields: [
-        {
-          key: "size",
-          label: {
-            type: "custom",
-            custom: "Size",
-          },
-          optional: false,
-          type: "dropdown",
-          dropdown: {
-            options: [
-              // { label: "Extra Small", value: "XS" },
-              { label: "Small", value: "S" },
-              { label: "Medium", value: "M" },
-              { label: "Large", value: "L" },
-              { label: "Extra Large", value: "XL" },
-              { label: "Extra Extra Large", value: "XXL" },
-            ],
-          },
-        },
-      ],
+      custom_fields: size
+        ? [
+            {
+              key: "size",
+              label: {
+                type: "custom",
+                custom: "Size",
+              },
+              optional: false,
+              type: "dropdown",
+              dropdown: {
+                options: [
+                  // { label: "Extra Small", value: "XS" },
+                  { label: "Small", value: "S" },
+                  { label: "Medium", value: "M" },
+                  { label: "Large", value: "L" },
+                  { label: "Extra Large", value: "XL" },
+                  { label: "Extra Extra Large", value: "XXL" },
+                ],
+              },
+            },
+          ]
+        : [],
       mode: "payment",
       ui_mode: mode,
       return_url:

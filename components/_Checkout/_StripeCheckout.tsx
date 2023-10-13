@@ -9,8 +9,8 @@ import { useSnapshot } from "valtio";
 import { state } from "@/store";
 
 interface Props {
-  selected: boolean;
   index: number;
+  full?: boolean;
 }
 
 const keys = [
@@ -21,7 +21,7 @@ const keys = [
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_KJ,
 ] as string[];
 
-const _ = ({ selected, index }: Props) => {
+const _ = ({ index, full = false }: Props) => {
   const snap = useSnapshot(state);
   const [client, set] = useState<string | null>(null);
   async function initialize(selected: number) {
@@ -35,7 +35,7 @@ const _ = ({ selected, index }: Props) => {
         tab: selected,
         itemName: state.tabs[selected].itemName,
         price: state.tabs[selected].price,
-        // mode: selected == 1 ? "hosted" : "embedded",
+        size: index == 0,
       }),
     });
     const { clientSecret } = await response.json();
@@ -44,8 +44,9 @@ const _ = ({ selected, index }: Props) => {
   }
 
   useEffect(() => {
-    if (selected) initialize(index);
-  }, [index, selected]);
+    initialize(index);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (snap.animation == "intro") {
@@ -75,9 +76,9 @@ const _ = ({ selected, index }: Props) => {
         ease: "expo.inOut",
       });
     }
-  }, [index, selected, snap.animation]);
+  }, [index, snap.animation]);
 
-  if (!selected || !client) return null;
+  if (!client) return null;
   const options = {
     clientSecret: client,
   };
@@ -89,7 +90,9 @@ const _ = ({ selected, index }: Props) => {
     >
       <div
         id={`checkout-content-${index}`}
-        className="relative flex flex-col items-center justify-start w-full"
+        className={`relative ${
+          !full ? "flex flex-col items-center justify-start" : ""
+        } w-full`}
       >
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {

@@ -11,7 +11,13 @@ Title: Dieter Rams, Braun TP 1 Radio Player
 import { useRef, useState, useEffect, forwardRef } from "react";
 import gsap from "gsap";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
+import {
+  Center,
+  ContactShadows,
+  AccumulativeShadows,
+  RandomizedLight,
+  useGLTF,
+} from "@react-three/drei";
 import { useSnapshot } from "valtio";
 import { state } from "@/store";
 
@@ -32,6 +38,7 @@ const _ = (props: any) => {
 
   useFrame(() => {
     snap.musicPlaying &&
+      record.current &&
       (record.current.rotation.y -= snap.side == "front" ? -0.01 : 0.01);
   });
 
@@ -40,69 +47,97 @@ const _ = (props: any) => {
     if (snap.musicPlaying) {
       // ALL
       gsap.to(ref.current.rotation, {
-        x: -Math.PI * 0.1,
-        y: -Math.PI * 0.1,
-        z: -Math.PI * 0.12,
+        x: Math.PI * 0.1,
+        y: 0,
+        z: 0,
         duration: 1.5,
         ease: "power4.out",
       });
       gsap.to(ref.current.position, {
-        x: 0.75,
-        y: 3.2,
-        z: 3.5,
+        x: 0.25,
+        y: 0.5,
+        z: 0,
         duration: 1.5,
         ease: "power4.out",
       });
 
       // Speaker
-      gsap.to(speaker.current.rotation, {
-        x: Math.PI / 2,
-        y: 0,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
-      gsap.to(speaker.current.position, {
-        x: -1,
-        y: 0.1,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
+      // gsap.to(speaker.current.rotation, {
+      //   x: Math.PI / 2,
+      //   y: 0,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
+      // gsap.to(speaker.current.position, {
+      //   x: -1,
+      //   y: 0.1,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
 
       // Player
-      gsap.to(player.current.rotation, {
-        x: Math.PI / 2,
-        y: 0,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
-      gsap.to(player.current.position, {
-        x: -1,
-        y: 0,
-        z: -0.04,
-        duration: 1.5,
-        ease: "power4.out",
-      });
+      // gsap.to(player.current.rotation, {
+      //   x: Math.PI / 2,
+      //   y: 0,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
+      // gsap.to(player.current.position, {
+      //   x: -1,
+      //   y: 0,
+      //   z: -0.04,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
 
       // Record
+      // gsap.to(record.current.rotation, {
+      //   x: Math.PI / 2,
+      //   y: 0,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
+      // gsap.to(side.current.position, {
+      //   x: 0.11,
+      //   y: -0.07,
+      //   z: 0.0438,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
+
+      if (!record.current) return;
       gsap.to(record.current.rotation, {
-        x: Math.PI / 2,
-        y: 0,
+        x: 0,
+        y: snap.side == "front" ? 0 : Math.PI,
         z: 0,
-        duration: 1.5,
+        duration: 1,
         ease: "power4.out",
       });
+      if (!side.current) return;
       gsap.to(side.current.position, {
         x: 0.11,
-        y: -0.07,
-        z: 0.0438,
-        duration: 1.5,
-        ease: "power4.out",
+        y: 0.1,
+        z: 0.076,
+        duration: 1,
+        ease: "power2.out",
+        onComplete: () => {
+          if (!side.current) return;
+          gsap.to(side.current.position, {
+            x: 0.11,
+            y: 0.068,
+            z: 0.076,
+            duration: 1,
+            ease: "power4.inOut",
+          });
+        },
       });
     } else {
       // ALL
+      if (!ref.current) return;
       gsap.to(ref.current.rotation, {
         x: 0,
         y: 0,
@@ -111,130 +146,144 @@ const _ = (props: any) => {
         ease: "power4.out",
       });
       gsap.to(ref.current.position, {
-        x: 0.5,
-        y: 0,
-        z: 0,
+        x: 0.25,
+        y: 0.75,
+        z: 0.5,
         duration: 1.5,
         ease: "power4.out",
       });
 
       // Speaker
-      gsap.to(speaker.current.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
-      gsap.to(speaker.current.position, {
-        x: -1,
-        y: 0,
-        z: -0.1,
-        duration: 1.5,
-        ease: "power4.out",
-      });
+      // if (!speaker.current) return;
+      // gsap.to(speaker.current.rotation, {
+      //   x: 0,
+      //   y: 0,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
+      // gsap.to(speaker.current.position, {
+      //   x: -1,
+      //   y: 0,
+      //   z: -0.1,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
 
       // Player
-      gsap.to(player.current.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
-      gsap.to(player.current.position, {
-        x: -1,
-        y: 0,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
+      // gsap.to(player.current.rotation, {
+      //   x: 0,
+      //   y: 0,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
+      // gsap.to(player.current.position, {
+      //   x: -1,
+      //   y: 0,
+      //   z: 0,
+      //   duration: 1.5,
+      //   ease: "power4.out",
+      // });
 
       // Record
-      gsap.to(record.current.rotation, {
-        x: (Math.PI / 2) * 0.7,
-        y: snap.side == "front" ? 0 : Math.PI,
-        z: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
+      if (!side.current) return;
       gsap.to(side.current.position, {
-        x: 0.15,
-        y: 0.073,
-        z: 0.2038,
-        duration: 1.5,
-        ease: "power4.out",
+        x: 0.11,
+        y: 0.1,
+        z: 0.076,
+        duration: 1,
+        ease: "power2.out",
+        overwite: true,
+        onComplete: () => {
+          if (!record.current) return;
+          gsap.to(record.current.rotation, {
+            x: (Math.PI / 2) * 0.7,
+            y: snap.side == "front" ? 0 : 0,
+            z: 0,
+            duration: 1.5,
+            ease: "power4.out",
+          });
+          if (!side.current) return;
+          gsap.to(side.current.position, {
+            x: 0.15,
+            y: 0.073,
+            z: 0.2038,
+            duration: 1.5,
+            ease: "power4.out",
+          });
+        },
       });
     }
 
     if (!loaded) set(true);
   }, [snap.musicPlaying]);
 
-  useEffect(() => {
-    if (!ref.current) return;
-    if (!loaded) {
-      // jankkkkkk
+  // useEffect(() => {
+  //   if (!ref.current) return;
+  //   if (!loaded) {
+  //     // jankkkkkk
 
-      set(true);
-    }
-    const flip = () => {
-      if (snap.side == "front") {
-        gsap.to(side.current.rotation, {
-          x: Math.PI,
-          duration: 1,
-          ease: "power4.out",
-        });
-        gsap.to(record.current.rotation, {
-          y: Math.PI,
-          duration: 1,
-          ease: "power4.out",
-        });
-      } else {
-        gsap.to(side.current.rotation, {
-          x: 0,
-          duration: 1,
-          ease: "power4.out",
-        });
-        gsap.to(record.current.rotation, {
-          y: 0,
-          duration: 1,
-          ease: "power4.out",
-        });
-      }
-    };
+  //     set(true);
+  //   }
+  //   const flip = () => {
+  //     if (snap.side == "front") {
+  //       gsap.to(side.current.rotation, {
+  //         x: Math.PI,
+  //         duration: 1,
+  //         ease: "power4.out",
+  //       });
+  //       gsap.to(record.current.rotation, {
+  //         y: Math.PI,
+  //         duration: 1,
+  //         ease: "power4.out",
+  //       });
+  //     } else {
+  //       gsap.to(side.current.rotation, {
+  //         x: 0,
+  //         duration: 1,
+  //         ease: "power4.out",
+  //       });
+  //       gsap.to(record.current.rotation, {
+  //         y: 0,
+  //         duration: 1,
+  //         ease: "power4.out",
+  //       });
+  //     }
+  //   };
 
-    if (snap.musicPlaying) {
-      gsap.to(side.current.position, {
-        z: 0.15,
-        duration: 1,
-        ease: "power4.out",
-        onComplete: () => {
-          if (snap.musicPlaying) {
-            flip();
-            gsap.to(side.current.position, {
-              z: 0.0438,
-              duration: 1,
-              ease: "power4.out",
-            });
-          }
-        },
-      });
-      gsap.to(player.current.position, {
-        z: -0.15,
-        duration: 1,
-        ease: "power4.out",
-        onComplete: () => {
-          gsap.to(player.current.position, {
-            z: -0.04,
-            duration: 1,
-            ease: "power4.out",
-          });
-        },
-      });
-    } else {
-      flip();
-    }
-  }, [snap.side]);
+  //   if (snap.musicPlaying) {
+  //     gsap.to(side.current.position, {
+  //       z: 0.15,
+  //       duration: 1,
+  //       ease: "power4.out",
+  //       onComplete: () => {
+  //         if (snap.musicPlaying) {
+  //           flip();
+  //           gsap.to(side.current.position, {
+  //             z: 0.0438,
+  //             duration: 1,
+  //             ease: "power4.out",
+  //           });
+  //         }
+  //       },
+  //     });
+  //     gsap.to(player.current.position, {
+  //       z: -0.15,
+  //       duration: 1,
+  //       ease: "power4.out",
+  //       onComplete: () => {
+  //         gsap.to(player.current.position, {
+  //           z: -0.04,
+  //           duration: 1,
+  //           ease: "power4.out",
+  //         });
+  //       },
+  //     });
+  //   } else {
+  //     flip();
+  //   }
+  // }, [snap.side]);
 
   return (
     <group
@@ -246,27 +295,27 @@ const _ = (props: any) => {
         state.musicPlaying = !state.musicPlaying;
       }}
     >
-      <group ref={side} rotation={[0, 0, 0]}>
-        <Record
-          ref={record}
-          position={[0, 0, 0]}
-          // position={[-1.068, 0.147, -0.035]} on speaker
+      <Center>
+        <group ref={side} rotation={[0, 0, 0]}>
+          <Record
+            ref={record}
+            position={[0, 0, 0]}
+          />
+        </group>
+        <Player
+          ref={player}
+          nodes={nodes}
+          materials={materials}
+          position={[-1, 0, 0]}
         />
-      </group>
-
-      <Player
-        ref={player}
-        nodes={nodes}
-        materials={materials}
-        position={[-1, 0, 0]}
-      />
-      <Speaker
-        ref={speaker}
-        nodes={nodes}
-        materials={materials}
-        position={[-1, 0, 0]}
-      />
-      {/* <BuiltSpeaker nodes={nodes} materials={materials} rotation={[0, 0, 0]} /> */}
+        <Speaker
+          ref={speaker}
+          nodes={nodes}
+          materials={materials}
+          position={[-1, 0, -0.15]}
+          rotation={[0, -0.03, 0]}
+        />
+      </Center>
     </group>
   );
 };

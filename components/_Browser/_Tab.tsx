@@ -36,12 +36,16 @@ const _ = ({
       }}
       onClick={() => (state.selected = id)}
     >
-      <Image
-        src={`/favicons/${icon}.png`}
-        alt={title + " icon"}
-        width={22}
-        height={22}
-      />
+      {id == 0 ? (
+        <h5>{icon}</h5>
+      ) : (
+        <Image
+          src={`/favicons/${icon}.png`}
+          alt={title + " icon"}
+          width={22}
+          height={22}
+        />
+      )}
       {title}
     </div>
   );
