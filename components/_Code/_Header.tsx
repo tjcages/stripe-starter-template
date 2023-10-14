@@ -13,14 +13,21 @@ const _ = () => {
         state.codeOpen = !state.codeOpen;
       }}
     >
-      <div className="flex items-center gap-2">
+      <div className="relative flex items-center gap-2">
         <Image
+          className="absolute top-1"
           src={"/icons/code.svg"}
           alt="codce icon"
           width={16}
           height={16}
         />
-        Example Code
+        <div
+          className={`ml-7 pt-[1px] opacity-0 transition-opacity duration-500 ${
+            snap.codeOpen ? "opacity-100 whitespace-nowrap" : "opacity-0"
+          }`}
+        >
+          Example Code
+        </div>
       </div>
       <svg
         width="12"

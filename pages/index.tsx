@@ -44,14 +44,14 @@ export default function Home() {
       <SEO />
 
       <main
-        className={`flex flex-col justify-start items-center w-screen min-h-screen p-12 bg-[#f6f8fb] ${styles.main}`}
+        className={`flex flex-col justify-start items-center w-screen min-h-screen p-12 bg-[#f6f8fb] ${
+          styles.main
+        } ${snap.animation == "end" ? "overflow-auto h-auto" : "overflow-hidden h-screen"}`}
       >
         <Nav />
         <Header />
         <Monitor>
-          <Browser>
-            {renderPage()}
-          </Browser>
+          <Browser>{renderPage()}</Browser>
         </Monitor>
         <Overlay />
         <Code />

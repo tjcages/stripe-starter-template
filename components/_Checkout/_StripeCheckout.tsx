@@ -45,38 +45,38 @@ const _ = ({ index, full = false }: Props) => {
 
   useEffect(() => {
     initialize(index);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (snap.animation == "intro") {
-      gsap.set("#checkout-container-0", {
-        x: "40vw",
-        y: "50vh",
-        scale: 0.95,
-        visibility: "hidden",
-      });
-      gsap.to("#checkout-container-0", {
-        x: 0,
-        y: 0,
-        visibility: "visible",
-        duration: 2,
-        delay: 1.75,
-        ease: "expo.out",
-        onComplete: () => {
-          state.animation = "end";
-        },
-      });
-    } else if (snap.animation == "end") {
-      gsap.to(`#checkout-container-${index}`, {
-        scale: 1,
-        padding: 0,
-        height: "auto",
-        duration: 1.5,
-        ease: "expo.inOut",
-      });
-    }
-  }, [index, snap.animation]);
+  // useEffect(() => {
+  //   if (snap.animation == "intro") {
+  //     gsap.set("#checkout-container-0", {
+  //       x: "40vw",
+  //       y: "50vh",
+  //       scale: 0.95,
+  //       visibility: "hidden",
+  //     });
+  //     gsap.to("#checkout-container-0", {
+  //       x: 0,
+  //       y: 0,
+  //       visibility: "visible",
+  //       duration: 2,
+  //       delay: 1.75,
+  //       ease: "expo.out",
+  //       onComplete: () => {
+  //         state.animation = "end";
+  //       },
+  //     });
+  //   } else if (snap.animation == "end") {
+  //     gsap.to(`#checkout-container-${index}`, {
+  //       scale: 1,
+  //       padding: 0,
+  //       height: "auto",
+  //       duration: 1.5,
+  //       ease: "expo.inOut",
+  //     });
+  //   }
+  // }, [index, snap.animation]);
 
   if (!client) return null;
   const options = {

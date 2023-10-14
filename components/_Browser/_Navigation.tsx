@@ -13,7 +13,7 @@ const _ = () => {
         gsap.to(`#tab-${tab.id}`, {
           opacity: 1,
           duration: 1,
-          delay: 1 + index * 0.25,
+          delay: 3 + index * 0.25,
           ease: "expo.inOut",
         });
       });
@@ -27,7 +27,8 @@ const _ = () => {
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />
       </div>
-      <div className="flex items-end justify-start gap-2 h-full">
+      <div className="absolute left-20 -bottom-10 w-60 h-12 bg-[#96f] rounded-full blur-lg" />
+      <div className="relative flex items-end justify-start gap-2 h-full">
         {state.tabs.map((tab, index) => (
           <Tab
             key={index}

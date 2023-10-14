@@ -11,14 +11,14 @@ const _ = () => {
   useEffect(() => {
     if (snap.animation == "end") {
       gsap.to("#code-container", {
-        y: "0%",
+        x: "0%",
         duration: 2,
         delay: 2,
         ease: "expo.inOut",
       });
     } else {
       gsap.to("#code-container", {
-        y: "100%",
+        x: "100%",
         duration: 1,
         ease: "expo.inOut",
       });
@@ -34,7 +34,7 @@ const _ = () => {
       });
     } else {
       gsap.to("#code-container", {
-        width: 224,
+        width: 48,
         height: 48,
         boxShadow: "none",
         duration: 0.5,
@@ -46,7 +46,7 @@ const _ = () => {
   return (
     <div
       id="code-container"
-      className="fixed right-3 bottom-0 z-10 flex flex-col gap-1 items-start justify-between w-56 h-12 rounded-t-lg bg-[#2a2f45]/90 backdrop-blur-md text-white uppercase text-sm cursor-pointer translate-y-full"
+      className="fixed right-0 bottom-3 z-10 flex flex-col gap-1 items-start justify-between w-56 h-12 rounded-l-lg bg-[#2a2f45]/90 backdrop-blur-md text-white uppercase text-sm cursor-pointer translate-x-full"
     >
       <Header />
       <Content />

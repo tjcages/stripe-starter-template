@@ -1,7 +1,11 @@
 import Section from "./_Section";
-import StripeCheckout from "@/components/_Checkout/_StripeCheckout";
+import Checkout from "./_Checkout";
 
-const _ = () => {
+interface Props {
+  ready: boolean;
+}
+
+const _ = ({ ready }: Props) => {
   const sections = [
     {
       title: "Sane, simple, open-source APIs.",
@@ -30,7 +34,11 @@ const _ = () => {
   ];
   return (
     <div className="relative flex w-full min-h-[1150px] gap-4 rounded-[20px]">
-      <div className="flex flex-col w-full min-h-[956px] bg-white">
+      <div
+        className={`flex flex-col w-full min-h-[956px] bg-white transition-all duration-1000 ${
+          ready ? "grayscale-0" : "grayscale"
+        }`}
+      >
         {/* Header */}
         <div className="relative w-full px-8 py-6 bg-[#fada74]">
           <div className="absolute z-10 top-0 left-0 right-0 bottom-0 flex flex-col justify-end overflow-hidden mask">
@@ -57,6 +65,7 @@ const _ = () => {
           <div className="grid grid-cols-2 w-full">
             {sections.map((section, index) => (
               <Section
+                ready={ready}
                 key={index}
                 title={section.title}
                 description={section.description}
@@ -70,11 +79,7 @@ const _ = () => {
           <div className="w-full max-w-[320px]" />
         </div>
       </div>
-
-      {/* Checkout */}
-      <div className="absolute top-0 right-0 w-full -mr-8 max-w-[412px] pt-[68px]">
-        <StripeCheckout index={0} />
-      </div>
+      <Checkout />
     </div>
   );
 };
