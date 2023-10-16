@@ -44,7 +44,7 @@ const _ = ({ ready, mobile }: Props) => {
     {
       title: "Powerful analytics",
       description:
-        "Analyze your payments, conversion rate, retention rate, and other key metrics. Or import your data with our ISON-based API, and integrate it into your existing systems.",
+        "Analyze your payments, conversion rate, retention rate, and other key metrics. Or import your data with our JSON-based API, and integrate it into your existing systems.",
       image: "/assets/merchant.png",
     },
   ];

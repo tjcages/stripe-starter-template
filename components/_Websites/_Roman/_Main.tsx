@@ -18,26 +18,26 @@ const _ = () => {
 
   return (
     <div className="flex flex-col times">
-      <div className="relative top-0 flex w-full h-auto p-8 gap-4 rounded-lg">
+      <div className="relative top-0 flex flex-col md:flex-row w-full h-auto p-2 pt-5 md:p-8 gap-4 rounded-lg">
         {/* Container */}
         <div className="relative w-full top-6">
-          <Header />
-          <Content />
+          <Header mobile={snap.mobile} />
+          <Content mobile={snap.mobile} />
         </div>
 
         {/* Checkout */}
-        <div className="relative w-full max-w-[380px] min-h-[790px] z-10 mt-6 pt-2 border border-[#cccccc] bg-white">
-          <StripeCheckout index={2} />
-        </div>
+        {!snap.mobile && (
+          <div className="relative w-full max-w-[380px] min-h-[790px] z-10 mt-6 pt-2 border border-[#cccccc] bg-white">
+            <StripeCheckout index={2} />
+          </div>
+        )}
       </div>
-      <div className="relative flex justify-between items-center mx-8 mb-8 gap-4 p-4 bg-[#eee] border border-[#cccccc]">
-        <p>Payments are Veni</p>
+      <div className="relative flex flex-col md:flex-row justify-between items-center mx-2 md:mx-8 mt-8 md:mt-0 mb-4 md:mb-8 gap-4 p-4 bg-[#eee] border border-[#cccccc]">
+        <p>Sustentatio Perpetua Diurna et Nocturna</p>
         <div className="flex gap-8 place-items-center text-[#615cfd]">
-          <p>Support</p>
           <p>Chat with our Spartans</p>
-          <p>Feedback</p>
         </div>
-        <p>XXIV/VII support</p>
+        <p>©️709 Ab Urbe Condita</p>
       </div>
     </div>
   );

@@ -185,13 +185,15 @@ const _ = () => {
           </div>
 
           <div className="relative flex flex-col gap-2">
-            <Image
-              className={`${snap.musicPlaying ? "animate-spin" : ""}`}
-              src="/three/record.png"
-              alt="record"
-              width={32}
-              height={32}
-            />
+            {!snap.mobile && (
+              <Image
+                className={`${snap.musicPlaying ? "animate-spin" : ""}`}
+                src="/three/record.png"
+                alt="record"
+                width={32}
+                height={32}
+              />
+            )}
             <div className="flex flex-col">
               <div className="relative overflow-hidden">
                 <h3 id="vinyl-front-title">We Are So Back</h3>
@@ -202,23 +204,41 @@ const _ = () => {
                   It&apos;s So Over
                 </h3>
               </div>
-              <h4 className="uppercase text-sm opacity-50">
-                Currently Playing
-              </h4>
+              <div className="flex w-full justify-between items-center">
+                <h4 className="uppercase text-sm opacity-50">
+                  Currently Playing
+                </h4>
+                {snap.mobile && (
+                  <div className="p-2 -ml-2 cursor-pointer">
+                    <div
+                      className={`wiggle w-10 h-full ${
+                        snap.musicPlaying ? "animated" : ""
+                      }`}
+                    >
+                      <div className="ball" />
+                      <div className="ball" />
+                      <div className="ball" />
+                      <div className="ball" />
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="flex flex-col gap-2 md:flex-row justify-stretch md:justify-between md:items-center w-full">
-              <div className="p-2 -ml-2 cursor-pointer">
-                <div
-                  className={`wiggle w-10 h-full ${
-                    snap.musicPlaying ? "animated" : ""
-                  }`}
-                >
-                  <div className="ball" />
-                  <div className="ball" />
-                  <div className="ball" />
-                  <div className="ball" />
+              {!snap.mobile && (
+                <div className="p-2 -ml-2 cursor-pointer">
+                  <div
+                    className={`wiggle w-10 h-full ${
+                      snap.musicPlaying ? "animated" : ""
+                    }`}
+                  >
+                    <div className="ball" />
+                    <div className="ball" />
+                    <div className="ball" />
+                    <div className="ball" />
+                  </div>
                 </div>
-              </div>
+              )}
               <div
                 className="flex pb-5"
                 style={{
@@ -228,7 +248,17 @@ const _ = () => {
                 <div
                   className="flex justify-center items-center w-full md:w-22 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer clicky"
                   onClick={() => {
-                    setShowModal(true);
+                    if (snap.mobile) {
+                      // scroll to #vinyl-checkout
+                      const checkout =
+                        document.getElementById("vinyl-checkout");
+                      if (checkout) {
+                        window.scrollTo({
+                          top: checkout.offsetTop,
+                          behavior: "smooth",
+                        });
+                      }
+                    } else setShowModal(true);
                   }}
                 >
                   BUY NOW
@@ -300,7 +330,7 @@ const _ = () => {
       )}
       <div
         id="vinyl-checkout"
-        className="relative md:absolute md:top-[52px] md:left-[50%] md:-translate-x-[50%] md:min-w-[995px] md:min-h-[750px] pb-6 md:py-6 md:bg-[#e9c45d] md:translate-y-[100%] md:opacity-0 md:shadow-stripe md:overflow-scroll"
+        className="relative md:absolute md:top-[52px] md:left-[50%] md:-translate-x-[50%] md:min-w-[995px] md:min-h-[750px] pb-6 md:py-6 md:bg-[#f3df9a] md:translate-y-[100%] md:opacity-0 md:shadow-stripe md:overflow-scroll"
       >
         {snap.mobile ? (
           <StripeCheckout index={1} />

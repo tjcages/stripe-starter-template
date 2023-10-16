@@ -39,11 +39,11 @@ const _ = ({
       }}
       onClick={() => (state.selected = id)}
     >
-      {id == 0 ? (
+      {!icon.includes("/") ? (
         <h5>{icon}</h5>
       ) : (
         <Image
-          src={`/favicons/${icon}.png`}
+          src={`/favicons${icon}.png`}
           alt={title + " icon"}
           width={22}
           height={22}
