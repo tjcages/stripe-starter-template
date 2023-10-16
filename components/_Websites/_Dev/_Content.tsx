@@ -35,22 +35,31 @@ const _ = ({ ready, mobile }: Props) => {
     },
   ];
   return (
-    <div className="relative flex w-full min-h-[1107px] gap-4 rounded-[20px]">
-      <div
-        className={`flex flex-col w-full min-h-[956px] bg-white transition-all duration-1000 ${
-          ready ? "grayscale-0" : "grayscale"
-        }`}
-      >
+    <div className="relative flex w-full h-full rounded-[20px]">
+      <div className="flex flex-col w-full h-full bg-white">
         {/* Header */}
-        <div className="relative w-full p-4 md:px-8 md:py-6 bg-[#fada74]">
+        <div className={`absolute top-0 right-0 w-[40%] h-[168px] bg-[#fada74] transition-all duration-1000 ${
+            ready ? "grayscale-0" : "grayscale"
+          }`} />
+        <div
+          className={`relative z-10 w-full p-4 md:px-8 md:py-6 bg-[#fada74] transition-all duration-1000 ${
+            ready ? "grayscale-0" : "grayscale"
+          }`}
+        >
           <div className="absolute z-10 top-0 left-0 right-0 bottom-0 flex flex-col justify-end overflow-hidden mask">
-            <h1 className="-ml-10 whitespace-nowrap opacity-5">
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
               4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
             </h1>
-            <h1 className="-ml-10 whitespace-nowrap opacity-5">
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
               4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
             </h1>
-            <h1 className="-ml-10 whitespace-nowrap opacity-5">
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+            </h1>
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+            </h1>
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
               4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
             </h1>
           </div>
@@ -64,7 +73,7 @@ const _ = ({ ready, mobile }: Props) => {
         </div>
         {mobile && (
           <>
-            <div className="relative min-h-[500px] bg-[#fada74]">
+            <div className="relative h-full min-h-[500px] bg-[#fada74]">
               <Image
                 className="px-4"
                 src="/assets/array-dev-tshirt.png"
@@ -83,7 +92,7 @@ const _ = ({ ready, mobile }: Props) => {
           </>
         )}
         {/* Main */}
-        <div className="flex w-full h-full bg-white border border-[#e8e8e8]">
+        <div className="flex w-full h-full bg-white border border-[#e8e8e8] border-r-0">
           <div className="flex flex-col md:grid md:grid-cols-2 w-full">
             {sections.map((section, index) => (
               <Section
@@ -97,8 +106,6 @@ const _ = ({ ready, mobile }: Props) => {
               />
             ))}
           </div>
-          {/* Spacer */}
-          {!mobile && <div className="w-full max-w-[412px]" />}
         </div>
       </div>
       {!mobile && <Checkout />}

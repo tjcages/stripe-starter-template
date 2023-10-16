@@ -7,7 +7,7 @@ import Footer from "./_Footer";
 const _ = () => {
   const snap = useSnapshot(state);
   return (
-    <div className="relative flex flex-col pt-12 px-3 w-full">
+    <div className="relative flex flex-col pt-12 px-3 w-full h-full">
       <Header ready={snap.animation == "end"} />
       <Content ready={snap.animation == "end"} mobile={snap.mobile} />
       <Footer />

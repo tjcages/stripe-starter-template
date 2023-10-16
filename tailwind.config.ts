@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        dev: "calc(100% - 412px)",
+      },
       boxShadow: {
         stripe:
           "0 20px 44px rgba(50,50,93,.12), 0 -1px 32px rgba(50,50,93,.06), 0 3px 12px rgba(0,0,0,.08)",

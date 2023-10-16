@@ -1,6 +1,6 @@
 const _ = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 w-full p-8 pt-4">
+    <div className="flex flex-col items-center justify-center gap-2 w-full md:max-w-dev p-8 pt-4">
         <div className="flex gap-2">
           <h5 className="text-[#3f64ef] underline">Twitter</h5>
           <h5 className="opacity-50">•</h5>
