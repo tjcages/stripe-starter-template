@@ -8,7 +8,7 @@ interface Props {
 }
 
 const _ = ({
-  title = "Stripe Embedded Checkout",
+  title = "Stripe | Embedded Checkout",
   description = "You can now embed our prebuilt payment form directly into your site.",
   image = "https://embedcheckout.com/preview.png",
   url = "https://embedcheckout.com/",

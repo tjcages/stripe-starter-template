@@ -16,9 +16,6 @@ const _ = () => {
       </div>
       <p className="px-2 py-1 bg-[#eaeaea] text-[#615cfd]">Colosseums</p>
       <p className="px-2 py-1 bg-[#eaeaea] text-[#615cfd]">
-        Trojan horses
-      </p>
-      <p className="px-2 py-1 bg-[#eaeaea] text-[#615cfd]">
         Aqueducts near me
       </p>
     </div>
@@ -30,13 +27,13 @@ const _ = () => {
         height={30}
         style={{ height: "auto" }}
       />
-      <Image
+      {/* <Image
         src="/icons/user.svg"
         alt="user"
         width={20}
         height={20}
         style={{ height: "auto" }}
-      />
+      /> */}
     </div>
   </div>
   )

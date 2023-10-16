@@ -37,7 +37,7 @@ const _ = () => {
             color: "#ccc",
           },
           {
-            color: "#96f",
+            color: "#635bff",
             x: "0%",
             y: "0%",
             duration: 1.5,
@@ -51,7 +51,7 @@ const _ = () => {
         gsap.fromTo(
           header,
           {
-            color: "#96f",
+            color: "#635bff",
           },
           {
             color: "black",
@@ -91,8 +91,7 @@ const _ = () => {
           </h2>
           <h4 id="description" className="text-center opacity-0">
             <Balancer>
-              You can now embed our prebuilt payment form directly into your
-              site.
+            You can now embed our prebuilt payment form directly into your site.
               {!mobile ? <br /> : " "}
               Here are a few{" "}
               <span className={styles.shimmer}>fun examples</span> to get you

@@ -35,8 +35,8 @@ const _ = () => {
 
       {/* Docs link */}
       <Link
-        className="group flex justify-center items-center gap-1 py-4 px-4 md:px-8 text-[#96f] pointer-events-auto"
-        href="https://stripe.com/docs/payment-links/buy-button"
+        className="group flex justify-center items-center gap-1 py-4 px-4 md:px-8 text-[#635bff] pointer-events-auto"
+        href="https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=embedded-checkout"
         target="_blank"
       >
         <h5 className="font-bold group-hover:-translate-x-0.5 transition-transform">Read the docs</h5>

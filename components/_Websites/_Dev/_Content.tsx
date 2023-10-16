@@ -12,12 +12,12 @@ const _ = ({ ready, mobile }: Props) => {
       title: "Sane, simple, open-source APIs.",
       description:
         "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
-      image: "/assets/array-dev-tshirt.png",
+      image: "/assets/terminal.png",
     },
     {
-      title: "Join the Stripe mafia",
+      title: "Get a Stripe t-shirt",
       description:
-        "We're a small, tightly-knit team that's worked at Google, Yahoo, Microsoft, and MIT. We're backed by Y Combinator and Sequoia Capital.",
+        "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
       image: "/assets/tshirt.png",
     },
     {

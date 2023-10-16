@@ -26,13 +26,11 @@ export default function Home() {
       case 0:
         return <Dev />;
       case 1:
-        return <Magic />;
+        return <Vinyl />;
       case 2:
         return <Roman />;
       case 3:
-        return <Vinyl />;
-      default:
-        return <Kevin />;
+        return <Magic />;
     }
   };
 
