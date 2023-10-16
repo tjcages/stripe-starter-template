@@ -12,7 +12,7 @@ const _ = ({ ready, mobile }: Props) => {
       title: "Sane, simple, open-source APIs.",
       description:
         "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
-      image: "/assets/terminal.png",
+      image: "/assets/array-dev-tshirt.png",
     },
     {
       title: "Join the Stripe mafia",

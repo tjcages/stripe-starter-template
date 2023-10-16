@@ -59,7 +59,7 @@ const _ = () => {
   return (
     <div
       id="animated-checkout"
-      className="relative md:absolute md:top-[67.5px] md:right-0 w-full md:-mr-8 md:max-w-[412px] md:pt-[68px]"
+      className="relative md:absolute md:top-[60.5px] md:right-0 w-full md:-mr-8 md:max-w-[412px] md:pt-[68px]"
     >
       <div
         id="glowing-checkout"
