@@ -20,7 +20,7 @@ export default async function handler(
   if (req.method === "POST") {
     const index = req.body.tab;
     const mode = req.body.mode || "embedded";
-    const itemName = req.body.itemName || "T-shirt";
+    const itemName = req.body.itemName || "";
     const price = req.body.price || 2000;
     const size = req.body.size || false;
 

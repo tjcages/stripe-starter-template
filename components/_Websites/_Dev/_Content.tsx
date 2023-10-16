@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "./_Section";
 import Checkout from "./_Checkout";
 
@@ -62,10 +63,18 @@ const _ = ({ ready, mobile }: Props) => {
           </div>
         </div>
         {mobile && (
-          <div className="relative">
-            <div className="absolute top-0 left-0 right-0 h-[107px] bg-[#fada74]" />
-            <Checkout />
-          </div>
+          <>
+            {/* <Image
+              src="/assets/array-dev-tshirt.png"
+              alt="stripe shirts"
+              width={600}
+              height={100}
+            /> */}
+            <div className="relative">
+              <div className="absolute top-0 left-0 right-0 h-[107px] bg-[#fada74]" />
+              <Checkout />
+            </div>
+          </>
         )}
         {/* Main */}
         <div className="flex w-full h-full bg-white border border-[#e8e8e8]">

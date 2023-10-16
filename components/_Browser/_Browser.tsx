@@ -25,7 +25,7 @@ const _ = ({ children }: Props) => {
   return (
     <div
       id="browser-window"
-      className="relative w-full h-auto rounded-xl shadow-stripe"
+      className="relative z-10 w-full h-auto rounded-xl shadow-stripe"
       style={{
         backgroundColor: state.tabs[snap.selected].background,
       }}
