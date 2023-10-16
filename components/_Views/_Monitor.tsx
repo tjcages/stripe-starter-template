@@ -14,55 +14,59 @@ const _ = ({ children }: Props) => {
   useEffect(() => {
     switch (snap.animation) {
       case "start":
-        gsap.fromTo(
-          "#macbook",
-          {
-            y: "100%",
-            rotateX: -80,
-            filter: "drop-shadow(0px 10px 20px rgba(153, 102, 255, 0))",
-          },
-          {
-            y: "2%",
-            rotateX: -35,
-            filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0.4))",
-            duration: 2,
-            ease: "expo.out",
-          }
-        );
-        gsap.fromTo(
-          "#macbook-background",
-          {
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            duration: 1.5,
-            delay: 0.75,
-            ease: "expo.out",
-          }
-        );
-        gsap.fromTo(
-          "#browser-container",
-          {
-            y: "-10%",
-            opacity: 0,
-            scaleX: "30%",
-            scaleY: "20%",
-            rotateX: -45,
-          },
-          {
-            y: "-25%",
-            opacity: 1,
-            scaleX: "50%",
-            scaleY: "30%",
-            duration: 1.5,
-            delay: 0.5,
-            ease: "expo.inOut",
-            onComplete: () => {
-              if (snap.animation === "start") state.animation = "intro";
+        if (snap.mobile) {
+          state.animation = "intro";
+        } else {
+          gsap.fromTo(
+            "#macbook",
+            {
+              y: "100%",
+              rotateX: -80,
+              filter: "drop-shadow(0px 10px 20px rgba(153, 102, 255, 0))",
             },
-          }
-        );
+            {
+              y: "2%",
+              rotateX: -35,
+              filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0.4))",
+              duration: 2,
+              ease: "expo.out",
+            }
+          );
+          gsap.fromTo(
+            "#macbook-background",
+            {
+              opacity: 0,
+            },
+            {
+              opacity: 1,
+              duration: 1.5,
+              delay: 0.75,
+              ease: "expo.out",
+            }
+          );
+          gsap.fromTo(
+            "#browser-container",
+            {
+              y: "-10%",
+              opacity: 0,
+              scaleX: "30%",
+              scaleY: "20%",
+              rotateX: -45,
+            },
+            {
+              y: "-25%",
+              opacity: 1,
+              scaleX: "50%",
+              scaleY: "30%",
+              duration: 1.5,
+              delay: 0.5,
+              ease: "expo.inOut",
+              onComplete: () => {
+                if (snap.animation === "start") state.animation = "intro";
+              },
+            }
+          );
+        }
         break;
       case "intro":
         gsap.fromTo(
@@ -103,9 +107,11 @@ const _ = ({ children }: Props) => {
           }
         );
     }
-  }, [snap.animation]);
+  }, [snap.animation, snap.mobile]);
 
-  return (
+  return snap.mobile ? (
+    children
+  ) : (
     <div
       className="relative flex flex-col justify-center items-center z-10 w-full h-auto max-w-screen-xl md:max-w-[1200px]"
       style={{ perspective: 2000 }}

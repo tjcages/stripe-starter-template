@@ -35,20 +35,13 @@ const _ = () => {
 
       {/* Docs link */}
       <Link
-        className="group flex justify-center items-center gap-1 py-4 px-8 text-[#96f] pointer-events-auto"
+        className="group flex justify-center items-center gap-1 py-4 px-4 md:px-8 text-[#96f] pointer-events-auto"
         href="https://stripe.com/docs/payment-links/buy-button"
         target="_blank"
       >
         <h5 className="font-bold group-hover:-translate-x-0.5 transition-transform">Read the docs</h5>
         <Arrow className="w-3 h-3 rotate-180 group-hover:translate-x-0.5 transition-transform" />
       </Link>
-
-      {/* Arrow */}
-      {mobile && (
-        <div className={`${styles.arrow} ${showArrow ? styles.show : ""}`}>
-          <Arrow className="w-5 h-5" />
-        </div>
-      )}
     </div>
   );
 };

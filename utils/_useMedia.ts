@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 const mobileBreakpoint = 768;
 
@@ -30,4 +31,4 @@ const useMedia = (width: number) => {
   return targetReached;
 };
 
-export { useMedia, mobileBreakpoint };
+export { useMedia, mobileBreakpoint, isMobile };

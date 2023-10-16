@@ -17,18 +17,40 @@ const _ = () => {
           ease: "expo.inOut",
         });
       });
+    } else if (snap.animation == "end") {
+      gsap.to("#glow-move", {
+        opacity: 0.4,
+        duration: 1,
+        ease: "power4.out",
+        onComplete: () => {
+          gsap.to("#glow-move", {
+            x: "100vw",
+            duration: 3,
+            ease: "power4.out",
+          });
+          gsap.to("#glow-move", {
+            opacity: 0,
+            duration: 1.5,
+            delay: 1.5,
+            ease: "power4.out",
+          });
+        },
+      });
     }
   }, [snap.animation]);
 
   return (
-    <div className="absolute top-0 z-10 flex items-end gap-4 w-full h-9 p-1.5 pb-0 bg-[#dfe1e5]/70 backdrop-blur-lg overflow-hidden rounded-t-xl">
+    <div className="absolute top-0 z-10 flex items-end gap-1 md:gap-4 w-full h-9 p-1.5 pb-0 bg-[#dfe1e5]/70 backdrop-blur-lg overflow-hidden rounded-t-xl">
       <div className="flex gap-1.5 ml-1 p-3">
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />
         <div className="w-2 h-2 rounded-full bg-[#ecf2f7]" />
       </div>
-      <div className="absolute left-20 -bottom-10 w-60 h-12 bg-[#96f] rounded-full blur-lg" />
-      <div className="relative flex items-end justify-start gap-2 h-full">
+      <div
+        id="glow-move"
+        className="absolute left-20 -bottom-14 w-60 h-10 bg-[#96f] rounded-full blur-xl opacity-0 shadow-stripeReverse"
+      />
+      <div className="relative flex items-end justify-start gap-2 w-full h-full">
         {state.tabs.map((tab, index) => (
           <Tab
             key={index}

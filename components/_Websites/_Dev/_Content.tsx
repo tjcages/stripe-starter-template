@@ -3,9 +3,10 @@ import Checkout from "./_Checkout";
 
 interface Props {
   ready: boolean;
+  mobile: boolean;
 }
 
-const _ = ({ ready }: Props) => {
+const _ = ({ ready, mobile }: Props) => {
   const sections = [
     {
       title: "Sane, simple, open-source APIs.",
@@ -40,7 +41,7 @@ const _ = ({ ready }: Props) => {
         }`}
       >
         {/* Header */}
-        <div className="relative w-full px-8 py-6 bg-[#fada74]">
+        <div className="relative w-full p-4 md:px-8 md:py-6 bg-[#fada74]">
           <div className="absolute z-10 top-0 left-0 right-0 bottom-0 flex flex-col justify-end overflow-hidden mask">
             <h1 className="-ml-10 whitespace-nowrap opacity-5">
               4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
@@ -53,16 +54,22 @@ const _ = ({ ready }: Props) => {
             </h1>
           </div>
           <div className="w-full">
-            <div className="text-[4vw] font-bold leading-tight">
+            <div className="text-[24px] md:text-[48px] font-bold leading-tight">
               Payment Processing
               <br />
               Done Right.
             </div>
           </div>
         </div>
+        {mobile && (
+          <div className="relative">
+            <div className="absolute top-0 left-0 right-0 h-[107px] bg-[#fada74]" />
+            <Checkout />
+          </div>
+        )}
         {/* Main */}
         <div className="flex w-full h-full bg-white border border-[#e8e8e8]">
-          <div className="grid grid-cols-2 w-full">
+          <div className="flex flex-col md:grid md:grid-cols-2 w-full">
             {sections.map((section, index) => (
               <Section
                 ready={ready}
@@ -70,16 +77,16 @@ const _ = ({ ready }: Props) => {
                 title={section.title}
                 description={section.description}
                 image={section.image}
-                borderTop={index > 1}
+                borderTop={mobile || index > 1}
                 borderRight={index % 2 === 0}
               />
             ))}
           </div>
           {/* Spacer */}
-          <div className="w-full max-w-[320px]" />
+          {!mobile && <div className="w-full max-w-[320px]" />}
         </div>
       </div>
-      <Checkout />
+      {!mobile && <Checkout />}
     </div>
   );
 };

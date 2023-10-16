@@ -5,7 +5,7 @@ interface Props {
 const _ = ({ ready }: Props) => {
   return (
     <div
-      className={`relative flex justify-between items-center w-full p-4 text-white font-bold bg-gradient-to-b from-[#1b78d5] to-[#3691ee] rounded-t-xl transition-all duration-1000 ${
+      className={`relative flex justify-between items-center w-full px-4 py-2 md:p-4 text-white font-bold bg-gradient-to-b from-[#1b78d5] to-[#3691ee] rounded-t-xl transition-all duration-1000 ${
         ready ? "grayscale-0" : "grayscale"
       }`}
     >
@@ -14,9 +14,12 @@ const _ = ({ ready }: Props) => {
           <div>/dev/payments</div>
           <p>Payment processing for developers</p>
         </div>
-        <div className="flex items-center gap-8 transition-opacity duration-1000" style={{
-          opacity: ready ? 1 : 0,
-        }}>
+        <div
+          className="items-center gap-8 hidden md:flex transition-opacity duration-1000"
+          style={{
+            opacity: ready ? 1 : 0,
+          }}
+        >
           <h4>API</h4>
           <h4>Pricing</h4>
           <h4>About</h4>

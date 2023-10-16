@@ -2,7 +2,9 @@ import { proxy } from "valtio";
 import { derive } from "valtio/utils";
 
 interface State {
-  intro: boolean;
+  mobile: boolean;
+  ready: boolean;
+
   animation: "start" | "intro" | "end";
 
   tabs: {
@@ -25,7 +27,9 @@ interface State {
 }
 
 const state = proxy({
-  intro: true,
+  mobile: false,
+  ready: false,
+
   animation: "start",
 
   tabs: [

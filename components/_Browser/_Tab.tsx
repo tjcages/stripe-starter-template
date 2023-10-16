@@ -23,11 +23,13 @@ const _ = ({
   return (
     <div
       id={`tab-${id}`}
-      className={`flex items-center justify-start gap-1 w-[17.5vw] h-full p-2 text-xs cursor-pointer ${
+      className={`flex items-center justify-start gap-1 min-w-[40px] md:w-[17.5vw] h-full p-2 text-xs cursor-pointer ${
         selected
           ? "rounded-t-md shadow-stripe border border-b-0"
           : "border-r border-[#ccc] last-of-type:border-r-0"
-      } ${id !== 0 ? "opacity-0" : "opacity-100"}`}
+      } ${id !== 0 ? "opacity-0" : "opacity-100"} ${
+        selected ? "w-full" : "w-auto"
+      }`}
       style={{
         background: selected
           ? `linear-gradient(to top, ${background}, ${backgroundDark} 100%)`
@@ -47,7 +49,7 @@ const _ = ({
           height={22}
         />
       )}
-      {title}
+      {state.mobile ? (selected ? title : "") : title}
     </div>
   );
 };

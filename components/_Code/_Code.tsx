@@ -46,7 +46,7 @@ const _ = () => {
   return (
     <div
       id="code-container"
-      className="fixed right-0 bottom-3 z-10 flex flex-col gap-1 items-start justify-between w-56 h-12 rounded-l-lg bg-[#2a2f45]/90 backdrop-blur-md text-white uppercase text-sm cursor-pointer translate-x-full"
+      className="fixed right-0 bottom-3 z-10 flex-col gap-1 items-start justify-between w-56 h-12 rounded-l-lg bg-[#2a2f45]/90 backdrop-blur-md text-white uppercase text-sm cursor-pointer translate-x-full hidden md:flex"
     >
       <Header />
       <Content />
