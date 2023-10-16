@@ -15,7 +15,16 @@ const _ = ({ children }: Props) => {
     switch (snap.animation) {
       case "start":
         if (snap.mobile) {
-          state.animation = "intro";
+          gsap.set("#browser-container", {
+            y: "100%",
+            opacity: 0,
+            rotateX: -10,
+            scaleX: "80%",
+            scaleY: "80%",
+          });
+          setTimeout(() => {
+            if (snap.animation === "start") state.animation = "intro";
+          }, 1250);
         } else {
           gsap.fromTo(
             "#macbook",
@@ -47,17 +56,17 @@ const _ = ({ children }: Props) => {
           gsap.fromTo(
             "#browser-container",
             {
-              y: "-10%",
+              y: "0%",
               opacity: 0,
               scaleX: "30%",
-              scaleY: "20%",
+              scaleY: "30%",
               rotateX: -45,
             },
             {
-              y: "-25%",
+              y: "-10%",
               opacity: 1,
               scaleX: "50%",
-              scaleY: "30%",
+              scaleY: "50%",
               duration: 1.5,
               delay: 0.5,
               ease: "expo.inOut",
@@ -80,7 +89,7 @@ const _ = ({ children }: Props) => {
             y: "105%",
             rotateX: 60,
             filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0))",
-            duration: 3,
+            duration: snap.mobile ? 2 : 3,
             ease: "expo.inOut",
             onComplete: () => {
               gsap.set("#macbook", {
@@ -92,17 +101,18 @@ const _ = ({ children }: Props) => {
         gsap.fromTo(
           "#browser-container",
           {
-            y: "-25%",
-            scaleX: "50%",
-            scaleY: "30%",
-            rotateX: -45,
+            y: snap.mobile ? "100%" : "-10%",
+            scaleX: snap.mobile ? "80%" : "50%",
+            scaleY: snap.mobile ? "80%" : "50%",
+            rotateX: snap.mobile ? -10 : -45,
           },
           {
+            opacity: 1,
             y: "0%",
             scaleX: "100%",
             scaleY: "100%",
             rotateX: 0,
-            duration: 3,
+            duration: snap.mobile ? 2 : 3,
             ease: "expo.inOut",
           }
         );
@@ -110,7 +120,12 @@ const _ = ({ children }: Props) => {
   }, [snap.animation, snap.mobile]);
 
   return snap.mobile ? (
-    children
+    <div
+      id="browser-container"
+      className="relative z-10 w-full h-auto bg-[#96f] rounded-xl opacity-0"
+    >
+      {children}
+    </div>
   ) : (
     <div
       className="relative flex flex-col justify-center items-center z-10 w-full h-auto max-w-screen-xl md:max-w-[1200px]"

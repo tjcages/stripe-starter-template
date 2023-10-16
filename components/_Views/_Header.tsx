@@ -4,15 +4,14 @@ import SplitText from "split-type";
 import Balancer from "react-wrap-balancer";
 import { useSnapshot } from "valtio";
 import { state } from "@/store";
-import { useMedia, mobileBreakpoint } from "@/utils";
 import styles from "@/styles/header.module.scss";
 
 const _ = () => {
   const snap = useSnapshot(state);
-  const mobile = useMedia(mobileBreakpoint);
 
   useEffect(() => {
     const header = new SplitText("#header").words;
+    const headerMobile = new SplitText("#header-mobile").words;
 
     switch (snap.animation) {
       case "start":
@@ -29,37 +28,66 @@ const _ = () => {
           duration: 2,
           ease: "expo.out",
         });
-        gsap.fromTo(
-          header,
-          {
-            x: "10%",
-            y: "100%",
-            color: "#ccc",
-          },
-          {
-            color: "#635bff",
-            x: "0%",
-            y: "0%",
-            duration: 1.5,
-            stagger: 0.2,
-            delay: 0.75,
-            ease: "expo.out",
-          }
-        );
+        if (header)
+          gsap.fromTo(
+            header,
+            {
+              y: "100%",
+              color: "#ccc",
+            },
+            {
+              color: "#635bff",
+              y: "0%",
+              duration: 1.5,
+              stagger: 0.2,
+              delay: 0.75,
+              ease: "expo.out",
+            }
+          );
+        if (headerMobile)
+          gsap.fromTo(
+            headerMobile,
+            {
+              y: "100%",
+              color: "#ccc",
+            },
+            {
+              color: "#635bff",
+              y: "0%",
+              duration: 1,
+              stagger: 0.2,
+              delay: 0,
+              ease: "expo.out",
+            }
+          );
         break;
       case "intro":
-        gsap.fromTo(
-          header,
-          {
-            color: "#635bff",
-          },
-          {
-            color: "black",
-            duration: 3,
-            stagger: 0.3,
-            ease: "expo.out",
-          }
-        );
+        if (header)
+          gsap.fromTo(
+            header,
+            {
+              color: "#635bff",
+            },
+            {
+              color: "black",
+              duration: 3,
+              stagger: 0.3,
+              ease: "expo.out",
+            }
+          );
+        if (headerMobile)
+          gsap.fromTo(
+            headerMobile,
+            {
+              color: "#635bff",
+            },
+            {
+              color: "black",
+              duration: 3,
+              stagger: 0.3,
+              ease: "expo.out",
+            }
+          );
         gsap.to("#description", {
           opacity: 1,
           duration: 1,
@@ -69,12 +97,12 @@ const _ = () => {
         gsap.to("#header-container", {
           scale: 1,
           y: "0%",
-          duration: 3,
+          duration: snap.mobile ? 2 : 3,
           ease: "expo.inOut",
         });
         break;
     }
-  }, [snap.animation]);
+  }, [snap.animation, snap.mobile]);
 
   return (
     <div
@@ -85,14 +113,20 @@ const _ = () => {
           id="header-container"
           className="flex flex-col justify-center items-center w-full opacity-0"
         >
-          <h2 className="font-extrabold mt-4 md:hidden">Embedded Checkout</h2>
-          <h2 id="header" className="font-extrabold hidden md:block">
-            Stripe Embedded Checkout
-          </h2>
+          {snap.mobile ? (
+            <h2 id="header-mobile" className="font-extrabold mt-4">
+              Embedded Checkout
+            </h2>
+          ) : (
+            <h2 id="header" className="font-extrabold">
+              Stripe Embedded Checkout
+            </h2>
+          )}
           <h4 id="description" className="text-center opacity-0">
             <Balancer>
-            You can now embed our prebuilt payment form directly into your site.
-              {!mobile ? <br /> : " "}
+              You can now embed our prebuilt payment form directly into your
+              site.
+              {!snap.mobile ? <br /> : " "}
               Here are a few{" "}
               <span className={styles.shimmer}>fun examples</span> to get you
               started.

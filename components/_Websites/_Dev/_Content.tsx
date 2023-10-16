@@ -62,23 +62,6 @@ const _ = ({ ready, mobile }: Props) => {
             ready ? "grayscale-0" : "grayscale"
           }`}
         >
-          <div className="absolute z-10 top-0 left-0 right-0 bottom-0 flex flex-col justify-end overflow-hidden mask">
-            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
-              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
-            </h1>
-            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
-              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
-            </h1>
-            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
-              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
-            </h1>
-            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
-              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
-            </h1>
-            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
-              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
-            </h1>
-          </div>
           <div className="w-full">
             <div className="text-[24px] md:text-[48px] font-bold leading-tight">
               Payment Processing
@@ -89,9 +72,11 @@ const _ = ({ ready, mobile }: Props) => {
         </div>
         {mobile && (
           <>
-            <div className="relative h-full min-h-[500px] bg-[#fada74]">
+            <div className="relative h-full min-h-[500px]">
               <Image
-                className="px-4"
+                 className={`transition-all duration-1000 ${
+                  ready ? "grayscale-0" : "grayscale"
+                }`}
                 src="/assets/array-dev-tshirt.png"
                 alt="stripe shirts"
                 width={400}
@@ -125,6 +110,38 @@ const _ = ({ ready, mobile }: Props) => {
         </div>
       </div>
       {!mobile && <Checkout />}
+
+      <div
+        className={`absolute z-10 top-0 left-0 w-full h-[290px] md:h-[168px] flex flex-col justify-end overflow-hidden mask mix-blend-multiply transition-opacity duration-1000 ${
+          ready ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+          4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+        </h1>
+        <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+          4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+        </h1>
+        <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+          4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+        </h1>
+        <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+          4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+        </h1>
+        {mobile && (
+          <>
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+            </h1>
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+            </h1>
+            <h1 className="-ml-10 whitespace-nowrap opacity-5 leading-none">
+              4242 4242 4242 4242 4242 4242 4242 4242 4242 4242 4242
+            </h1>
+          </>
+        )}
+      </div>
     </div>
   );
 };
