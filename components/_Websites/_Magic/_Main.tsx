@@ -99,7 +99,7 @@ const _ = () => {
 
       {/* Checkout */}
       <div className="relative w-full max-w-[340px] min-h-[970px] z-10 rounded-lg m-2 overflow-hidden bg-white">
-        <StripeCheckout index={1} />
+        <StripeCheckout index={3} />
       </div>
     </div>
   );

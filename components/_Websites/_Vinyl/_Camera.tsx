@@ -3,16 +3,17 @@ import { easing } from "maath";
 
 interface Props {
   playing: boolean;
+  mobile: boolean;
 }
 
-const _ = ({ playing }: Props) => {
+const _ = ({ playing, mobile }: Props) => {
   useFrame((state, delta) => {
     easing.damp3(
       state.camera.position,
       [
         -1 + state.pointer.x * 0.4,
         2 + state.pointer.y * 0.4 + (playing ? 2 : 0),
-        5,
+        mobile ? 7 : 5,
       ],
       0.5,
       delta

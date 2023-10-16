@@ -16,6 +16,7 @@ interface State {
     backgroundDark: string;
     itemName: string;
     price: number;
+    priceObj?: string;
   }[];
   selected: number;
   codeOpen: boolean;
@@ -52,6 +53,7 @@ const state = proxy({
       backgroundDark: "transparent",
       itemName: "Custom Vinyl 7inch",
       price: 5600,
+      priceObj: "price_1O0pMvDDBH9tvjpx5QDm5V4Y"
     },
     {
       id: 2,

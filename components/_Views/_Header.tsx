@@ -119,7 +119,7 @@ const _ = () => {
             </h2>
           ) : (
             <h2 id="header" className="font-extrabold">
-              Stripe Embedded Checkout
+              Embed Stripe Checkout
             </h2>
           )}
           <h4 id="description" className="text-center opacity-0">

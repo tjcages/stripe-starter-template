@@ -48,9 +48,9 @@ const _ = ({ position = new Vector3(-1, 2, 5.5), fov = 45 }) => {
       gl={{ preserveDrawingBuffer: true }}
       eventPrefix="client"
       className="top-0 left-0 right-0 bottom-0"
-      style={{ position: "absolute" }}
+      style={{ position: "absolute", pointerEvents: snap.mobile ? "none" : "auto" }}
     >
-      <color ref={ref} attach="background" args={["#e5bd53"]} />
+      <color ref={ref} attach="background" args={["#f3df9a"]} />
       <spotLight
         position={[0, 2, 0]}
         angle={0.3}
@@ -71,7 +71,7 @@ const _ = ({ position = new Vector3(-1, 2, 5.5), fov = 45 }) => {
         files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr"
       /> */}
       <PerformanceMonitor onDecline={() => degrade(true)} />
-      <Camera playing={snap.musicPlaying} />
+      <Camera playing={snap.musicPlaying} mobile={snap.mobile} />
       <Post />
       {/* <OrbitControls /> */}
     </Canvas>

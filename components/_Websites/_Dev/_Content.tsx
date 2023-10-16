@@ -74,7 +74,7 @@ const _ = ({ ready, mobile }: Props) => {
           <>
             <div className="relative h-full min-h-[500px]">
               <Image
-                 className={`transition-all duration-1000 ${
+                className={`transition-all duration-1000 ${
                   ready ? "grayscale-0" : "grayscale"
                 }`}
                 src="/assets/array-dev-tshirt.png"

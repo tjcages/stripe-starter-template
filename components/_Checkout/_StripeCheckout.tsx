@@ -4,7 +4,6 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
-import gsap from "gsap";
 import { useSnapshot } from "valtio";
 import { state } from "@/store";
 
@@ -35,6 +34,7 @@ const _ = ({ index, full = false }: Props) => {
         tab: selected,
         itemName: state.tabs[selected].itemName,
         price: state.tabs[selected].price,
+        priceObj: state.tabs[selected].priceObj,
         size: index == 0,
       }),
     });
@@ -48,36 +48,6 @@ const _ = ({ index, full = false }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   if (snap.animation == "intro") {
-  //     gsap.set("#checkout-container-0", {
-  //       x: "40vw",
-  //       y: "50vh",
-  //       scale: 0.95,
-  //       visibility: "hidden",
-  //     });
-  //     gsap.to("#checkout-container-0", {
-  //       x: 0,
-  //       y: 0,
-  //       visibility: "visible",
-  //       duration: 2,
-  //       delay: 1.75,
-  //       ease: "expo.out",
-  //       onComplete: () => {
-  //         state.animation = "end";
-  //       },
-  //     });
-  //   } else if (snap.animation == "end") {
-  //     gsap.to(`#checkout-container-${index}`, {
-  //       scale: 1,
-  //       padding: 0,
-  //       height: "auto",
-  //       duration: 1.5,
-  //       ease: "expo.inOut",
-  //     });
-  //   }
-  // }, [index, snap.animation]);
-
   if (!client) return null;
   const options = {
     clientSecret: client,
@@ -88,10 +58,7 @@ const _ = ({ index, full = false }: Props) => {
       className="w-full h-auto"
       // style={{ backgroundColor: state.tabs[index].background }}
     >
-      <div
-        id={`checkout-content-${index}`}
-        
-      >
+      <div id={`checkout-content-${index}`}>
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {
             betas: ["embedded_checkout_beta_1"],
