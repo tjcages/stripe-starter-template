@@ -90,9 +90,7 @@ const _ = ({ index, full = false }: Props) => {
     >
       <div
         id={`checkout-content-${index}`}
-        className={`relative ${
-          !full ? "flex flex-col items-center justify-start" : ""
-        } w-full`}
+        
       >
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {

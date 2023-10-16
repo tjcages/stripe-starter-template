@@ -59,11 +59,11 @@ const _ = () => {
   return (
     <div
       id="animated-checkout"
-      className="relative md:absolute md:top-[60px] md:right-0 w-full md:-mr-8 md:max-w-[412px] md:pt-[68px]"
+      className="relative md:absolute md:top-[60px] md:right-0 w-full max-w-[412px] md:max-w-[412px] md:pt-[68px]"
     >
       <div
         id="glowing-checkout"
-        className="absolute z-10 top-0 left-[50%] -translate-x-[50%] w-full max-w-[300px] min-h-[700px] p-2 rounded-xl card pointer-events-none"
+        className="absolute z-10 top-0 left-[50%] -translate-x-[50%] w-full max-w-[412px] min-h-[700px] p-2 rounded-xl card pointer-events-none"
       >
         <div
           id="glowing-checkout-inside"

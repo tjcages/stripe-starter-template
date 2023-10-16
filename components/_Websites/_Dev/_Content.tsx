@@ -35,7 +35,7 @@ const _ = ({ ready, mobile }: Props) => {
     },
   ];
   return (
-    <div className="relative flex w-full min-h-[1150px] gap-4 rounded-[20px]">
+    <div className="relative flex w-full min-h-[1107px] gap-4 rounded-[20px]">
       <div
         className={`flex flex-col w-full min-h-[956px] bg-white transition-all duration-1000 ${
           ready ? "grayscale-0" : "grayscale"
@@ -64,14 +64,20 @@ const _ = ({ ready, mobile }: Props) => {
         </div>
         {mobile && (
           <>
-            {/* <Image
-              src="/assets/array-dev-tshirt.png"
-              alt="stripe shirts"
-              width={600}
-              height={100}
-            /> */}
-            <div className="relative">
-              <div className="absolute top-0 left-0 right-0 h-[107px] bg-[#fada74]" />
+            <div className="relative min-h-[500px] bg-[#fada74]">
+              <Image
+                className="px-4"
+                src="/assets/array-dev-tshirt.png"
+                alt="stripe shirts"
+                width={400}
+                height={100}
+              />
+              <div
+                className="absolute top-0 left-0 right-0 bottom-0 bg-[#eee] bg-opacity-80 backdrop-blur-lg transition-opacity duration-1000"
+                style={{
+                  opacity: ready ? 0 : 1,
+                }}
+              />
               <Checkout />
             </div>
           </>
@@ -92,7 +98,7 @@ const _ = ({ ready, mobile }: Props) => {
             ))}
           </div>
           {/* Spacer */}
-          {!mobile && <div className="w-full max-w-[320px]" />}
+          {!mobile && <div className="w-full max-w-[412px]" />}
         </div>
       </div>
       {!mobile && <Checkout />}
