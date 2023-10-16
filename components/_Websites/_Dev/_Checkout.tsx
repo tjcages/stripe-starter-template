@@ -26,6 +26,9 @@ const _ = () => {
           state.animation = "end";
         },
       });
+      gsap.to("#glowing-checkout", {
+        opacity: 1,
+      });
     } else if (snap.animation == "end") {
       gsap.to("#glowing-checkout", {
         scaleX: 1.1,
@@ -63,7 +66,7 @@ const _ = () => {
     >
       <div
         id="glowing-checkout"
-        className="absolute z-10 top-0 left-[50%] -translate-x-[50%] w-full max-w-[412px] min-h-[700px] p-2 rounded-xl card pointer-events-none"
+        className="absolute z-10 top-0 left-[50%] -translate-x-[50%] w-full max-w-[412px] min-h-[700px] p-2 rounded-xl card pointer-events-none opacity-0"
       >
         <div
           id="glowing-checkout-inside"

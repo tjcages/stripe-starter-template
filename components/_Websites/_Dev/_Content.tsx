@@ -9,18 +9,32 @@ interface Props {
 
 const _ = ({ ready, mobile }: Props) => {
   const sections = [
-    {
-      title: "Sane, simple, open-source APIs.",
-      description:
-        "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
-      image: "/assets/terminal.png",
-    },
-    {
-      title: "Get a Stripe t-shirt",
-      description:
-        "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
-      image: "/assets/tshirt.png",
-    },
+    mobile
+      ? {
+          title: "Get a Stripe t-shirt",
+          description:
+            "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
+          image: "/assets/tshirt.png",
+        }
+      : {
+          title: "Sane, simple, open-source APIs.",
+          description:
+            "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
+          image: "/assets/terminal.png",
+        },
+    mobile
+      ? {
+          title: "Sane, simple, open-source APIs.",
+          description:
+            "We support Ruby, PHP, Python, C#, and Java. Want to use something else? The code lives at github, and our REST-ful interface makes new bindings easy.",
+          image: "/assets/terminal.png",
+        }
+      : {
+          title: "Get a Stripe t-shirt",
+          description:
+            "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
+          image: "/assets/tshirt.png",
+        },
     {
       title: "Immediate sign-up",
       description:
@@ -35,14 +49,16 @@ const _ = ({ ready, mobile }: Props) => {
     },
   ];
   return (
-    <div className="relative flex w-full h-full rounded-[20px]">
+    <div className="relative flex w-full h-full">
       <div className="flex flex-col w-full h-full bg-white">
         {/* Header */}
-        <div className={`absolute top-0 right-0 w-[40%] h-[168px] bg-[#fada74] transition-all duration-1000 ${
-            ready ? "grayscale-0" : "grayscale"
-          }`} />
         <div
-          className={`relative z-10 w-full p-4 md:px-8 md:py-6 bg-[#fada74] transition-all duration-1000 ${
+          className={`absolute top-0 right-0 w-[40%] h-[168px] bg-[#fada74] transition-all duration-1000 ${
+            ready ? "grayscale-0" : "grayscale"
+          }`}
+        />
+        <div
+          className={`relative w-full p-4 md:px-8 md:py-6 bg-[#fada74] transition-all duration-1000 ${
             ready ? "grayscale-0" : "grayscale"
           }`}
         >
