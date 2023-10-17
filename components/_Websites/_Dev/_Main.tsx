@@ -9,7 +9,7 @@ const _ = () => {
   return (
     <div
       className={`relative flex flex-col pt-12 px-3 w-full h-full ${
-        snap.animation == "end" ? "max-h-auto" : "max-h-screen overflow-hidden"
+        snap.animation == "end" ? "max-h-auto" : "max-h-screen"
       }`}
     >
       <Header ready={snap.animation == "end"} />

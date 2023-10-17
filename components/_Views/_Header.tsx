@@ -39,8 +39,8 @@ const _ = () => {
               color: "#635bff",
               y: "0%",
               duration: 1.5,
-              stagger: 0.2,
-              delay: 0.75,
+              stagger: 0.1,
+              delay: 0.5,
               ease: "expo.out",
             }
           );

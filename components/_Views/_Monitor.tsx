@@ -89,7 +89,7 @@ const _ = ({ children }: Props) => {
             y: "105%",
             rotateX: 60,
             filter: "drop-shadow(0px 10px 30px rgba(153, 102, 255, 0))",
-            duration: snap.mobile ? 2 : 3,
+            duration: 2,
             ease: "expo.inOut",
             onComplete: () => {
               gsap.set("#macbook", {
@@ -112,7 +112,7 @@ const _ = ({ children }: Props) => {
             scaleX: "100%",
             scaleY: "100%",
             rotateX: 0,
-            duration: snap.mobile ? 2 : 3,
+            duration: 2,
             ease: "expo.inOut",
           }
         );
