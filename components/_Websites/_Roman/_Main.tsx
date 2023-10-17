@@ -33,10 +33,10 @@ const _ = () => {
         )}
       </div>
       <div className="relative flex flex-col md:flex-row justify-between items-center mx-2 md:mx-8 mt-8 md:mt-0 mb-4 md:mb-8 gap-4 p-4 bg-[#eee] border border-[#cccccc]">
-        <p>Sustentatio Perpetua Diurna et Nocturna</p>
-        <div className="flex gap-8 place-items-center text-[#615cfd]">
+        <p className="text-[#615cfd]">Sustentatio Perpetua Diurna et Nocturna</p>
+        {/* <div className="flex gap-8 place-items-center text-[#615cfd]">
           <p>Chat with our Spartans</p>
-        </div>
+        </div> */}
         <p>©️709 Ab Urbe Condita</p>
       </div>
     </div>

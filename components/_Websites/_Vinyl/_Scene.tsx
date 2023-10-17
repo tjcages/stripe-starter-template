@@ -52,8 +52,8 @@ const _ = ({ position = new Vector3(-1, 2, 5.5), fov = 45 }) => {
     >
       <color ref={ref} attach="background" args={["#f3df9a"]} />
       <spotLight
-        position={[0, 2, 0]}
-        angle={0.3}
+        position={[0, 2, 3]}
+        angle={0.7}
         penumbra={1}
         castShadow
         intensity={10}

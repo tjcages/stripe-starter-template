@@ -18,7 +18,7 @@ const _ = () => {
       </div>
       <div className="flex gap-2">
         <h5 className="opacity-50">©2010</h5>
-        <h5 className="text-[#3f64ef] underline">dev/finance inc</h5>
+        <h5 className="text-[#3f64ef] font-semibold underline">/dev/finance inc</h5>
       </div>
     </div>
   );
