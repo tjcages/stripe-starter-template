@@ -169,7 +169,7 @@ const _ = () => {
                   2023
                 </div>
                 <div className="flex w-full justify-between text-xs uppercase">
-                  <div className="flex flex-col mt-2 md:mt-0 md:flex-row md:gap-2">
+                  <div className="flex flex-col md:w-full mt-2 md:ml-3 md:mt-0 md:flex-row md:gap-2 md:justify-between">
                     <p>7” Record</p>
                     {!snap.mobile && <p>•</p>}
                     <p>Double-sided</p>

@@ -15,16 +15,16 @@ const _ = ({ mobile }: Props) => {
             width={24}
             height={24}
             style={{ height: "auto" }}
-            className="w-4 h-4 md:w-6 md:h-6"
+            className="w-3 h-3 md:w-6 md:h-6"
           />
-          <div className="text-[16px] md:text-[20px] mr-4 text-[#615cfd]">
+          <div className="text-[16px] md:text-[20px] whitespace-nowrap mr-4 text-[#615cfd]">
             Caesar&apos;s List
           </div>
         </div>
-        <div className="px-2 py-1 bg-[#eaeaea] text-[#615cfd] text-[10px] md:text-[12px]">
+        <div className="px-2 py-1 bg-[#eaeaea] text-[#615cfd] text-[9px] md:text-[12px]">
           Colosseum Kits
         </div>
-        <div className="px-2 py-1 bg-[#eaeaea] text-[#615cfd] text-[10px] md:text-[12px]">
+        <div className="px-2 py-1 bg-[#eaeaea] text-[#615cfd] text-[9px] md:text-[12px]">
           Aqueducts near me
         </div>
       </div>

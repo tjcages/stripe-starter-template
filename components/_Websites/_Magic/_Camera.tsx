@@ -1,7 +1,11 @@
 import { useFrame } from "@react-three/fiber";
 import { easing } from "maath";
 
-const _ = () => {
+interface Props {
+  mobile: boolean;
+}
+
+const _ = ({ mobile }: Props) => {
   useFrame((state, delta) => {
     easing.damp3(
       state.camera.position,
@@ -11,7 +15,7 @@ const _ = () => {
           (state.pointer.y * state.viewport.height +
             state.viewport.height / 2) /
             6,
-        -3.5,
+        mobile ? -4.5 : -3.5,
       ],
       0.5,
       delta
@@ -20,6 +24,6 @@ const _ = () => {
   });
 
   return null;
-}
+};
 
 export default _;

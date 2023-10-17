@@ -63,17 +63,11 @@ const _ = ({ mobile }: Props) => {
         <p className="px-2 py-1 text-[#615cfd]">See more</p>
       </div>
 
-      {mobile && (
-        <div className="relative w-full min-h-[790px] z-10 mb-4 border border-[#cccccc] bg-white">
-          <StripeCheckout index={2} />
-        </div>
-      )}
-
       <h5>
         Perfect for those that think about the Roman Empire more than
-        they&apos;d like to admit.
+        they&apos;d like to admit. Meticulously crafted 3D bust of the renowned
+        Roman Emperor.
         <br />
-        Meticulously crafted 3D bust of the renowned Roman Emperor.
         <br />
         Condition: Mint. No chargebacks (or backstabs).
         <br />
@@ -83,16 +77,9 @@ const _ = ({ mobile }: Props) => {
         <br />
         <br />
         Payment via Stripe, denarii not accepted.
-        <br />
-        The bust measures 8&quot;/20cm in height.
-        <br />
-        Made from PLA, an eco-friendly, biodegradable plastic derived from
-        plants.
-        <br />
-        Small imperfections may occur due to the 3D printing process.
         <br />• do NOT contact me with unsolicited services or offers
       </h5>
-      <div className="flex gap-8 mt-8">
+      <div className="flex gap-8 mt-8 mb-4">
         <p>
           post ID: <span className="text-[#615cfd]">IVCCXLII</span>
         </p>
@@ -100,8 +87,14 @@ const _ = ({ mobile }: Props) => {
         <p>Location: Velletri</p>
       </div>
 
+      {mobile && (
+        <div className="relative w-full min-h-[790px] z-10 mb-4 border border-[#cccccc] bg-white">
+          <StripeCheckout index={2} />
+        </div>
+      )}
+
       {/* Ads */}
-      <div className="flex gap-2 mt-14 mb-4">
+      <div className="flex gap-2 mb-4">
         <h5>Community posts</h5>
         <p className="ml-4 px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-[#615cfd]">
           List

@@ -4,10 +4,12 @@ import gsap from "gsap";
 import { state } from "@/store";
 import Scene from "./_Scene";
 import StripeCheckout from "@/components/_Checkout/_StripeCheckout";
+import { useSnapshot } from "valtio";
 
 const array = new Array(10).fill(0);
 
 const _ = () => {
+  const snap = useSnapshot(state);
   const [ready, set] = useState(false);
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const _ = () => {
 
         {/* ThreeJS */}
         <Suspense fallback={null}>
-          <Scene />
+          <Scene mobile={snap.mobile} />
         </Suspense>
 
         <div

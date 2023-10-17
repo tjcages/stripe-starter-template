@@ -9,7 +9,11 @@ import CameraRig from "./_Camera";
 
 const array = new Array(10).fill(0);
 
-const _ = () => {
+interface Props {
+  mobile: boolean;
+}
+
+const _ = ({ mobile }: Props) => {
   const ref = useRef<any | undefined>();
   const [holding, setHolding] = useState(false);
   const [ready, set] = useState(false);
@@ -79,7 +83,7 @@ const _ = () => {
         onStart={() => setHolding(true)}
         onEnd={() => setHolding(false)}
       />
-      <CameraRig />
+      <CameraRig mobile={mobile} />
       <Leva hidden />
     </Canvas>
   );
