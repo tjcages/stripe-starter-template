@@ -7,16 +7,24 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="preload" href="/assets/air.avif" as="image" />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-M8ML49PYNT" />
-        <Script id="google-analytics">
-          {`
-          window.dataLayer = window.dataLayer || [];
+        <Script
+          id="google-analytics"
+          strategy="beforeInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-M8ML49PYNT"
+        />
+        <Script
+          id="google-analytics-gtag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
-          gtag('config', 'G-M8ML49PYNT');
-        `}
-        </Script>
+          gtag('config', 'G-M8ML49PYNT');`,
+          }}
+        />
+        
       </Head>
       <body>
         <Main />

@@ -64,9 +64,7 @@ const _ = ({ mobile }: Props) => {
       </div>
 
       <h5>
-        Perfect for those that think about the Roman Empire more than
-        they&apos;d like to admit. Meticulously crafted 3D bust of the renowned
-        Roman Emperor.
+        Meticulously crafted 3D bust of the renowned Roman Emperor.
         <br />
         <br />
         Condition: Mint. No chargebacks (or backstabs).
