@@ -67,10 +67,8 @@ const _ = () => {
           className="absolute left-12 right-12 bottom-12 flex flex-col items-center justify-center gap-2 text-white text-center"
         >
           <h2 className="leading-tight">
-            <span className="text-white opacity-40">No batteries?</span>
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-t from-35% from-white">
-              Use your inner hustle.
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-60% from-white">
+              Powered by your inner hustle.
             </span>
             <br />
           </h2>

@@ -120,13 +120,13 @@ const _ = ({ mobile }: Props) => {
             height={16}
           />
           <div className="flex flex-col">
-            <h3>Looking to sack a city</h3>
-            <p className="opacity-50">Troy • 5 hours ago</p>
+            <h3>New Calendar: Never Miss Saturnalia Again</h3>
+            <p className="opacity-50">Julius</p>
           </div>
         </div>
         <Image
           className="w-24 h-24"
-          src="/assets/trojan.jpg"
+          src="/assets/astronomy.jpg"
           alt="trojan"
           width={200}
           height={200}
@@ -143,13 +143,13 @@ const _ = ({ mobile }: Props) => {
             height={16}
           />
           <div className="flex flex-col">
-            <h3>Earth: flatter than you&apos;d expect</h3>
-            <p className="opacity-50">Plato • 2 moons ago</p>
+            <h3>Legionnaire Lawn Care: We Mow, You Conquer</h3>
+            <p className="opacity-50">Marius</p>
           </div>
         </div>
         <Image
           className="w-24 h-24"
-          src="/assets/astronomy.jpg"
+          src="/assets/roman-mow.png"
           alt="astronomy"
           width={200}
           height={200}
@@ -167,7 +167,7 @@ const _ = ({ mobile }: Props) => {
           />
           <div className="flex flex-col">
             <h3>The Ides of March: Now also a Stripe billing cycle</h3>
-            <p className="opacity-50">Latin • 74th day</p>
+            <p className="opacity-50">Cassius</p>
           </div>
         </div>
       </div>

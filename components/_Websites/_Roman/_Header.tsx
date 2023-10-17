@@ -6,7 +6,7 @@ interface Props {
 
 const _ = ({ mobile }: Props) => {
   return (
-    <div className="flex justify-between items-center w-full gap-4 p-2 md:px-4 bg-white border border-[#cccccc]">
+    <div className="flex justify-between items-center w-full gap-4 p-2 md:px-4 md:pr-0 bg-white border border-[#cccccc]">
       <div className="flex justify-start items-center w-full gap-2">
         <div className="flex gap-2 mr-auto md:m-0">
           <Image
