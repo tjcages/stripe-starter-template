@@ -173,10 +173,6 @@ li {
   background: linear-gradient(to top, #ccc, #fff);
 }
 
-.dredd {
-  font-family: var(--font-dredd), sans-serif;
-}
-
 .lined-text {
   color: transparent;
 

@@ -14,7 +14,7 @@ const _ = ({ ready, mobile }: Props) => {
           title: "Get a Stripe t-shirt",
           description:
             "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
-          image: "/assets/tshirt.png",
+          image: "/assets/stripeshirt.avif",
         }
       : {
           title: "Sane, simple, open-source APIs.",
@@ -33,7 +33,7 @@ const _ = ({ ready, mobile }: Props) => {
           title: "Get a Stripe t-shirt",
           description:
             "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
-          image: "/assets/tshirt.png",
+          image: "/assets/stripeshirt.avif",
         },
     {
       title: "Immediate sign-up",
@@ -53,7 +53,7 @@ const _ = ({ ready, mobile }: Props) => {
       <div className="flex flex-col w-full h-full bg-white">
         {/* Header */}
         <div
-          className={`absolute top-0 right-0 w-[40%] h-[168px] md:h-[204px] bg-[#fada74] transition-all duration-1000 ${
+          className={`absolute top-0 right-0 w-[70%] h-[168px] md:h-[204px] bg-[#fada74] transition-all duration-1000 ${
             ready ? "grayscale-0" : "grayscale"
           }`}
         />
@@ -77,7 +77,7 @@ const _ = ({ ready, mobile }: Props) => {
                 className={`transition-all duration-1000 ${
                   ready ? "grayscale-0" : "grayscale"
                 }`}
-                src="/assets/array-dev-tshirt.png"
+                src="/assets/array-dev-tshirt.avif"
                 alt="stripe shirts"
                 width={400}
                 height={100}

@@ -66,7 +66,7 @@ const _ = ({ children }: Props) => {
               y: "-10%",
               opacity: 1,
               scaleX: "50%",
-              scaleY: "50%",
+              scaleY: "45%",
               duration: 1.5,
               delay: 0.5,
               ease: "expo.inOut",
@@ -103,7 +103,7 @@ const _ = ({ children }: Props) => {
           {
             y: snap.mobile ? "100%" : "-10%",
             scaleX: snap.mobile ? "80%" : "50%",
-            scaleY: snap.mobile ? "80%" : "50%",
+            scaleY: snap.mobile ? "80%" : "45%",
             rotateX: snap.mobile ? -10 : -45,
           },
           {
@@ -133,14 +133,14 @@ const _ = ({ children }: Props) => {
     >
       <div
         id="macbook"
-        className="absolute z-10 w-full h-full max-w-[1100px]"
+        className="absolute z-10 w-full min-w-[1000px] h-full max-w-[1100px]"
         style={{
           transform: "translateY(100%) rotateX(-80deg)",
           filter: "drop-shadow(0px 10px 20px rgba(153, 102, 255, 0.25))",
         }}
       >
         <div
-          className="absolute top-[1.2%] p-2 left-[8%] right-[8%] h-[150%] bg-black"
+          className="absolute lg:top-[2%] md:top-[1.5%] p-2 left-[8%] right-[8%] h-[70%] bg-black rounded-t-xl overflow-hidden"
           style={{
             transform: "rotateX(-4deg)",
             transformStyle: "preserve-3d",

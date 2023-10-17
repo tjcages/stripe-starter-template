@@ -12,7 +12,7 @@ const _ = ({ mobile }: Props) => {
       <div className="flex w-full gap-4 py-4">
         <Image
           className="max-w-[50%]"
-          src="/assets/julias.png"
+          src="/assets/julias.avif"
           alt="julias bust"
           width={600}
           height={800}
@@ -28,21 +28,21 @@ const _ = ({ mobile }: Props) => {
             <div className="flex gap-0.5">
               <Image
                 className="w-12 h-12 md:w-20 md:h-20"
-                src="/assets/julias-1.png"
+                src="/assets/julias-1.avif"
                 alt="julias"
                 width={300}
                 height={300}
               />
               <Image
                 className="w-12 h-12 md:w-20 md:h-20"
-                src="/assets/julias-2.png"
+                src="/assets/julias-2.avif"
                 alt="julias"
                 width={300}
                 height={300}
               />
               <Image
                 className="w-12 h-12 md:w-20 md:h-20"
-                src="/assets/julias-3.png"
+                src="/assets/julias-3.avif"
                 alt="julias"
                 width={300}
                 height={300}
@@ -126,7 +126,7 @@ const _ = ({ mobile }: Props) => {
         </div>
         <Image
           className="w-24 h-24"
-          src="/assets/astronomy.jpg"
+          src="/assets/astronomy.avif"
           alt="trojan"
           width={200}
           height={200}
@@ -149,7 +149,7 @@ const _ = ({ mobile }: Props) => {
         </div>
         <Image
           className="w-24 h-24"
-          src="/assets/roman-mow.png"
+          src="/assets/roman-mow.avif"
           alt="astronomy"
           width={200}
           height={200}

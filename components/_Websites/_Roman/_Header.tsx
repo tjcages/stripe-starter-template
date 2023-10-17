@@ -37,13 +37,6 @@ const _ = ({ mobile }: Props) => {
             height={30}
             style={{ height: "auto" }}
           />
-          {/* <Image
-        src="/icons/user.svg"
-        alt="user"
-        width={20}
-        height={20}
-        style={{ height: "auto" }}
-      /> */}
         </div>
       )}
     </div>

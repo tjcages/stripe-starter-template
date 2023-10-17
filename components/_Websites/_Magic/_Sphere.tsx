@@ -6,7 +6,7 @@ import { useControls } from "leva";
 
 const _ = ({ ready, ...props }: { ready: boolean }) => {
   const ref = useRef<any | undefined>();
-  const [cover, decal] = useTexture(["/three/cover.png", "/three/8.png"]);
+  const [cover, decal] = useTexture(["/assets/cover.avif", "/assets/8.png"]);
   const config = useControls({
     meshPhysicalMaterial: false,
     transmissionSampler: false,

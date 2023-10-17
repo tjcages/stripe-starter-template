@@ -43,7 +43,7 @@ export default function Home() {
       <SEO />
 
       <main
-        className={`flex flex-col justify-start items-center w-screen min-h-screen p-2 py-12 md:p-12 bg-[#f6f8fb] ${
+        className={`flex flex-col justify-start items-center w-screen min-h-screen p-2 py-12 md:px-4 lg:px-12 bg-[#f6f8fb] ${
           styles.main
         } ${
           snap.animation == "end"

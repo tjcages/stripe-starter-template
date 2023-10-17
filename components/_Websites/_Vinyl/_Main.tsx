@@ -187,15 +187,6 @@ const _ = () => {
           </div>
 
           <div className="relative flex flex-col gap-2">
-            {!snap.mobile && (
-              <Image
-                className={`${snap.musicPlaying ? "animate-spin" : ""}`}
-                src="/three/record.png"
-                alt="record"
-                width={32}
-                height={32}
-              />
-            )}
             <div className="flex flex-col">
               <div className="relative overflow-hidden">
                 <h3 id="vinyl-front-title">We Are So Back</h3>
