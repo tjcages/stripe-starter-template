@@ -43,7 +43,7 @@ const _ = () => {
   }, [ready]);
 
   return (
-    <div className="relative flex flex-col md:flex-row w-full h-auto pt-9 rounded-xl overflow-hidden noise-bg cursor-grab">
+    <div className="relative flex flex-col md:flex-row w-full h-auto md:min-h-[750px] pt-9 rounded-xl overflow-hidden noise-bg cursor-grab">
       {/* Container */}
       <div className="relative w-full h-[600px] md:h-auto">
         {/* Underlay */}
@@ -104,7 +104,7 @@ const _ = () => {
       </div>
 
       {/* Checkout */}
-      <div className="relative md:w-full md:max-w-[340px] md:min-h-[1070px] md:p-0 mx-3 mb-3 md:m-2 rounded-lg overflow-hidden md:bg-white">
+      <div className="relative md:w-full md:max-w-[340px] md:p-0 mx-3 mb-3 md:m-2 rounded-2xl overflow-hidden md:bg-white md:mb-auto">
         <StripeCheckout index={3} />
       </div>
     </div>

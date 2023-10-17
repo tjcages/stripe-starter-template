@@ -11,7 +11,7 @@ const _ = () => {
           (state.pointer.y * state.viewport.height +
             state.viewport.height / 2) /
             6,
-        -4.5,
+        -3.5,
       ],
       0.5,
       delta
