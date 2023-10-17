@@ -146,6 +146,9 @@ const _ = ({ children }: Props) => {
             transformStyle: "preserve-3d",
           }}
         >
+          <div
+            className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none opacity-10 bg-[#D8D6FF]"
+          />
           <Image
             id="macbook-background"
             priority

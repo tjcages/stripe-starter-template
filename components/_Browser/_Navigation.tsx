@@ -26,13 +26,13 @@ const _ = () => {
           gsap.to("#glow-move", {
             x: "100vw",
             duration: 3,
-            ease: "power4.out",
+            ease: "power4.inOut",
           });
           gsap.to("#glow-move", {
             opacity: 0,
             duration: 1.5,
             delay: 1,
-            ease: "power4.out",
+            ease: "power4.inOut",
           });
         },
       });
@@ -48,7 +48,7 @@ const _ = () => {
       </div>
       <div
         id="glow-move"
-        className="absolute left-20 -bottom-14 w-60 h-10 bg-[#96f] rounded-full blur-xl opacity-0 shadow-stripeReverse"
+        className="absolute left-20 -bottom-14 w-60 h-10 bg-[#645CFF] rounded-full blur-xl opacity-0 shadow-stripeReverse"
       />
       <div className="relative flex items-end justify-start gap-2 w-full h-full">
         {state.tabs.map((tab, index) => (
