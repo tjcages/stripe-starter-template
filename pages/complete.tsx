@@ -70,7 +70,7 @@ export default function Home() {
                   target="_blank"
                   className="underline"
                 >
-                  @sammcallister
+                  smca@stripe.com
                 </Link>
                 .
               </Balancer>
