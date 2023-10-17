@@ -128,7 +128,7 @@ const _ = () => {
               site.
               {!snap.mobile ? <br /> : " "}
               Here are a few{" "}
-              <span className={styles.shimmer}>fun examples</span> to get you
+              <span className={styles.shimmer}>fun (real) examples</span> to get you
               started.
             </Balancer>
           </h4>
