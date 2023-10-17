@@ -10,7 +10,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Analytics />
+        <Analytics mode={'production'} />
       </body>
     </Html>
   );
