@@ -10,7 +10,7 @@ const _ = ({ mobile }: Props) => {
     easing.damp3(
       state.camera.position,
       [
-        (state.pointer.x * state.viewport.width + state.viewport.width / 2) / 3,
+        (state.pointer.x) / 3,
         -0.5 +
           (state.pointer.y * state.viewport.height +
             state.viewport.height / 2) /

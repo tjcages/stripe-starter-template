@@ -33,7 +33,7 @@ const _ = ({ ready, mobile }: Props) => {
           title: "Get a Stripe t-shirt",
           description:
             "Get your very own blurple Stripe t-shirt. Made from 100% combed ringspun cotton with a screen-printed Stripe wordmark on the chest and custom 12° tag sewn onto the hem.",
-          image: "/assets/stripeshirt.avif",
+          image: "/assets/array-dev-tshirt.avif",
         },
     {
       title: "Immediate sign-up",
