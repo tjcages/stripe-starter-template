@@ -47,7 +47,7 @@ const state = proxy({
     },
     {
       id: 1,
-      title: "WSB Record",
+      title: "WSB Records",
       icon: "/vinyl",
       color: "black",
       background: "transparent",

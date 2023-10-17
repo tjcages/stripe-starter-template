@@ -41,7 +41,7 @@ const _ = () => {
     if (!canClick) {
       setTimeout(() => {
         setCanClick(true);
-      }, 1000);
+      }, 500);
     }
   }, [canClick]);
 
@@ -161,7 +161,7 @@ const _ = () => {
             <div className="flex justify-between w-full">
               <div className="relative flex flex-col items-start text-black text-left leading-none">
                 <div className="text-[32px] md:text-[62px] font-bold">
-                  WSB Record
+                  WSB Records
                 </div>
                 <div className="absolute top-0 md:top-2 -right-10 md:-right-14 opacity-20 text-[16px] md:text-[20px]">
                   2023
@@ -172,7 +172,9 @@ const _ = () => {
                     {!snap.mobile && <p>•</p>}
                     <p>Double-sided</p>
                     {!snap.mobile && <p>•</p>}
-                    <p>Original soundtrack</p>
+                    <p>Hand-cut</p>
+                    {!snap.mobile && <p>•</p>}
+                    <p>$24.24</p>
                   </div>
                 </div>
               </div>
@@ -206,7 +208,7 @@ const _ = () => {
               </div>
               <div className="flex w-full justify-between items-center">
                 <h4 className="uppercase text-sm opacity-50">
-                  Currently Playing
+                  {snap.musicPlaying ? "Now Playing" : "Not Playing"}
                 </h4>
                 {snap.mobile && (
                   <div className="p-2 -ml-2 cursor-pointer">
@@ -246,7 +248,48 @@ const _ = () => {
                 }}
               >
                 <div
-                  className="flex justify-center items-center w-full md:w-22 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer clicky"
+                  className={`flex justify-center items-center w-32 gap-1 h-12 md:h-13 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer clicky ${
+                    snap.musicPlaying ? "clicked" : ""
+                  }`}
+                  onClick={() => {
+                    if (snap.musicPlaying) state.musicPlaying = false;
+                    else state.musicPlaying = true;
+
+                    setCanClick(false);
+                  }}
+                >
+                  <Image
+                    src="/icons/play.svg"
+                    alt="play icon"
+                    width={12}
+                    height={12}
+                    className="min-w-3 min-h-3"
+                  />
+                  <Image
+                    src="/icons/pause.svg"
+                    alt="pause icon"
+                    width={12}
+                    height={12}
+                    className="min-w-3 min-h-3"
+                  />
+                </div>
+                <div
+                  className="flex justify-center items-center w-28 md:w-26 h-12 md:h-13 py-3 px-6 md:px-7 border border-black text-xs text-black uppercase cursor-pointer clicky"
+                  onClick={() => {
+                    state.side = snap.side == "front" ? "back" : "front";
+                    setCanClick(false);
+                  }}
+                >
+                  <Image
+                    src="/icons/forward.svg"
+                    alt="forward icon"
+                    width={16}
+                    height={16}
+                    className="min-w-4 min-h-4"
+                  />
+                </div>
+                <div
+                  className="flex justify-center items-center w-full md:w-22 h-12 md:h-13 py-3 px-8 md:px-4 border border-black text-sm text-black font-bold uppercase cursor-pointer clicky"
                   onClick={() => {
                     if (snap.mobile) {
                       // scroll to #vinyl-checkout
@@ -263,55 +306,6 @@ const _ = () => {
                 >
                   BUY NOW
                 </div>
-                <div
-                  className={`flex justify-center items-center w-24 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer clicky ${
-                    !snap.musicPlaying ? "clicked" : ""
-                  }`}
-                  onClick={() => {
-                    state.musicPlaying = false;
-                    setCanClick(false);
-                  }}
-                >
-                  <Image
-                    src="/icons/pause.svg"
-                    alt="pause icon"
-                    width={16}
-                    height={16}
-                    className="min-w-4 min-h-4"
-                  />
-                </div>
-                <div
-                  className={`flex justify-center items-center w-24 h-11 py-3 px-8 border border-black text-xs text-black uppercase cursor-pointer clicky ${
-                    snap.musicPlaying ? "clicked" : ""
-                  }`}
-                  onClick={() => {
-                    state.musicPlaying = true;
-                    setCanClick(false);
-                  }}
-                >
-                  <Image
-                    src="/icons/play.svg"
-                    alt="play icon"
-                    width={16}
-                    height={16}
-                    className="min-w-4 min-h-4"
-                  />
-                </div>
-                <div
-                  className="flex justify-center items-center w-28 md:w-26 h-11 py-3 px-6 md:px-7 border border-black text-xs text-black uppercase cursor-pointer clicky"
-                  onClick={() => {
-                    state.side = snap.side == "front" ? "back" : "front";
-                    setCanClick(false);
-                  }}
-                >
-                  <Image
-                    src="/icons/forward.svg"
-                    alt="forward icon"
-                    width={snap.mobile ? 14 : 16}
-                    height={snap.mobile ? 14 : 16}
-                    className="min-w-4 min-h-4"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -322,7 +316,7 @@ const _ = () => {
       {!snap.mobile && (
         <div
           id="vinyl-overlay"
-          className={`fixed top-0 left-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm opacity-0 rounded-xl overflow-hidden ${
+          className={`fixed top-0 left-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm opacity-0 rounded-xl overflow-hidden cursor-pointer ${
             showModal ? "pointer-events-auto" : "pointer-events-none"
           }`}
           onClick={() => setShowModal(false)}
@@ -330,7 +324,7 @@ const _ = () => {
       )}
       <div
         id="vinyl-checkout"
-        className="relative md:absolute md:top-[52px] md:left-[50%] md:-translate-x-[50%] md:min-w-[995px] md:min-h-[750px] pb-6 md:py-6 md:bg-[#f3df9a] md:translate-y-[100%] md:opacity-0 md:shadow-stripe md:overflow-scroll"
+        className="relative md:absolute md:top-[52px] md:left-[50%] md:-translate-x-[50%] md:min-w-[995px] md:min-h-[750px] pb-6 md:py-6 md:bg-[#000] md:translate-y-[100%] md:opacity-0 md:shadow-stripe md:overflow-scroll"
       >
         {snap.mobile ? (
           <StripeCheckout index={1} />
