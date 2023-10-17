@@ -4,7 +4,6 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
-import { useSnapshot } from "valtio";
 import { state } from "@/store";
 
 interface Props {
@@ -21,7 +20,6 @@ const keys = [
 ] as string[];
 
 const _ = ({ index, full = false }: Props) => {
-  const snap = useSnapshot(state);
   const [client, set] = useState<string | null>(null);
   async function initialize(selected: number) {
     const response = await fetch("/api/create-checkout-session", {
@@ -53,11 +51,7 @@ const _ = ({ index, full = false }: Props) => {
     clientSecret: client,
   };
   return (
-    <div
-      id={`checkout-container-${index}`}
-      className="w-full h-auto"
-      // style={{ backgroundColor: state.tabs[index].background }}
-    >
+    <div id={`checkout-container-${index}`} className="w-full h-auto">
       <div id={`checkout-content-${index}`}>
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {

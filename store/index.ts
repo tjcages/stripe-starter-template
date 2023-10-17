@@ -43,6 +43,7 @@ const state = proxy({
       backgroundDark: "#F0F5FA",
       itemName: "Stripe Shirt",
       price: 424,
+      priceObj: "price_1O1rOMGNGADMMqweACDAjUNI"
     },
     {
       id: 1,
@@ -64,6 +65,7 @@ const state = proxy({
       backgroundDark: "#E0E0E0",
       itemName: "Caesar Augustus Desktop Bust",
       price: 2424,
+      priceObj: "price_1O1ygjIo2OMZnOA7PVzMf4ge"
     },
     {
       id: 3,
@@ -74,6 +76,7 @@ const state = proxy({
       backgroundDark: "#000000",
       itemName: "Stripe Fore$ight",
       price: 5600,
+      priceObj: "price_1O1ymyJs1c7tw4aONbl5kqmS"
     },
   ],
   selected: 0,

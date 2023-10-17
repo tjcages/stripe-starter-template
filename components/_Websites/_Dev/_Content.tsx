@@ -53,12 +53,12 @@ const _ = ({ ready, mobile }: Props) => {
       <div className="flex flex-col w-full h-full bg-white">
         {/* Header */}
         <div
-          className={`absolute top-0 right-0 w-[40%] h-[168px] bg-[#fada74] transition-all duration-1000 ${
+          className={`absolute top-0 right-0 w-[40%] h-[168px] md:h-[204px] bg-[#fada74] transition-all duration-1000 ${
             ready ? "grayscale-0" : "grayscale"
           }`}
         />
         <div
-          className={`relative w-full p-4 md:px-8 md:py-6 bg-[#fada74] transition-all duration-1000 ${
+          className={`relative w-full md:h-[204px] p-4 md:px-8 md:py-6 bg-[#fada74] transition-all duration-1000 ${
             ready ? "grayscale-0" : "grayscale"
           }`}
         >
@@ -112,7 +112,7 @@ const _ = ({ ready, mobile }: Props) => {
       {!mobile && <Checkout />}
 
       <div
-        className={`absolute z-10 top-0 left-0 w-full h-[290px] md:h-[168px] flex flex-col justify-end overflow-hidden mask mix-blend-multiply transition-opacity duration-1000 ${
+        className={`absolute z-10 top-0 left-0 w-full h-[290px] md:h-[204px] flex flex-col justify-end overflow-hidden mask mix-blend-multiply transition-opacity duration-1000 ${
           ready ? "opacity-100" : "opacity-0"
         }`}
       >

@@ -84,13 +84,19 @@ const _ = () => {
           id="stripe-magic-fade"
           className="absolute left-0 top-0 z-10 w-full py-2 pl-4 flex items-start justify-between"
         >
-          <div className="grid grid-cols-[20px_1fr] md:flex justify-start items-center gap-x-4 md:gap-12 text-[12px] md:text-[14px]">
-            <Image src="/icons/8.png" alt="8" width={20} height={20} />
+          <div className="grid grid-cols-[20px_1fr] md:flex justify-start items-center gap-x-4 md:gap-12 text-[12px] md:text-[18px]">
+            <Image
+              src="/icons/8.png"
+              alt="8"
+              width={20}
+              height={20}
+              className="w-5 md:w-7 h-auto"
+            />
             <div className="flex md:flex-col gap-4 md:gap-0 text-white">
               <div>Stripe Fore$ight</div>
               <div className="opacity-50 uppercase italic">Limited Edition</div>
             </div>
-            <div className="absolute md:relative left-[50%] -translate-x-[50%] md:translate-x-0 md:left-auto top-12 md:top-auto text-center md:text-left text-[14px] whitespace-nowrap text-white opacity-50 col-span-2">
+            <div className="absolute md:relative left-[50%] -translate-x-[50%] md:translate-x-0 md:left-auto top-12 md:top-auto text-center md:text-left text-[16px] md:text-[18px] whitespace-nowrap text-white opacity-50 col-span-2">
               Money moves. <br />
               Pose a question, shake, and unveil your forecast.
             </div>
@@ -100,7 +106,7 @@ const _ = () => {
       </div>
 
       {/* Checkout */}
-      <div className="relative md:w-full md:max-w-[340px] min-h-[1070px] z-10 rounded-lg md:p-0 mx-3 mb-3 md:m-2 overflow-hidden md:bg-white">
+      <div className="relative md:w-full md:max-w-[340px] md:min-h-[1070px] md:p-0 mx-3 mb-3 md:m-2 rounded-lg overflow-hidden md:bg-white">
         <StripeCheckout index={3} />
       </div>
     </div>

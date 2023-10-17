@@ -27,7 +27,7 @@ const _ = () => {
 
         {/* Checkout */}
         {!snap.mobile && (
-          <div className="relative w-full max-w-[380px] min-h-[790px] z-10 mt-6 pt-2 border border-[#cccccc] bg-white">
+          <div className="relative w-full max-w-[380px] z-10 mt-6 pt-2">
             <StripeCheckout index={2} />
           </div>
         )}
