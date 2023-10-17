@@ -135,7 +135,7 @@ export default async function handler(
       mode: "payment",
       ui_mode: mode,
       return_url:
-        process.env.NEXT_PUBLIC_URL + "/?session_id={CHECKOUT_SESSION_ID}",
+        process.env.NEXT_PUBLIC_URL + "/complete?session_id={CHECKOUT_SESSION_ID}",
     } as any)) as any;
 
     res.status(200).json({ clientSecret: session.client_secret });
