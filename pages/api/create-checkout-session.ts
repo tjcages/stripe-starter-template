@@ -20,8 +20,6 @@ export default async function handler(
   if (req.method === "POST") {
     const index = req.body.tab;
     const mode = req.body.mode || "embedded";
-    const itemName = req.body.itemName || "";
-    const price = req.body.price || 2000;
     const priceObj = req.body.priceObj;
     const size = req.body.size || false;
 
@@ -34,21 +32,10 @@ export default async function handler(
 
     const session = (await stripe.checkout.sessions.create({
       line_items: [
-        priceObj
-          ? {
-              price: priceObj,
-              quantity: 1,
-            }
-          : {
-              price_data: {
-                currency: "usd",
-                product_data: {
-                  name: itemName,
-                },
-                unit_amount: price,
-              },
-              quantity: 1,
-            },
+        {
+          price: priceObj,
+          quantity: 1,
+        },
       ],
       custom_fields: size
         ? [

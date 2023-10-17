@@ -14,8 +14,6 @@ interface State {
     color: string;
     background: string;
     backgroundDark: string;
-    itemName: string;
-    price: number;
     priceObj?: string;
   }[];
   selected: number;
@@ -41,9 +39,7 @@ const state = proxy({
       color: "black",
       background: "#F0F5FA",
       backgroundDark: "#F0F5FA",
-      itemName: "Stripe Shirt",
-      price: 424,
-      priceObj: "price_1O1rOMGNGADMMqweACDAjUNI"
+      priceObj: "price_1O1rOMGNGADMMqweACDAjUNI",
     },
     {
       id: 1,
@@ -52,9 +48,7 @@ const state = proxy({
       color: "black",
       background: "transparent",
       backgroundDark: "transparent",
-      itemName: "Custom Vinyl 7inch",
-      price: 2424,
-      priceObj: "price_1O1yjBDDBH9tvjpxPYrpUJYx"
+      priceObj: "price_1O1yjBDDBH9tvjpxPYrpUJYx",
     },
     {
       id: 2,
@@ -63,9 +57,7 @@ const state = proxy({
       color: "black",
       background: "white",
       backgroundDark: "#E0E0E0",
-      itemName: "Caesar Augustus Desktop Bust",
-      price: 2424,
-      priceObj: "price_1O1ygjIo2OMZnOA7PVzMf4ge"
+      priceObj: "price_1O1ygjIo2OMZnOA7PVzMf4ge",
     },
     {
       id: 3,
@@ -74,9 +66,7 @@ const state = proxy({
       color: "white",
       background: "#091012",
       backgroundDark: "#000000",
-      itemName: "Stripe Fore$ight",
-      price: 5600,
-      priceObj: "price_1O1ymyJs1c7tw4aONbl5kqmS"
+      priceObj: "price_1O1ymyJs1c7tw4aONbl5kqmS",
     },
   ],
   selected: 0,

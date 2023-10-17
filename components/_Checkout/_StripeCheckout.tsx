@@ -30,8 +30,6 @@ const _ = ({ index, full = false }: Props) => {
       // pass a body to the request
       body: JSON.stringify({
         tab: selected,
-        itemName: state.tabs[selected].itemName,
-        price: state.tabs[selected].price,
         priceObj: state.tabs[selected].priceObj,
         size: index == 0,
       }),
