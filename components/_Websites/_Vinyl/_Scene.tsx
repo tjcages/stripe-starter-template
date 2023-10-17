@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-  Environment,
-  PerformanceMonitor,
-  OrbitControls,
-} from "@react-three/drei";
+import { Environment, PerformanceMonitor, Loader } from "@react-three/drei";
 import { Vector3 } from "three";
 import gsap from "gsap";
 import { useSnapshot } from "valtio";
@@ -40,41 +36,46 @@ const _ = ({ position = new Vector3(-1, 2, 5.5), fov = 45 }) => {
   }, [snap.side]);
 
   return (
-    <Canvas
-      camera={{
-        position,
-        fov,
-      }}
-      gl={{ preserveDrawingBuffer: true }}
-      eventPrefix="client"
-      className="top-0 left-0 right-0 bottom-0"
-      style={{ position: "absolute", pointerEvents: snap.mobile ? "none" : "auto" }}
-    >
-      <color ref={ref} attach="background" args={["#f3df9a"]} />
-      <spotLight
-        position={[0, 2, 3]}
-        angle={0.7}
-        penumbra={1}
-        castShadow
-        intensity={10}
-        shadow-bias={-0.0001}
-        // color="#e5bd53"
-      />
-      <Player castShadow />
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.7, 0]}>
-        <planeGeometry args={[100, 100]} />
-        <meshStandardMaterial transparent opacity={0} />
-      </mesh>
-      <Environment preset="city" frames={degraded ? 1 : Infinity} />
-      {/* <Environment
+    <>
+      <Canvas
+        camera={{
+          position,
+          fov,
+        }}
+        gl={{ preserveDrawingBuffer: true }}
+        eventPrefix="client"
+        className="top-0 left-0 right-0 bottom-0"
+        style={{
+          position: "absolute",
+          pointerEvents: snap.mobile ? "none" : "auto",
+        }}
+      >
+        <color ref={ref} attach="background" args={["#f3df9a"]} />
+        <spotLight
+          position={[0, 2, 3]}
+          angle={0.7}
+          penumbra={1}
+          castShadow
+          intensity={10}
+          shadow-bias={-0.0001}
+          // color="#e5bd53"
+        />
+        <Player castShadow />
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.7, 0]}>
+          <planeGeometry args={[100, 100]} />
+          <meshStandardMaterial transparent opacity={0} />
+        </mesh>
+        <Environment preset="city" frames={degraded ? 1 : Infinity} />
+        {/* <Environment
         frames={degraded ? 1 : Infinity}
         files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr"
       /> */}
-      <PerformanceMonitor onDecline={() => degrade(true)} />
-      <Camera playing={snap.musicPlaying} mobile={snap.mobile} />
-      <Post />
-      {/* <OrbitControls /> */}
-    </Canvas>
+        <PerformanceMonitor onDecline={() => degrade(true)} />
+        <Camera playing={snap.musicPlaying} mobile={snap.mobile} />
+        <Post />
+      </Canvas>
+      <Loader />
+    </>
   );
 };
 

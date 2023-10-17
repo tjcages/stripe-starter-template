@@ -72,7 +72,7 @@ const _ = () => {
         >
           <h2 className="leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-60% from-white">
-              Powered by your inner hustle.
+              Powered by your inner&nbsp;hustle.
             </span>
             <br />
           </h2>
