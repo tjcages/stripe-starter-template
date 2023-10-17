@@ -66,7 +66,7 @@ export default function Home() {
                 will appear on your statement. Items will ship in 2–3 weeks. If
                 you have any questions about your order, please reach out to{" "}
                 <Link
-                  href="https://twitter.com/sammcallister"
+                  href="mailto:smca@stripe.com"
                   target="_blank"
                   className="underline"
                 >

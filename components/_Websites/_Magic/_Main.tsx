@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { state } from "@/store";
@@ -60,7 +60,9 @@ const _ = () => {
         </div>
 
         {/* ThreeJS */}
-        <Scene />
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
 
         <div
           id="stripe-magic-fade"

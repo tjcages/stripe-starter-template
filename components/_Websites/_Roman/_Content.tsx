@@ -70,8 +70,8 @@ const _ = ({ mobile }: Props) => {
       )}
 
       <h5>
-        Perfect for those that think about the Roman Empire more than they&apos;d
-        like to admit.
+        Perfect for those that think about the Roman Empire more than
+        they&apos;d like to admit.
         <br />
         Meticulously crafted 3D bust of the renowned Roman Emperor.
         <br />
@@ -170,6 +170,14 @@ const _ = ({ mobile }: Props) => {
             <p className="opacity-50">Cassius</p>
           </div>
         </div>
+        <Image
+          className="w-24 h-24"
+          src="/assets/ides.avif"
+          alt="ides of march"
+          width={200}
+          height={200}
+          style={{ height: "auto" }}
+        />
       </div>
     </div>
   );

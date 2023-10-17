@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useSnapshot } from "valtio";
@@ -150,7 +150,9 @@ const _ = () => {
     >
       {/* Scene */}
       <div className="absolute md:fixed z-100 top-0 left-0 right-0 h-[500px] md:h-auto md:bottom-0 md:rounded-xl md:overflow-hidden">
-        <Scene />
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
       </div>
 
       {/* Container */}
