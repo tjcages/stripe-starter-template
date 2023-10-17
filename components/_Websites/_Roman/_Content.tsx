@@ -8,7 +8,7 @@ interface Props {
 const _ = ({ mobile }: Props) => {
   return (
     <div className="flex flex-col w-full h-full py-4 pb-4">
-      <h3>Caesar Augustus Desktop Bust - $42</h3>
+      <h3>Caesar Augustus Desktop Bust</h3>
       <div className="flex w-full gap-4 py-4">
         <Image
           className="max-w-[50%]"
@@ -19,12 +19,12 @@ const _ = ({ mobile }: Props) => {
           style={{ height: "auto" }}
         />
         <div className="flex flex-col justify-between min-h-full gap-0">
-          <h4>
+          <h5>
             Perfect for those that think about the Roman Empire more than they’d
             like to admit.
-          </h4>
+          </h5>
           <div>
-            <h4>More images:</h4>
+            <h5>More images:</h5>
             <div className="flex gap-0.5">
               <Image
                 className="w-12 h-12 md:w-20 md:h-20"
@@ -69,7 +69,7 @@ const _ = ({ mobile }: Props) => {
         </div>
       )}
 
-      <h4>
+      <h5>
         Perfect for those that think about the Roman Empire more than they&apos;d
         like to admit.
         <br />
@@ -91,7 +91,7 @@ const _ = ({ mobile }: Props) => {
         <br />
         Small imperfections may occur due to the 3D printing process.
         <br />• do NOT contact me with unsolicited services or offers
-      </h4>
+      </h5>
       <div className="flex gap-8 mt-8">
         <p>
           post ID: <span className="text-[#615cfd]">IVCCXLII</span>
@@ -102,7 +102,7 @@ const _ = ({ mobile }: Props) => {
 
       {/* Ads */}
       <div className="flex gap-2 mt-14 mb-4">
-        <h4>Community posts</h4>
+        <h5>Community posts</h5>
         <p className="ml-4 px-2 py-1 bg-[#eeeeee] border border-[#cccccc] text-[#615cfd]">
           List
         </p>

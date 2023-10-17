@@ -21,10 +21,12 @@ const _ = ({ mobile }: Props) => {
             Caesar&apos;s List
           </div>
         </div>
-        <p className="px-2 py-1 bg-[#eaeaea] text-[#615cfd]">Colosseum Kits</p>
-        <p className="px-2 py-1 bg-[#eaeaea] text-[#615cfd]">
+        <div className="px-2 py-1 bg-[#eaeaea] text-[#615cfd] text-[10px] md:text-[12px]">
+          Colosseum Kits
+        </div>
+        <div className="px-2 py-1 bg-[#eaeaea] text-[#615cfd] text-[10px] md:text-[12px]">
           Aqueducts near me
-        </p>
+        </div>
       </div>
       {!mobile && (
         <div className="flex gap-6 items-center pr-4">

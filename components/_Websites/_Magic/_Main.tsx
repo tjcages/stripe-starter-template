@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { state } from "@/store";
 import Scene from "./_Scene";
@@ -42,30 +43,35 @@ const _ = () => {
   }, [ready]);
 
   return (
-    <div className="relative flex w-full h-auto pt-9 rounded-xl overflow-hidden bg-[#0A0A0A] noise cursor-grab">
+    <div className="relative flex flex-col md:flex-row w-full h-auto pt-9 rounded-xl overflow-hidden noise-bg cursor-grab">
       {/* Container */}
-      <div className="relative w-full">
+      <div className="relative w-full h-[600px] md:h-auto">
         {/* Underlay */}
         <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center overflow-hidden">
           {array.map((_, i) => (
             <div
               key={`stripe-magic-${i}`}
               id={`stripe-magic-${i}`}
-              className="text-white opacity-0 text-center text-[6vw] whitespace-nowrap leading-none"
+              className="text-white opacity-0 text-center text-[48px]  md:text-[6vw] whitespace-nowrap leading-none"
             >
               GIVE IT A SHAKE
             </div>
           ))}
         </div>
 
+        {/* ThreeJS */}
+        <Scene />
+
         <div
           id="stripe-magic-fade"
           className="absolute left-12 right-12 bottom-12 flex flex-col items-center justify-center gap-2 text-white text-center"
         >
-          <h2>
-            <span className="opacity-40 leading-none">No batteries?</span>
+          <h2 className="leading-tight">
+            <span className="text-white opacity-40">No batteries?</span>
             <br />
-            Use your inner hustle.
+            <span className="text-transparent bg-clip-text bg-gradient-to-t from-35% from-white">
+              Use your inner hustle.
+            </span>
             <br />
           </h2>
           <p className="mt-2 text-sm uppercase opacity-40">
@@ -73,22 +79,18 @@ const _ = () => {
           </p>
         </div>
 
-        {/* ThreeJS */}
-        <Scene />
-
         {/* Overlay */}
         <div
           id="stripe-magic-fade"
           className="absolute left-0 top-0 z-10 w-full py-2 pl-4 flex items-start justify-between"
         >
-          <div className="flex justify-start items-start gap-12">
-            <h2 className="text-white rotate-90 -translate-y-2">8</h2>
-            <div className="text-white opacity-50">
-              Stripe Fore$ight
-              <br />
-              Limited Edition
+          <div className="grid grid-cols-[20px_1fr] md:flex justify-start items-center gap-x-4 md:gap-12 text-[12px] md:text-[14px]">
+            <Image src="/icons/8.png" alt="8" width={20} height={20} />
+            <div className="flex md:flex-col gap-4 md:gap-0 text-white">
+              <div>Stripe Fore$ight</div>
+              <div className="opacity-50 uppercase italic">Limited Edition</div>
             </div>
-            <div className="text-white opacity-50">
+            <div className="absolute md:relative left-[50%] -translate-x-[50%] md:translate-x-0 md:left-auto top-12 md:top-auto text-center md:text-left text-[14px] whitespace-nowrap text-white opacity-50 col-span-2">
               Money moves. <br />
               Pose a question, shake, and unveil your forecast.
             </div>
@@ -98,7 +100,7 @@ const _ = () => {
       </div>
 
       {/* Checkout */}
-      <div className="relative w-full max-w-[340px] min-h-[970px] z-10 rounded-lg m-2 overflow-hidden bg-white">
+      <div className="relative md:w-full md:max-w-[340px] min-h-[1070px] z-10 rounded-lg md:p-0 mx-3 mb-3 md:m-2 overflow-hidden md:bg-white">
         <StripeCheckout index={3} />
       </div>
     </div>

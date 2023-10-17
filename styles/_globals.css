@@ -62,17 +62,18 @@ li {
   cursor: crosshair;
 }
 
-.noise:before {
+.noise-bg:before {
   content: "";
   position: absolute;
   top: 0;
+  left: 0;
   bottom: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 0;
+  right: 0;
+  z-index: 10;
 
   background-image: url(/assets/noise.png);
   background-size: 100px;
+  background-color: #0A0A0A;
 
   opacity: 0.2;
   pointer-events: none;
