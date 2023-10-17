@@ -31,7 +31,7 @@ const _ = () => {
           gsap.to("#glow-move", {
             opacity: 0,
             duration: 1.5,
-            delay: 1.5,
+            delay: 1,
             ease: "power4.out",
           });
         },

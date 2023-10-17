@@ -8,11 +8,8 @@ import {
   Browser,
   Dev,
   Roman,
-  Kevin,
   Vinyl,
   Magic,
-  Code,
-  Overlay,
   Monitor,
 } from "@/components";
 import { isMobile } from "@/utils";
@@ -63,8 +60,6 @@ export default function Home() {
             </Monitor>
           </>
         )}
-        <Overlay />
-        <Code />
       </main>
     </>
   );
