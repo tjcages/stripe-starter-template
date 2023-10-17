@@ -28,12 +28,12 @@ const _ = ({ ready }: Props) => {
           <h4>Contact</h4>
         </div>
       </div>
-      <Link
+      {/* <Link
         className="py-1 px-4 bg-gradient-to-t hidden md:flex from-[#222] via-[#000] to-[#444] rounded-full border border-gray-400"
         href="https://dashboard.stripe.com/"
       >
         Login
-      </Link>
+      </Link> */}
     </div>
   );
 };
