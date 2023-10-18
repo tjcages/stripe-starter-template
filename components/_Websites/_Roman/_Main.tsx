@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Image from "next/image";
 import { state } from "@/store";
 import { useSnapshot } from "valtio";
 import Header from "./_Header";
@@ -27,13 +28,23 @@ const _ = () => {
 
         {/* Checkout */}
         {!snap.mobile && (
-          <div className="relative w-full max-w-[380px] z-10 mt-6 pt-2">
+          <div className="relative w-full max-w-[380px] z-10 mt-6 pt-2 pointer-events-none">
+            <div className="absolute top-12 right-0 z-1000 w-80 h-auto -rotate-12">
+              <Image
+                src="/assets/sold-out.avif"
+                alt="sold out sign"
+                width={300}
+                height={100}
+              />
+            </div>
             <StripeCheckout index={2} />
           </div>
         )}
       </div>
       <div className="relative flex flex-col md:flex-row justify-between items-center mx-2 md:mx-8 mt-8 md:mt-0 mb-4 md:mb-8 gap-4 p-4 bg-[#eee] border border-[#cccccc]">
-        <p className="text-[#615cfd]">Sustentatio Perpetua Diurna et Nocturna</p>
+        <p className="text-[#615cfd]">
+          Sustentatio Perpetua Diurna et Nocturna
+        </p>
         {/* <div className="flex gap-8 place-items-center text-[#615cfd]">
           <p>Chat with our Spartans</p>
         </div> */}

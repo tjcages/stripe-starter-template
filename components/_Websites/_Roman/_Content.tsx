@@ -86,7 +86,15 @@ const _ = ({ mobile }: Props) => {
       </div>
 
       {mobile && (
-        <div className="relative w-full min-h-[790px] z-10 mb-4 border border-[#cccccc] bg-white">
+        <div className="relative w-full min-h-[790px] z-10 mb-4 border border-[#cccccc] bg-white pointer-events-none">
+          <div className="absolute top-12 right-0 z-1000 w-80 h-auto -rotate-12">
+            <Image
+              src="/assets/sold-out.avif"
+              alt="sold out sign"
+              width={300}
+              height={100}
+            />
+          </div>
           <StripeCheckout index={2} />
         </div>
       )}

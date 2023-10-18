@@ -21,12 +21,8 @@ const _ = forwardRef(function ContentF(
     { text1: "99.999%", text2: "reliability", scale: 0.8 },
     { text1: "Have you", text2: "considered AI?", scale: 0.7 },
     { text1: "Mind the", text2: "GAAP", scale: 0.9 },
-    // { text1: "Consider a", text2: "hostile takeover", scale: 0.722 },
-    // { text1: "Outlook", text2: "bullish", scale: 0.9 },
     { text1: "Forecast:", text2: "Ramen", scale: 0.962 },
-    // { text1: "Blocked for", text2: "fraud, shake again", scale: 0.622 },
     { text1: "Make it a", text2: "wearable", scale: 0.9 },
-    // { text1: "Shake to", text2: "pay", scale: 0.9 },
     { text1: "AGI", text2: "achieved", scale: 0.9 },
   ];
 
