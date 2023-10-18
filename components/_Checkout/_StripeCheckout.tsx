@@ -48,7 +48,10 @@ const _ = ({ index }: Props) => {
     clientSecret: client,
   };
   return (
-    <div id={`checkout-container-${index}`} className="w-full h-auto pointer-events-none">
+    <div
+      id={`checkout-container-${index}`}
+      className="w-full h-auto pointer-events-none"
+    >
       <div id={`checkout-content-${index}`}>
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {

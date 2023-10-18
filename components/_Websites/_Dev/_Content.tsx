@@ -95,18 +95,17 @@ const _ = ({ ready, mobile }: Props) => {
         {/* Main */}
         <div className="flex w-full h-full bg-white border border-[#e8e8e8] border-r-0">
           <div className="flex flex-col md:grid md:grid-cols-2 w-full">
-            {sections
-              .map((section, index) => (
-                <Section
-                  ready={ready}
-                  key={index}
-                  title={section.title}
-                  description={section.description}
-                  image={section.image}
-                  borderTop={mobile || index > 1}
-                  borderRight={index % 2 === 0}
-                />
-              ))}
+            {sections.map((section, index) => (
+              <Section
+                ready={ready}
+                key={index}
+                title={section.title}
+                description={section.description}
+                image={section.image}
+                borderTop={mobile || index > 1}
+                borderRight={index % 2 === 0}
+              />
+            ))}
           </div>
         </div>
       </div>

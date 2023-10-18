@@ -55,6 +55,14 @@ const _ = () => {
           gsap.set("#glowing-checkout", {
             display: "none",
           });
+
+          gsap.to("#sold-out", {
+            scale: 1,
+            rotate: -12,
+            opacity: 1,
+            duration: 0.5,
+            ease: "back.out",
+          })
         },
       });
     }
@@ -74,7 +82,10 @@ const _ = () => {
           className="absolute z-10 top-1 left-1 right-1 bottom-1 bg-white/80 backdrop-blur-lg rounded-lg"
         ></div>
       </div>
-      <div className="absolute top-6 right-24 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg">
+      <div
+        id="sold-out"
+        className="absolute top-12 md:top-10 left-20 md:left-auto md:right-24 z-1000 w-60 h-auto shadow-stripe rounded-lg scale-150 opacity-0"
+      >
         <Image
           src="/assets/sold-out.avif"
           alt="sold out sign"

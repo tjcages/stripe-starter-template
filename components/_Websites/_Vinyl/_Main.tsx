@@ -123,6 +123,16 @@ const _ = () => {
         pointerEvents: "none", // sold out
         duration: 0.5,
         ease: "power3.inOut",
+        onComplete: () => {
+          gsap.to("#sold-out", {
+            scale: 1,
+            rotate: -12,
+            opacity: 1,
+            duration: 0.5,
+            delay: 1,
+            ease: "back.out",
+          });
+        },
       });
     } else {
       gsap.to("#vinyl-overlay", {
@@ -137,6 +147,13 @@ const _ = () => {
         pointerEvents: "none",
         duration: 0.5,
         ease: "power3.out",
+      });
+      gsap.to("#sold-out", {
+        scale: 1.5,
+        rotate: 0,
+        opacity: 0,
+        duration: 0.25,
+        ease: "expo.out",
       });
     }
   }, [showModal, snap.mobile]);
@@ -319,7 +336,10 @@ const _ = () => {
         id="vinyl-checkout"
         className="relative md:absolute md:top-[52px] md:left-[50%] md:-translate-x-[50%] md:min-w-[995px] md:min-h-[750px] pb-6 md:py-6 md:bg-[#000] md:translate-y-[100%] md:opacity-0 md:shadow-stripe md:overflow-scroll"
       >
-        <div className="absolute top-12 md:top-24 left-12 md:left-auto md:right-36 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg">
+        <div
+          id="sold-out"
+          className="absolute top-12 md:top-24 left-12 md:left-auto md:right-36 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg scale-150 opacity-0"
+        >
           <Image
             src="/assets/sold-out.avif"
             alt="sold out sign"

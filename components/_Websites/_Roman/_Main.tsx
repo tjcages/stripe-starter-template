@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 import { state } from "@/store";
 import { useSnapshot } from "valtio";
 import Header from "./_Header";
@@ -15,6 +16,15 @@ const _ = () => {
     setTimeout(() => {
       state.checkoutVisible = true;
     }, 1000);
+
+    gsap.to("#sold-out", {
+      scale: 1,
+      rotate: -12,
+      opacity: 1,
+      duration: 0.5,
+      delay: 1,
+      ease: "back.out",
+    });
   }, [snap.selected]);
 
   return (
@@ -29,7 +39,7 @@ const _ = () => {
         {/* Checkout */}
         {!snap.mobile && (
           <div className="relative w-full max-w-[380px] z-10 mt-6 pt-2">
-            <div className="absolute top-12 right-16 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg">
+            <div id="sold-out" className="absolute top-12 right-16 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg scale-150 opacity-0">
               <Image
                 src="/assets/sold-out.avif"
                 alt="sold out sign"
