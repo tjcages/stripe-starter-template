@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useSnapshot } from "valtio";
 import { state } from "@/store";
@@ -72,6 +73,14 @@ const _ = () => {
           id="glowing-checkout-inside"
           className="absolute z-10 top-1 left-1 right-1 bottom-1 bg-white/80 backdrop-blur-lg rounded-lg"
         ></div>
+      </div>
+      <div className="absolute top-6 right-24 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg">
+        <Image
+          src="/assets/sold-out.avif"
+          alt="sold out sign"
+          width={300}
+          height={100}
+        />
       </div>
       <StripeCheckout index={0} />
     </div>
