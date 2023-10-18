@@ -87,7 +87,7 @@ const _ = ({ mobile }: Props) => {
 
       {mobile && (
         <div className="relative w-full min-h-[790px] z-10 mb-4 border border-[#cccccc] bg-white pointer-events-none">
-          <div className="absolute top-12 right-0 z-1000 w-80 h-auto -rotate-12">
+          <div className="absolute top-12 right-12 z-1000 w-60 h-auto -rotate-12">
             <Image
               src="/assets/sold-out.avif"
               alt="sold out sign"

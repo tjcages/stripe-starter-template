@@ -29,7 +29,7 @@ const _ = () => {
         {/* Checkout */}
         {!snap.mobile && (
           <div className="relative w-full max-w-[380px] z-10 mt-6 pt-2 pointer-events-none">
-            <div className="absolute top-12 right-0 z-1000 w-80 h-auto -rotate-12">
+            <div className="absolute top-12 right-16 z-1000 w-60 h-auto -rotate-12">
               <Image
                 src="/assets/sold-out.avif"
                 alt="sold out sign"

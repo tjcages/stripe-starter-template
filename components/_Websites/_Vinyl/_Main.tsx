@@ -319,7 +319,7 @@ const _ = () => {
         id="vinyl-checkout"
         className="relative md:absolute md:top-[52px] md:left-[50%] md:-translate-x-[50%] md:min-w-[995px] md:min-h-[750px] pb-6 md:py-6 md:bg-[#000] md:translate-y-[100%] md:opacity-0 md:shadow-stripe md:overflow-scroll pointer-events-none"
       >
-        <div className="absolute top-12 md:top-24 left-4 md:left-auto md:right-24 z-1000 w-80 h-auto -rotate-12">
+        <div className="absolute top-12 md:top-24 left-12 md:left-auto md:right-36 z-1000 w-60 h-auto -rotate-12">
           <Image
             src="/assets/sold-out.avif"
             alt="sold out sign"

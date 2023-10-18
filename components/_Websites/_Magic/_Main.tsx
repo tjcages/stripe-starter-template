@@ -109,7 +109,7 @@ const _ = () => {
 
       {/* Checkout */}
       <div className="relative md:w-full md:max-w-[340px] md:p-0 mx-3 mb-3 md:m-2 rounded-2xl overflow-hidden md:bg-white md:mb-auto pointer-events-none">
-        <div className="absolute top-32 right-0 z-1000 w-80 h-auto -rotate-12">
+        <div className="absolute top-12 right-12 z-1000 w-60 h-auto -rotate-12">
           <Image
             src="/assets/sold-out.avif"
             alt="sold out sign"
