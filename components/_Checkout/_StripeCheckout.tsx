@@ -8,7 +8,6 @@ import { state } from "@/store";
 
 interface Props {
   index: number;
-  full?: boolean;
 }
 
 const keys = [
@@ -19,7 +18,7 @@ const keys = [
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_PUBLISHABLE_KJ,
 ] as string[];
 
-const _ = ({ index, full = false }: Props) => {
+const _ = ({ index }: Props) => {
   const [client, set] = useState<string | null>(null);
   async function initialize(selected: number) {
     const response = await fetch("/api/create-checkout-session", {
@@ -49,7 +48,7 @@ const _ = ({ index, full = false }: Props) => {
     clientSecret: client,
   };
   return (
-    <div id={`checkout-container-${index}`} className="w-full h-auto">
+    <div id={`checkout-container-${index}`} className="w-full h-auto pointer-events-none">
       <div id={`checkout-content-${index}`}>
         <EmbeddedCheckoutProvider
           stripe={loadStripe(keys[index], {

@@ -330,7 +330,7 @@ const _ = () => {
         {snap.mobile ? (
           <StripeCheckout index={1} />
         ) : (
-          showModal && <StripeCheckout index={1} full />
+          showModal && <StripeCheckout index={1} />
         )}
       </div>
     </div>
