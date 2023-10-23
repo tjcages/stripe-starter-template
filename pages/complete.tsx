@@ -51,7 +51,7 @@ export default function Home() {
               height: "auto",
             }}
           />
-          <h3 className="font-bold leading-tight">Thanks for trying Embedded Checkout</h3>
+          <h3 className="font-bold leading-tight">Thanks for trying<br/>Embedded Checkout</h3>
           <div className="flex flex-col gap-2">
             <p className="mt-8 opacity-50">{note}</p>
           </div>
