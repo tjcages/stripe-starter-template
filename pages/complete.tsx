@@ -51,30 +51,8 @@ export default function Home() {
               height: "auto",
             }}
           />
-          <h3 className="font-bold leading-tight">Thanks for your payment</h3>
+          <h3 className="font-bold leading-tight">Thanks for trying Embedded Checkout</h3>
           <div className="flex flex-col gap-2">
-            <h5>
-              <Balancer>
-                A payment to{" "}
-                <Link
-                  href="https://embedcheckout.com"
-                  target="_blank"
-                  className="underline"
-                >
-                  embedcheckout.com
-                </Link>{" "}
-                will appear on your statement. Items will ship in 2–3 weeks. If
-                you have any questions about your order, please reach out to{" "}
-                <Link
-                  href="mailto:smca@stripe.com"
-                  target="_blank"
-                  className="underline"
-                >
-                  smca@stripe.com
-                </Link>
-                .
-              </Balancer>
-            </h5>
             <p className="mt-8 opacity-50">{note}</p>
           </div>
         </div>
