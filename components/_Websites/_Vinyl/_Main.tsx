@@ -326,7 +326,7 @@ const _ = () => {
       {!snap.mobile && (
         <div
           id="vinyl-overlay"
-          className={`fixed top-0 left-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm opacity-0 rounded-xl overflow-hidden cursor-pointer ${
+          className={`fixed top-0 left-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm opacity-0 overflow-hidden cursor-pointer ${
             showModal ? "pointer-events-auto" : "pointer-events-none"
           }`}
           onClick={() => setShowModal(false)}
