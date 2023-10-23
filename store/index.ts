@@ -39,7 +39,7 @@ const state = proxy({
       color: "black",
       background: "#F0F5FA",
       backgroundDark: "#F0F5FA",
-      priceObj: "price_1O1rOMGNGADMMqweACDAjUNI",
+      priceObj: "price_1O4QW5GNGADMMqweWLupyU29",
     },
     {
       id: 1,
@@ -48,7 +48,7 @@ const state = proxy({
       color: "black",
       background: "transparent",
       backgroundDark: "transparent",
-      priceObj: "price_1O1yjBDDBH9tvjpxPYrpUJYx",
+      priceObj: "price_1O4QZdDDBH9tvjpxVMd1Wnrm",
     },
     {
       id: 2,
@@ -57,7 +57,7 @@ const state = proxy({
       color: "black",
       background: "white",
       backgroundDark: "#E0E0E0",
-      priceObj: "price_1O1ygjIo2OMZnOA7PVzMf4ge",
+      priceObj: "price_1O4QXVIo2OMZnOA7qwLnW1UA",
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ const state = proxy({
       color: "white",
       background: "#091012",
       backgroundDark: "#000000",
-      priceObj: "price_1O1ymyJs1c7tw4aONbl5kqmS",
+      priceObj: "price_1O4QbNJs1c7tw4aOejcaWBS4",
     },
   ],
   selected: 0,

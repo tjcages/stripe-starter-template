@@ -15,7 +15,7 @@ const _ = ({ mobile }: Props) => {
           (state.pointer.y * state.viewport.height +
             state.viewport.height / 2) /
             6,
-        mobile ? -4.5 : -3.5,
+        mobile ? -4.5 : -4.5,
       ],
       0.5,
       delta

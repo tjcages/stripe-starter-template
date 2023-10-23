@@ -50,7 +50,7 @@ const _ = ({ index }: Props) => {
   return (
     <div
       id={`checkout-container-${index}`}
-      className="w-full h-auto pointer-events-none"
+      className="w-full h-auto"
     >
       <div id={`checkout-content-${index}`}>
         <EmbeddedCheckoutProvider

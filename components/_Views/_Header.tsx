@@ -127,9 +127,8 @@ const _ = () => {
               You can now embed our prebuilt payment form directly into your
               site.
               {!snap.mobile ? <br /> : " "}
-              Here are a few{" "}
-              <span className={styles.shimmer}>fun (real) examples</span> to get you
-              started.
+              Here are a few examples to get you started – try using a test card
+              like <span className={styles.shimmer}>4242 4242 4242 4242</span>.
             </Balancer>
           </h4>
         </div>

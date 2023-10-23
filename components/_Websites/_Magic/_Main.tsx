@@ -118,14 +118,14 @@ const _ = () => {
 
       {/* Checkout */}
       <div className="relative md:w-full md:max-w-[340px] md:p-0 mx-3 mb-3 md:m-2 rounded-2xl overflow-hidden md:bg-white md:mb-auto">
-        <div id="sold-out" className="absolute top-12 right-12 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg scale-150 opacity-0">
+        {/* <div id="sold-out" className="absolute top-12 right-12 z-1000 w-60 h-auto -rotate-12 shadow-stripe rounded-lg scale-150 opacity-0">
           <Image
             src="/assets/sold-out.avif"
             alt="sold out sign"
             width={300}
             height={100}
           />
-        </div>
+        </div> */}
         <StripeCheckout index={3} />
       </div>
     </div>

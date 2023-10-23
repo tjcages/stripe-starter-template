@@ -75,14 +75,14 @@ const _ = () => {
     >
       <div
         id="glowing-checkout"
-        className="absolute z-10 top-0 left-[50%] -translate-x-[50%] w-full max-w-[412px] min-h-[700px] p-2 rounded-xl card pointer-events-none opacity-0"
+        className="absolute z-10 top-0 left-[50%] -translate-x-[50%] w-full max-w-[412px] min-h-[700px] p-2 rounded-xl card opacity-0"
       >
         <div
           id="glowing-checkout-inside"
           className="absolute z-10 top-1 left-1 right-1 bottom-1 bg-white/80 backdrop-blur-lg rounded-lg"
         ></div>
       </div>
-      <div
+      {/* <div
         id="sold-out"
         className="absolute top-12 md:top-10 left-20 md:left-auto md:right-24 z-1000 w-60 h-auto shadow-stripe rounded-lg scale-150 opacity-0"
       >
@@ -92,7 +92,7 @@ const _ = () => {
           width={300}
           height={100}
         />
-      </div>
+      </div> */}
       <StripeCheckout index={0} />
     </div>
   );
