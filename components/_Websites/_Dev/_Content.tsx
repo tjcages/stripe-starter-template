@@ -112,7 +112,7 @@ const _ = ({ ready, mobile }: Props) => {
       {!mobile && <Checkout />}
 
       <div
-        className={`absolute z-10 top-0 left-0 w-full h-[290px] md:h-[204px] flex flex-col justify-end overflow-hidden mask mix-blend-multiply pointer-events-none transition-opacity duration-1000 ${
+        className={`hidden absolute z-10 top-0 left-0 w-full h-[290px] md:h-[204px] flex flex-col justify-end overflow-hidden mask mix-blend-multiply pointer-events-none transition-opacity duration-1000 ${
           ready ? "opacity-100" : "opacity-0"
         }`}
       >
