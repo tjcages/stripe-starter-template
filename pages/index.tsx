@@ -1,35 +1,15 @@
 import { useEffect } from "react";
 import { useSnapshot } from "valtio";
-import styles from "@/styles/main.module.scss";
+import styles from "@/styles/_main.module.scss";
 import { SEO } from "@/seo";
 import {
-  Nav,
-  Header,
-  Browser,
-  Dev,
-  Roman,
-  Vinyl,
-  Magic,
-  Monitor,
+  Main
 } from "@/components";
 import { isMobile } from "@/utils";
 import { state } from "@/store";
 
 export default function Home() {
   const snap = useSnapshot(state);
-
-  const renderPage = () => {
-    switch (snap.selected) {
-      case 0:
-        return <Dev />;
-      case 1:
-        return <Vinyl />;
-      case 2:
-        return <Roman />;
-      case 3:
-        return <Magic />;
-    }
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,15 +31,7 @@ export default function Home() {
             : "overflow-hidden h-screen"
         }`}
       >
-        <Nav />
-        {snap.ready && (
-          <>
-            <Header />
-            <Monitor>
-              <Browser>{renderPage()}</Browser>
-            </Monitor>
-          </>
-        )}
+       <Main />
       </main>
     </>
   );
